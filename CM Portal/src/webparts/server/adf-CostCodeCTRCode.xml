@@ -1,0 +1,512 @@
+<?xml version="1.0"?>
+<LobSystem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:schemaLocation="http://schemas.microsoft.com/office/2006/03/BusinessDataCatalog BDCMetadata.XSD" Type="Database" Version="1.0.0.0" Name="CostCode-CTRCode" xmlns="http://schemas.microsoft.com/office/2006/03/BusinessDataCatalog">
+  <Properties>
+    <Property Name="WildcardCharacter" Type="System.String">%</Property>
+  </Properties>
+  <AccessControlList>
+    <AccessControlEntry Principal="KONINET\sp_admin">
+	  <Right BdcRight="Execute" />
+	  <Right BdcRight="Edit" />
+	  <Right BdcRight="SetPermissions" />
+	  <Right BdcRight="SelectableInClients" />
+	</AccessControlEntry>
+	<AccessControlEntry Principal="KONINET\sp_sspservice">
+	  <Right BdcRight="Execute" />
+	  <Right BdcRight="Edit" />
+	  <Right BdcRight="SetPermissions" />
+	  <Right BdcRight="SelectableInClients" />
+	</AccessControlEntry>  	
+    <AccessControlEntry Principal="KONINET\sp_costcontrol">
+      <Right BdcRight="Execute"/>
+    </AccessControlEntry>
+  </AccessControlList>
+  <LobSystemInstances>
+    <LobSystemInstance Name="CostCode-CTRCode">
+	  <!--The authentication mode use an sql account defined below-->	
+	  <Properties>
+		<Property Name="AuthenticationMode" Type="Microsoft.Office.Server.ApplicationRegistry.SystemSpecific.Db.DbAuthenticationMode">RevertToSelf</Property>
+		<Property Name="DatabaseAccessProvider" Type="Microsoft.Office.Server.ApplicationRegistry.SystemSpecific.Db.DbAccessProvider">SqlServer</Property>
+		<Property Name="RdbConnection Data Source" Type="System.String">VAVDB2</Property>
+		<Property Name="RdbConnection Initial Catalog" Type="System.String">Timesheet</Property> 
+		<Property Name="RdbConnection Integrated Security" Type="System.String">false</Property>
+		<Property Name="RdbConnection User ID" Type="System.String">sp_sspservice</Property>
+		<Property Name="RdbConnection Password" Type="System.String">2010service</Property>
+	  </Properties>
+    </LobSystemInstance>
+  </LobSystemInstances>
+  <Entities>
+  <!--COST CODE-->
+    <Entity EstimatedInstanceCount="0" Name="dbo.CostCode" DefaultDisplayName="Cost Codes">	
+      <Properties>
+        <Property Name="Title" Type="System.String">CostCode</Property>
+      </Properties>
+      <Identifiers>
+        <Identifier TypeName="System.String" Name="[CostCode]" />
+      </Identifiers>
+      <Methods>
+        <Method Name="Getdbo.[CostCode]">
+          <Properties>
+            <Property Name="RdbCommandText" Type="System.String">Select [CostCode],[Contract],[Description],[Active] From dbo.[CostCode] where ([CostCode] LIKE @CostCode and [Contract] LIKE @Contract and Active=1)</Property>
+            <Property Name="RdbCommandType" Type="System.Data.CommandType">Text</Property>
+          </Properties>
+          <FilterDescriptors>
+            <FilterDescriptor Type="Wildcard" Name="Cost Code">
+				<Properties> 
+					<Property Name="UsedForDisambiguation" Type="System.Boolean">true</Property> 
+				</Properties> 
+			</FilterDescriptor>
+			<FilterDescriptor Type="Wildcard" Name="Contract">
+				<Properties> 
+					<Property Name="UsedForDisambiguation" Type="System.Boolean">true</Property> 
+				</Properties> 
+			</FilterDescriptor>
+          </FilterDescriptors>
+          <Parameters>
+            <Parameter Direction="In" Name="@CostCode">
+              <TypeDescriptor TypeName="System.String" Name="CostCode" AssociatedFilter="Cost Code" IdentifierName="[CostCode]">
+                <DefaultValues>
+                  <DefaultValue MethodInstanceName="dbo.[CostCode]Finder" Type="System.String">%</DefaultValue>
+                </DefaultValues>
+              </TypeDescriptor>
+            </Parameter>
+			<Parameter Direction="In" Name="@Contract">
+              <TypeDescriptor TypeName="System.String" Name="Contract" AssociatedFilter="Contract">
+                <DefaultValues>
+                  <DefaultValue MethodInstanceName="dbo.[CostCode]Finder" Type="System.String">%</DefaultValue>
+                </DefaultValues>
+              </TypeDescriptor>
+            </Parameter>
+            <Parameter Direction="Return" Name="dbo.[CostCode]">
+              <TypeDescriptor TypeName="System.Data.IDataReader, System.Data, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" IsCollection="true" Name="dbo.[CostCode]DataReader">
+                <TypeDescriptors>
+                  <TypeDescriptor TypeName="System.Data.IDataRecord, System.Data, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" Name="dbo.[CostCode]DataRecord">
+                    <TypeDescriptors>
+                      <TypeDescriptor TypeName="System.String" Name="CostCode" IdentifierName="[CostCode]" DefaultDisplayName="Cost code"/>
+					  <TypeDescriptor TypeName="System.String" Name="Contract" />
+                      <TypeDescriptor TypeName="System.String" Name="Description" />
+                      <TypeDescriptor TypeName="System.Boolean" Name="Active" />
+                    </TypeDescriptors>
+                  </TypeDescriptor>
+                </TypeDescriptors>
+              </TypeDescriptor>
+            </Parameter>
+          </Parameters>
+          <MethodInstances>
+            <MethodInstance Name="dbo.[CostCode]Finder" Type="Finder" ReturnParameterName="dbo.[CostCode]" ReturnTypeDescriptorName="dbo.[CostCode]DataReader" ReturnTypeDescriptorLevel="0" />
+          </MethodInstances>
+        </Method>
+		<Method Name="dbo.[CostCode]GetCostCodesByState">
+          <Properties>
+            <Property Name="RdbCommandText" Type="System.String">Select [CostCode],[Contract],[Description],[Active] From dbo.[CostCode] where ([Active]=@Active)</Property>
+            <Property Name="RdbCommandType" Type="System.Data.CommandType">Text</Property>
+          </Properties>
+          <Parameters>
+		    <Parameter Direction="In" Name="@Active">
+              <TypeDescriptor TypeName="System.Boolean" Name="Active" />
+            </Parameter>
+            <Parameter Direction="Return" Name="dbo.[CostCode]">
+              <TypeDescriptor TypeName="System.Data.IDataReader, System.Data, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" IsCollection="true" Name="dbo.[CostCode]DataReader">
+                <TypeDescriptors>
+                  <TypeDescriptor TypeName="System.Data.IDataRecord, System.Data, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" Name="dbo.[CostCode]DataRecord">
+                    <TypeDescriptors>
+                      <TypeDescriptor TypeName="System.String" Name="CostCode" IdentifierName="[CostCode]" DefaultDisplayName="Cost code"/>
+					  <TypeDescriptor TypeName="System.String" Name="Contract" />
+                      <TypeDescriptor TypeName="System.String" Name="Description" />
+					  <TypeDescriptor TypeName="System.Boolean" Name="Active" />
+                    </TypeDescriptors>
+                  </TypeDescriptor>
+                </TypeDescriptors>
+              </TypeDescriptor>
+            </Parameter>
+          </Parameters>
+          <MethodInstances>
+            <MethodInstance Name="dbo.GetCostCodesByState" Type="GenericInvoker" ReturnParameterName="dbo.[CostCode]" ReturnTypeDescriptorName="dbo.[CostCode]DataReader" ReturnTypeDescriptorLevel="0" />
+          </MethodInstances>
+        </Method>
+        <Method Name="dbo.[CostCode]SpecificFinder">
+          <Properties>
+            <Property Name="RdbCommandText" Type="System.String">Select [CostCode],[Contract],[Description],[Active] From dbo.[CostCode] Where ([CostCode]=@CostCode)</Property>
+            <Property Name="RdbCommandType" Type="System.Data.CommandType">Text</Property>
+          </Properties>
+          <Parameters>
+            <Parameter Direction="In" Name="@CostCode">
+              <TypeDescriptor TypeName="System.String" Name="[CostCode]" IdentifierName="[CostCode]" />
+            </Parameter>
+            <Parameter Direction="Return" Name="dbo.[CostCode]">
+              <TypeDescriptor TypeName="System.Data.IDataReader, System.Data, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" IsCollection="true" Name="dbo.[CostCode]DataReader">
+                <TypeDescriptors>
+                  <TypeDescriptor TypeName="System.Data.IDataRecord, System.Data, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" Name="dbo.[CostCode]DataRecord">
+                    <TypeDescriptors>
+                      <TypeDescriptor TypeName="System.String" Name="CostCode" IdentifierName="[CostCode]" />
+					  <TypeDescriptor TypeName="System.String" Name="Contract" />
+                      <TypeDescriptor TypeName="System.String" Name="Description" />
+					  <TypeDescriptor TypeName="System.Boolean" Name="Active" />
+                    </TypeDescriptors>
+                  </TypeDescriptor>
+                </TypeDescriptors>
+              </TypeDescriptor>
+            </Parameter>
+          </Parameters>
+          <MethodInstances>
+            <MethodInstance Name="dbo.[CostCode]SpecificFinder" Type="SpecificFinder" ReturnParameterName="dbo.[CostCode]" ReturnTypeDescriptorName="dbo.[CostCode]DataReader" ReturnTypeDescriptorLevel="0" />
+          </MethodInstances>
+        </Method>
+        <Method Name="dbo.[CostCode]IdEnumerator">
+          <Properties>
+            <Property Name="RdbCommandText" Type="System.String">Select [CostCode] From dbo.[CostCode] </Property>
+            <Property Name="RdbCommandType" Type="System.Data.CommandType">Text</Property>
+          </Properties>
+          <Parameters>
+            <Parameter Direction="Return" Name="dbo.[CostCode]IDs">
+              <TypeDescriptor TypeName="System.Data.IDataReader, System.Data, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" IsCollection="true" Name="dbo.[CostCode]IDs">
+                <TypeDescriptors>
+                  <TypeDescriptor TypeName="System.Data.IDataRecord, System.Data, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" Name="dbo.[CostCode]">
+                    <TypeDescriptors>
+                      <TypeDescriptor TypeName="System.String" Name="CostCode" IdentifierName="[CostCode]" />
+                    </TypeDescriptors>
+                  </TypeDescriptor>
+                </TypeDescriptors>
+              </TypeDescriptor>
+            </Parameter>
+          </Parameters>
+          <MethodInstances>
+            <MethodInstance Name="dbo.[CostCode]EnumeratorInstance" Type="IdEnumerator" ReturnParameterName="dbo.[CostCode]IDs" />
+          </MethodInstances>
+        </Method>
+        <Method Name="insertdbo.CostCode">
+          <Properties>
+            <Property Name="RdbCommandText" Type="System.String">Insert into dbo.CostCode([CostCode],[Description]) Values(@CostCode,@Description);select SomethingToReturn = @@Identity</Property>
+            <Property Name="RdbCommandType" Type="System.String">Text</Property>
+          </Properties>
+          <Parameters>
+            <Parameter Direction="In" Name="@CostCode">
+              <TypeDescriptor TypeName="System.String" Name="CostCode" />
+            </Parameter>
+			<Parameter Direction="In" Name="@Contract">
+              <TypeDescriptor TypeName="System.String" Name="Contract" />
+            </Parameter>
+            <Parameter Direction="In" Name="@Description">
+              <TypeDescriptor TypeName="System.String" Name="Description" />
+            </Parameter>
+            <Parameter Direction="Return" Name="dbo.CostCode">
+              <TypeDescriptor TypeName="System.String" Name="SomethingToReturn" />
+            </Parameter>
+          </Parameters>
+          <MethodInstances>
+            <MethodInstance Name="dbo.CostCodeInserter" Type="GenericInvoker" ReturnParameterName="dbo.CostCode" />
+          </MethodInstances>
+        </Method>
+        <Method Name="updatedbo.CostCode">
+          <Properties>
+            <Property Name="RdbCommandText" Type="System.String">Update dbo.CostCode SET [Description]=@Description,[Contract]=@Contract,[Active]=@Active WHERE([CostCode]=@CostCode);select SomethingToReturn = @@Identity</Property>
+            <Property Name="RdbCommandType" Type="System.String">Text</Property>
+          </Properties>
+          <Parameters>
+            <Parameter Direction="In" Name="@CostCode">
+              <TypeDescriptor TypeName="System.String" Name="CostCode" />
+            </Parameter>
+			<Parameter Direction="In" Name="@Contract">
+              <TypeDescriptor TypeName="System.String" Name="Contract" />
+            </Parameter>
+            <Parameter Direction="In" Name="@Description">
+              <TypeDescriptor TypeName="System.String" Name="Description" />
+            </Parameter>
+			<Parameter Direction="In" Name="@Active">
+              <TypeDescriptor TypeName="System.Boolean" Name="Active" />
+            </Parameter>
+            <Parameter Direction="Return" Name="dbo.CostCode">
+              <TypeDescriptor TypeName="System.String" Name="SomethingToReturn" />
+            </Parameter>
+          </Parameters>
+          <MethodInstances>
+            <MethodInstance Name="dbo.CostCodeUpdater" Type="GenericInvoker" ReturnParameterName="dbo.CostCode" />
+          </MethodInstances>
+        </Method>
+		<Method Name="deletedbo.CostCode">
+          <Properties>
+            <Property Name="RdbCommandText" Type="System.String">Delete from dbo.CostCode WHERE ([CostCode]=@CostCode);</Property>
+            <Property Name="RdbCommandType" Type="System.String">Text</Property>
+          </Properties>
+          <Parameters>
+            <Parameter Direction="In" Name="@CostCode">
+              <TypeDescriptor TypeName="System.String" Name="CostCode" />
+            </Parameter>
+			<Parameter Direction="Return" Name="dbo.CostCode">
+              <TypeDescriptor TypeName="System.String" Name="SomethingToReturn" />
+            </Parameter>
+          </Parameters>
+          <MethodInstances>
+            <MethodInstance Name="dbo.CostCodeDeleter" Type="GenericInvoker" ReturnParameterName="dbo.CostCode" />
+          </MethodInstances>
+        </Method>
+      </Methods>
+      <Actions>
+        <Action Name="Add" Position="1" IsOpenedInNewWindow="false" Url="https://cm.projetkoniambo.com/ProjectControl/ccctrc/Pages/AddCostCode.aspx" ImageUrl="https://cm.projetkoniambo.com/_layouts/images/newitem.gif" />
+        <Action Name="Edit" Position="2" IsOpenedInNewWindow="false" Url="https://cm.projetkoniambo.com/ProjectControl/ccctrc/Pages/EditCostCode.aspx?CostCode={0}" ImageUrl="https://cm.projetkoniambo.com/_layouts/images/edit.gif">
+          <ActionParameters>
+            <ActionParameter Name="CostCode" Index="0" />
+          </ActionParameters>
+        </Action>
+		<!-- Suppression de l'action delete: on remplace en mettant la coche "active" a false lors de l'action update
+        <Action Name="Delete" Position="3" IsOpenedInNewWindow="false" Url="https://cm.projetkoniambo.com/ProjectControl/Pages/DeleteCostCode.aspx?CostCode={0}" ImageUrl="https://cm.projetkoniambo.com/_layouts/images/delete.gif">
+          <ActionParameters>
+            <ActionParameter Name="CostCode" Index="0" />
+          </ActionParameters>
+        </Action>
+		-->
+      </Actions>
+    </Entity>
+  <!--CTR CODE-->
+    <Entity EstimatedInstanceCount="0" Name="dbo.CTRCode" DefaultDisplayName="CTR Codes">
+      <Properties>
+        <Property Name="Title" Type="System.String">CTRCode</Property>
+      </Properties>
+      <Identifiers>
+        <Identifier TypeName="System.String" Name="[CostCode]" />
+        <Identifier TypeName="System.String" Name="[CTRCode]" />
+      </Identifiers>
+      <Methods>
+        <Method Name="Getdbo.[CTRCode]">
+          <Properties>
+            <Property Name="RdbCommandText" Type="System.String">Select [CostCode],[CTRCode],[Description],[StartDate],[EndDate],[Active] From dbo.[CTRCode] where ([CostCode] LIKE @CostCode) and ([CTRCode] LIKE @CTRCode) and Active=1</Property>
+            <Property Name="RdbCommandType" Type="System.Data.CommandType">Text</Property>
+          </Properties>
+		  <FilterDescriptors>
+            <FilterDescriptor Type="Wildcard" Name="Cost Code">
+				<Properties> 
+					<Property Name="UsedForDisambiguation" Type="System.Boolean">true</Property> 
+				</Properties> 
+			</FilterDescriptor>
+			<FilterDescriptor Type="Wildcard" Name="CTR Code">
+				<Properties> 
+					<Property Name="UsedForDisambiguation" Type="System.Boolean">true</Property> 
+				</Properties> 
+			</FilterDescriptor>	
+          </FilterDescriptors>
+          <Parameters>
+			<Parameter Direction="In" Name="@CostCode">
+              <TypeDescriptor TypeName="System.String" Name="CostCode" AssociatedFilter="Cost Code" IdentifierName="[CostCode]">
+                <DefaultValues>
+                  <DefaultValue MethodInstanceName="dbo.[CTRCode]Finder" Type="System.String">%</DefaultValue>
+                </DefaultValues>
+              </TypeDescriptor>
+            </Parameter>
+			<Parameter Direction="In" Name="@CTRCode">
+              <TypeDescriptor TypeName="System.String" Name="CTRCode" AssociatedFilter="CTR Code" IdentifierName="[CTRCode]">
+                <DefaultValues>
+                  <DefaultValue MethodInstanceName="dbo.[CTRCode]Finder" Type="System.String">%</DefaultValue>
+                </DefaultValues>
+              </TypeDescriptor>
+            </Parameter>
+            <Parameter Direction="Return" Name="dbo.[CTRCode]">
+              <TypeDescriptor TypeName="System.Data.IDataReader, System.Data, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" IsCollection="true" Name="dbo.[CTRCode]DataReader">
+                <TypeDescriptors>
+                  <TypeDescriptor TypeName="System.Data.IDataRecord, System.Data, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" Name="dbo.[CTRCode]DataRecord">
+                    <TypeDescriptors>
+                      <TypeDescriptor TypeName="System.String" Name="CostCode" IdentifierName="[CostCode]" DefaultDisplayName="Cost code"/>
+                      <TypeDescriptor TypeName="System.String" Name="CTRCode" IdentifierName="[CTRCode]" DefaultDisplayName="CTR code"/>
+                      <TypeDescriptor TypeName="System.String" Name="Description" />
+                      <TypeDescriptor TypeName="System.DateTime" Name="StartDate" DefaultDisplayName="Start date"/>
+                      <TypeDescriptor TypeName="System.DateTime" Name="EndDate" DefaultDisplayName="End date"/>
+					  <TypeDescriptor TypeName="System.Boolean" Name="Active" />
+                    </TypeDescriptors>
+                  </TypeDescriptor>
+                </TypeDescriptors>
+              </TypeDescriptor>
+            </Parameter>
+          </Parameters>
+          <MethodInstances>
+            <MethodInstance Name="dbo.[CTRCode]Finder" Type="Finder" ReturnParameterName="dbo.[CTRCode]" ReturnTypeDescriptorName="dbo.[CTRCode]DataReader" ReturnTypeDescriptorLevel="0" />
+          </MethodInstances>
+        </Method>
+        <Method Name="dbo.[CTRCode]SpecificFinder">
+          <Properties>
+            <Property Name="RdbCommandText" Type="System.String">Select [CostCode],[CTRCode],[Description],[StartDate],[EndDate],[Active] From dbo.[CTRCode] Where ([CostCode]=@CostCode) AND ([CTRCode]=@CTRCode)</Property>
+            <Property Name="RdbCommandType" Type="System.Data.CommandType">Text</Property>
+          </Properties>
+          <Parameters>
+            <Parameter Direction="In" Name="@CostCode">
+              <TypeDescriptor TypeName="System.String" Name="[CostCode]" IdentifierName="[CostCode]" />
+            </Parameter>
+            <Parameter Direction="In" Name="@CTRCode">
+              <TypeDescriptor TypeName="System.String" Name="[CTRCode]" IdentifierName="[CTRCode]" />
+            </Parameter>
+            <Parameter Direction="Return" Name="dbo.[CTRCode]">
+              <TypeDescriptor TypeName="System.Data.IDataReader, System.Data, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" IsCollection="true" Name="dbo.[CTRCode]DataReader">
+                <TypeDescriptors>
+                  <TypeDescriptor TypeName="System.Data.IDataRecord, System.Data, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" Name="dbo.[CTRCode]DataRecord">
+                    <TypeDescriptors>
+                      <TypeDescriptor TypeName="System.String" Name="CostCode" IdentifierName="[CostCode]" />
+                      <TypeDescriptor TypeName="System.String" Name="CTRCode" IdentifierName="[CTRCode]" />
+                      <TypeDescriptor TypeName="System.String" Name="Description" />
+                      <TypeDescriptor TypeName="System.String" Name="StartDate" />
+                      <TypeDescriptor TypeName="System.String" Name="EndDate" />
+					  <TypeDescriptor TypeName="System.Boolean" Name="Active" />
+                    </TypeDescriptors>
+                  </TypeDescriptor>
+                </TypeDescriptors>
+              </TypeDescriptor>
+            </Parameter>
+          </Parameters>
+          <MethodInstances>
+            <MethodInstance Name="dbo.[CTRCode]SpecificFinder" Type="SpecificFinder" ReturnParameterName="dbo.[CTRCode]" ReturnTypeDescriptorName="dbo.[CTRCode]DataReader" ReturnTypeDescriptorLevel="0" />
+          </MethodInstances>
+        </Method>
+        <Method Name="dbo.[CTRCode]IdEnumerator">
+          <Properties>
+            <Property Name="RdbCommandText" Type="System.String">Select [CostCode],[CTRCode] From dbo.[CTRCode]</Property>
+            <Property Name="RdbCommandType" Type="System.Data.CommandType">Text</Property>
+          </Properties>
+          <Parameters>
+            <Parameter Direction="Return" Name="dbo.[CTRCode]IDs">
+              <TypeDescriptor TypeName="System.Data.IDataReader, System.Data, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" IsCollection="true" Name="dbo.[CTRCode]IDs">
+                <TypeDescriptors>
+                  <TypeDescriptor TypeName="System.Data.IDataRecord, System.Data, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" Name="dbo.[CTRCode]">
+                    <TypeDescriptors>
+                      <TypeDescriptor TypeName="System.String" Name="CostCode" IdentifierName="[CostCode]" />
+                      <TypeDescriptor TypeName="System.String" Name="CTRCode" IdentifierName="[CTRCode]" />
+                    </TypeDescriptors>
+                  </TypeDescriptor>
+                </TypeDescriptors>
+              </TypeDescriptor>
+            </Parameter>
+          </Parameters>
+          <MethodInstances>
+            <MethodInstance Name="dbo.[CTRCode]EnumeratorInstance" Type="IdEnumerator" ReturnParameterName="dbo.[CTRCode]IDs" />
+          </MethodInstances>
+        </Method>
+        <Method Name="Getdbo.CTRCodeFordbo.CostCode">
+          <Properties>
+            <Property Name="RdbCommandText" Type="System.String">SELECT dbo.[CTRCode].[CostCode],dbo.[CTRCode].[CTRCode],dbo.[CTRCode].[Description],dbo.[CTRCode].[StartDate],dbo.[CTRCode].[EndDate],dbo.[CTRCode].[Active] FROM dbo.[CostCode], dbo.[CTRCode] Where dbo.[CostCode].[CostCode]=dbo.[CTRCode].[CostCode] and dbo.[CostCode].[CostCode]=@CostCode</Property>
+            <Property Name="RdbCommandType" Type="System.Data.CommandType">Text</Property>
+          </Properties>
+          <Parameters>
+            <Parameter Direction="In" Name="@CostCode">
+              <TypeDescriptor TypeName="System.String" Name="[CostCode]" IdentifierName="[CostCode]" IdentifierEntityName="dbo.CostCode" />
+            </Parameter>
+            <Parameter Direction="Return" Name="dbo.CTRCode">
+              <TypeDescriptor TypeName="System.Data.IDataReader, System.Data, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" IsCollection="true" Name="dbo.CTRCodeDataReader">
+                <TypeDescriptors>
+                  <TypeDescriptor TypeName="System.Data.IDataRecord, System.Data, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" Name="dbo.CTRCodeDataRecord">
+                    <TypeDescriptors>
+                      <TypeDescriptor TypeName="System.String" Name="CostCode" IdentifierName="[CostCode]" IdentifierEntityName="dbo.CTRCode" />
+                      <TypeDescriptor TypeName="System.String" Name="CTRCode" IdentifierName="[CTRCode]" IdentifierEntityName="dbo.CTRCode" />
+                      <TypeDescriptor TypeName="System.String" Name="Description" />
+                      <TypeDescriptor TypeName="System.String" Name="StartDate" />
+                      <TypeDescriptor TypeName="System.String" Name="EndDate" />
+					  <TypeDescriptor TypeName="System.Boolean" Name="Active" />
+                    </TypeDescriptors>
+                  </TypeDescriptor>
+                </TypeDescriptors>
+              </TypeDescriptor>
+            </Parameter>
+          </Parameters>
+        </Method>
+        <Method Name="insertdbo.CTRCode">
+          <Properties>
+            <Property Name="RdbCommandText" Type="System.String">Insert into dbo.CTRCode([CostCode],[CTRCode],[Description],[StartDate],[EndDate]) Values(@CostCode,@CTRCode,@Description,@StartDate,@EndDate);select SomethingToReturn = @@Identity</Property>
+            <Property Name="RdbCommandType" Type="System.String">Text</Property>
+          </Properties>
+          <Parameters>
+            <Parameter Direction="In" Name="@CostCode">
+              <TypeDescriptor TypeName="System.String" Name="CostCode" />
+            </Parameter>
+            <Parameter Direction="In" Name="@CTRCode">
+              <TypeDescriptor TypeName="System.String" Name="CTRCode" />
+            </Parameter>
+            <Parameter Direction="In" Name="@Description">
+              <TypeDescriptor TypeName="System.String" Name="Description" />
+            </Parameter>
+            <Parameter Direction="In" Name="@StartDate">
+              <TypeDescriptor TypeName="System.DateTime" Name="StartDate" />
+            </Parameter>
+            <Parameter Direction="In" Name="@EndDate">
+              <TypeDescriptor TypeName="System.DateTime" Name="EndDate" />
+            </Parameter>
+            <Parameter Direction="Return" Name="dbo.CTRCode">
+              <TypeDescriptor TypeName="System.String" Name="SomethingToReturn" />
+            </Parameter>
+          </Parameters>
+          <MethodInstances>
+            <MethodInstance Name="dbo.CTRCodeInserter" Type="GenericInvoker" ReturnParameterName="dbo.CTRCode" />
+          </MethodInstances>
+        </Method>
+        <Method Name="updatedbo.CTRCode">
+          <Properties>
+            <Property Name="RdbCommandText" Type="System.String">Update dbo.CTRCode SET [Description]=@Description,[StartDate]=@StartDate,[EndDate]=@EndDate,[Active]=@Active WHERE([CostCode]=@CostCode AND [CTRCode]=@CTRCode);select SomethingToReturn = @@Identity</Property>
+            <Property Name="RdbCommandType" Type="System.String">Text</Property>
+          </Properties>
+          <Parameters>
+            <Parameter Direction="In" Name="@CostCode">
+              <TypeDescriptor TypeName="System.String" Name="CostCode" />
+            </Parameter>
+            <Parameter Direction="In" Name="@CTRCode">
+              <TypeDescriptor TypeName="System.String" Name="CTRCode" />
+            </Parameter>
+            <Parameter Direction="In" Name="@Description">
+              <TypeDescriptor TypeName="System.String" Name="Description" />
+            </Parameter>
+            <Parameter Direction="In" Name="@StartDate">
+              <TypeDescriptor TypeName="System.DateTime" Name="StartDate" />
+            </Parameter>
+            <Parameter Direction="In" Name="@EndDate">
+              <TypeDescriptor TypeName="System.DateTime" Name="EndDate" />
+            </Parameter>
+			<Parameter Direction="In" Name="@Active">
+              <TypeDescriptor TypeName="System.Boolean" Name="Active" />
+            </Parameter>
+            <Parameter Direction="Return" Name="dbo.CTRCode">
+              <TypeDescriptor TypeName="System.String" Name="SomethingToReturn" />
+            </Parameter>
+          </Parameters>
+          <MethodInstances>
+            <MethodInstance Name="dbo.CTRCodeUpdater" Type="GenericInvoker" ReturnParameterName="dbo.CTRCode" />
+          </MethodInstances>
+        </Method>
+		<Method Name="deletedbo.CTRCode">
+          <Properties>
+            <Property Name="RdbCommandText" Type="System.String">Delete from dbo.CTRCode WHERE ([CostCode]=@CostCode AND [CTRCode]=@CTRCode);</Property>
+            <Property Name="RdbCommandType" Type="System.String">Text</Property>
+          </Properties>
+          <Parameters>
+            <Parameter Direction="In" Name="@CostCode">
+              <TypeDescriptor TypeName="System.String" Name="CostCode" />
+            </Parameter>
+			<Parameter Direction="In" Name="@CTRCode">
+              <TypeDescriptor TypeName="System.String" Name="CTRCode" />
+            </Parameter>
+			<Parameter Direction="Return" Name="dbo.CTRCode">
+              <TypeDescriptor TypeName="System.String" Name="SomethingToReturn" />
+            </Parameter>
+          </Parameters>
+          <MethodInstances>
+            <MethodInstance Name="dbo.CTRCodeDeleter" Type="GenericInvoker" ReturnParameterName="dbo.CTRCode" />
+          </MethodInstances>
+        </Method>
+      </Methods>
+      <Actions>
+        <Action Name="Add" Position="1" IsOpenedInNewWindow="false" Url="https://cm.projetkoniambo.com/ProjectControl/ccctrc/Pages/AddCTRCode.aspx" ImageUrl="https://cm.projetkoniambo.com/_layouts/images/newitem.gif" />
+        <Action Name="Edit" Position="2" IsOpenedInNewWindow="false" Url="https://cm.projetkoniambo.com/ProjectControl/ccctrc/Pages/EditCTRCode.aspx?CostCode={0}&amp;CTRCode={1}" ImageUrl="https://cm.projetkoniambo.com/_layouts/images/edit.gif">
+          <ActionParameters>
+            <ActionParameter Name="CostCode" Index="0" />
+            <ActionParameter Name="CTRCode" Index="1" />
+          </ActionParameters>
+        </Action>
+		<!-- Suppression de l'action delete: on remplace en mettant la coche "active" a false lors de l'action update
+        <Action Name="Delete" Position="3" IsOpenedInNewWindow="false" Url="https://cm.projetkoniambo.com/ProjectControl/Pages/DeleteCTRCode.aspx?CostCode={0}&amp;CTRCode={1}" ImageUrl="https://cm.projetkoniambo.com/_layouts/images/delete.gif">
+          <ActionParameters>
+            <ActionParameter Name="CostCode" Index="0" />
+            <ActionParameter Name="CTRCode" Index="1" />
+          </ActionParameters>
+        </Action>
+		-->
+      </Actions>
+    </Entity>
+  </Entities>
+  <Associations>
+    <Association AssociationMethodEntityName="dbo.CTRCode" AssociationMethodName="Getdbo.CTRCodeFordbo.CostCode" AssociationMethodReturnParameterName="dbo.CTRCode" Name="dbo.CostCodeTodbo.CTRCode" IsCached="true">
+      <SourceEntity Name="dbo.CostCode" />
+      <DestinationEntity Name="dbo.CTRCode" />
+    </Association>
+  </Associations>
+</LobSystem>

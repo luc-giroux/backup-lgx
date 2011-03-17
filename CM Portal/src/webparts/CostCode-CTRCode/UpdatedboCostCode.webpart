@@ -1,0 +1,14 @@
+<webParts>
+  <webPart xmlns="http://schemas.microsoft.com/WebPart/v3">
+    <metaData>
+      <type name="CostCodeCTRCode.UpdatedboCostCode" />
+      <importErrorMessage>Cannot import this Web Part.</importErrorMessage>
+    </metaData>
+    <data>
+      <properties>
+        <property name="Title" type="string">Update Cost Code</property>
+        <property name="Description" type="string">Koniambo Webpart</property>
+      </properties>
+    </data>
+  </webPart>
+</webParts>

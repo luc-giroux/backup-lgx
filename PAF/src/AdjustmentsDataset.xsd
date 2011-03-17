@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="AdjustmentsDataset" targetNamespace="http://www.tempuri.org/AdjustmentsDataset.xsd" xmlns:mstns="http://www.tempuri.org/AdjustmentsDataset.xsd" xmlns="http://www.tempuri.org/AdjustmentsDataset.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="PAF_DATAConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="PAF_DATAConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.PAF.My.MySettings.GlobalReference.Default.PAF_DATAConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="WeekTableAdapter" GeneratorDataComponentClassName="WeekTableAdapter" Name="Week" UserDataComponentName="WeekTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="PAF_DATAConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT DISTINCT Week, EndDate AS PostedDate, CONVERT(varchar(10), EndDate, 120) AS PostedDateToDisplay, Year
+FROM         Timesheet.dbo.YearWeek</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Week" DataSetColumn="Week" />
+              <Mapping SourceColumn="Year" DataSetColumn="Year" />
+              <Mapping SourceColumn="PostedDate" DataSetColumn="PostedDate" />
+              <Mapping SourceColumn="PostedDateToDisplay" DataSetColumn="PostedDateToDisplay" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="YearTableAdapter" GeneratorDataComponentClassName="YearTableAdapter" Name="Year" UserDataComponentName="YearTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="PAF_DATAConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT DISTINCT  Year
+FROM         Timesheet.dbo.YearWeek</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Year" DataSetColumn="Year" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="CTRCodeTableAdapter" GeneratorDataComponentClassName="CTRCodeTableAdapter" Name="CTRCode" UserDataComponentName="CTRCodeTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="PAF_DATAConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT DISTINCT CTRCode
+FROM         CTRCode</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="CTRCode" DataSetColumn="CTRCode" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="AdjustmentsDataset" msdata:IsDataSet="true" msdata:Locale="en-AU" msprop:Generator_DataSetName="AdjustmentsDataset" msprop:Generator_UserDSName="AdjustmentsDataset">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Adjustments" msprop:Generator_UserTableName="Adjustments" msprop:Generator_RowEvArgName="AdjustmentsRowChangeEvent" msprop:Generator_TableVarName="tableAdjustments" msprop:Generator_TablePropName="Adjustments" msprop:Generator_RowDeletingName="AdjustmentsRowDeleting" msprop:Generator_RowChangingName="AdjustmentsRowChanging" msprop:Generator_RowDeletedName="AdjustmentsRowDeleted" msprop:Generator_RowEvHandlerName="AdjustmentsRowChangeEventHandler" msprop:Generator_RowChangedName="AdjustmentsRowChanged" msprop:Generator_TableClassName="AdjustmentsDataTable" msprop:Generator_RowClassName="AdjustmentsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="EntryID" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnEntryID" msprop:Generator_ColumnPropNameInRow="EntryID" msprop:Generator_ColumnPropNameInTable="EntryIDColumn" msprop:Generator_UserColumnName="EntryID" type="xs:int" minOccurs="0" />
+              <xs:element name="CompanyID" msprop:Generator_ColumnVarNameInTable="columnCompanyID" msprop:Generator_ColumnPropNameInRow="CompanyID" msprop:Generator_ColumnPropNameInTable="CompanyIDColumn" msprop:Generator_UserColumnName="CompanyID" type="xs:string" minOccurs="0" />
+              <xs:element name="EmployeeID" msprop:Generator_ColumnVarNameInTable="columnEmployeeID" msprop:Generator_ColumnPropNameInRow="EmployeeID" msprop:Generator_ColumnPropNameInTable="EmployeeIDColumn" msprop:Generator_UserColumnName="EmployeeID" type="xs:int" minOccurs="0" />
+              <xs:element name="PostedDate" msprop:Generator_ColumnVarNameInTable="columnPostedDate" msprop:Generator_ColumnPropNameInRow="PostedDate" msprop:Generator_ColumnPropNameInTable="PostedDateColumn" msprop:Generator_UserColumnName="PostedDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="RatePayCurrencyID" msprop:Generator_ColumnVarNameInTable="columnRatePayCurrencyID" msprop:Generator_ColumnPropNameInRow="RatePayCurrencyID" msprop:Generator_ColumnPropNameInTable="RatePayCurrencyIDColumn" msprop:Generator_UserColumnName="RatePayCurrencyID" type="xs:string" minOccurs="0" />
+              <xs:element name="RatePayLocation" msprop:Generator_ColumnVarNameInTable="columnRatePayLocation" msprop:Generator_ColumnPropNameInRow="RatePayLocation" msprop:Generator_ColumnPropNameInTable="RatePayLocationColumn" msprop:Generator_UserColumnName="RatePayLocation" type="xs:string" minOccurs="0" />
+              <xs:element name="RateAssignCurrencyID" msprop:Generator_ColumnVarNameInTable="columnRateAssignCurrencyID" msprop:Generator_ColumnPropNameInRow="RateAssignCurrencyID" msprop:Generator_ColumnPropNameInTable="RateAssignCurrencyIDColumn" msprop:Generator_UserColumnName="RateAssignCurrencyID" type="xs:string" minOccurs="0" />
+              <xs:element name="RateAssignLocation" msprop:Generator_ColumnVarNameInTable="columnRateAssignLocation" msprop:Generator_ColumnPropNameInRow="RateAssignLocation" msprop:Generator_ColumnPropNameInTable="RateAssignLocationColumn" msprop:Generator_UserColumnName="RateAssignLocation" type="xs:string" minOccurs="0" />
+              <xs:element name="LabourCost" msprop:Generator_ColumnVarNameInTable="columnLabourCost" msprop:Generator_ColumnPropNameInRow="LabourCost" msprop:Generator_ColumnPropNameInTable="LabourCostColumn" msprop:Generator_UserColumnName="LabourCost" type="xs:decimal" minOccurs="0" />
+              <xs:element name="OtherOfficeSpace" msprop:Generator_ColumnVarNameInTable="columnOtherOfficeSpace" msprop:Generator_ColumnPropNameInRow="OtherOfficeSpace" msprop:Generator_ColumnPropNameInTable="OtherOfficeSpaceColumn" msprop:Generator_UserColumnName="OtherOfficeSpace" type="xs:decimal" minOccurs="0" />
+              <xs:element name="OtherOfficeExpenses" msprop:Generator_ColumnVarNameInTable="columnOtherOfficeExpenses" msprop:Generator_ColumnPropNameInRow="OtherOfficeExpenses" msprop:Generator_ColumnPropNameInTable="OtherOfficeExpensesColumn" msprop:Generator_UserColumnName="OtherOfficeExpenses" type="xs:decimal" minOccurs="0" />
+              <xs:element name="OtherIT" msprop:Generator_ColumnVarNameInTable="columnOtherIT" msprop:Generator_ColumnPropNameInRow="OtherIT" msprop:Generator_ColumnPropNameInTable="OtherITColumn" msprop:Generator_UserColumnName="OtherIT" type="xs:decimal" minOccurs="0" />
+              <xs:element name="OtherITCore" msprop:Generator_ColumnVarNameInTable="columnOtherITCore" msprop:Generator_ColumnPropNameInRow="OtherITCore" msprop:Generator_ColumnPropNameInTable="OtherITCoreColumn" msprop:Generator_UserColumnName="OtherITCore" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Adjustment" msprop:Generator_ColumnVarNameInTable="columnAdjustment" msprop:Generator_ColumnPropNameInRow="Adjustment" msprop:Generator_ColumnPropNameInTable="AdjustmentColumn" msprop:Generator_UserColumnName="Adjustment" type="xs:string" minOccurs="0" />
+              <xs:element name="AdjustmentShortComment" msprop:nullValue="_null" msprop:Generator_ColumnPropNameInRow="AdjustmentShortComment" msprop:Generator_ColumnVarNameInTable="columnAdjustmentShortComment" msprop:Generator_ColumnPropNameInTable="AdjustmentShortCommentColumn" msprop:Generator_UserColumnName="AdjustmentShortComment" type="xs:string" minOccurs="0" />
+              <xs:element name="AdjustmentLongComment" msprop:nullValue="_null" msprop:Generator_ColumnPropNameInRow="AdjustmentLongComment" msprop:Generator_ColumnVarNameInTable="columnAdjustmentLongComment" msprop:Generator_ColumnPropNameInTable="AdjustmentLongCommentColumn" msprop:Generator_UserColumnName="AdjustmentLongComment" type="xs:string" minOccurs="0" />
+              <xs:element name="AdjustmentDate" msprop:Generator_ColumnVarNameInTable="columnAdjustmentDate" msprop:Generator_ColumnPropNameInRow="AdjustmentDate" msprop:Generator_ColumnPropNameInTable="AdjustmentDateColumn" msprop:Generator_UserColumnName="AdjustmentDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="AdjustmentUser" msprop:Generator_ColumnVarNameInTable="columnAdjustmentUser" msprop:Generator_ColumnPropNameInRow="AdjustmentUser" msprop:Generator_ColumnPropNameInTable="AdjustmentUserColumn" msprop:Generator_UserColumnName="AdjustmentUser" type="xs:string" minOccurs="0" />
+              <xs:element name="Year" msprop:Generator_ColumnVarNameInTable="columnYear" msprop:Generator_ColumnPropNameInRow="Year" msprop:Generator_ColumnPropNameInTable="YearColumn" msprop:Generator_UserColumnName="Year" type="xs:int" minOccurs="0" />
+              <xs:element name="Contract" msprop:Generator_ColumnVarNameInTable="columnContract" msprop:Generator_ColumnPropNameInRow="Contract" msprop:Generator_ColumnPropNameInTable="ContractColumn" msprop:Generator_UserColumnName="Contract" type="xs:string" minOccurs="0" />
+              <xs:element name="Week" msprop:Generator_ColumnVarNameInTable="columnWeek" msprop:Generator_ColumnPropNameInRow="Week" msprop:Generator_ColumnPropNameInTable="WeekColumn" msprop:Generator_UserColumnName="Week" type="xs:int" minOccurs="0" />
+              <xs:element name="Discipline" msprop:Generator_ColumnVarNameInTable="columnDiscipline" msprop:Generator_ColumnPropNameInRow="Discipline" msprop:Generator_ColumnPropNameInTable="DisciplineColumn" msprop:Generator_UserColumnName="Discipline" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CTRCode" msprop:Generator_ColumnVarNameInTable="columnCTRCode" msprop:Generator_ColumnPropNameInRow="CTRCode" msprop:Generator_ColumnPropNameInTable="CTRCodeColumn" msprop:Generator_UserColumnName="CTRCode" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Week" msprop:Generator_TableClassName="WeekDataTable" msprop:Generator_TableVarName="tableWeek" msprop:Generator_TablePropName="Week" msprop:Generator_RowDeletingName="WeekRowDeleting" msprop:Generator_UserTableName="Week" msprop:Generator_RowChangingName="WeekRowChanging" msprop:Generator_RowEvHandlerName="WeekRowChangeEventHandler" msprop:Generator_RowDeletedName="WeekRowDeleted" msprop:Generator_RowEvArgName="WeekRowChangeEvent" msprop:Generator_RowChangedName="WeekRowChanged" msprop:Generator_RowClassName="WeekRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Week" msprop:Generator_ColumnVarNameInTable="columnWeek" msprop:Generator_ColumnPropNameInRow="Week" msprop:Generator_ColumnPropNameInTable="WeekColumn" msprop:Generator_UserColumnName="Week" type="xs:int" />
+              <xs:element name="PostedDate" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnPostedDate" msprop:Generator_ColumnPropNameInRow="PostedDate" msprop:Generator_ColumnPropNameInTable="PostedDateColumn" msprop:Generator_UserColumnName="PostedDate" type="xs:dateTime" />
+              <xs:element name="Year" msprop:Generator_ColumnVarNameInTable="columnYear" msprop:Generator_ColumnPropNameInRow="Year" msprop:Generator_ColumnPropNameInTable="YearColumn" msprop:Generator_UserColumnName="Year" type="xs:int" />
+              <xs:element name="PostedDateToDisplay" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnPostedDateToDisplay" msprop:Generator_ColumnPropNameInRow="PostedDateToDisplay" msprop:Generator_ColumnPropNameInTable="PostedDateToDisplayColumn" msprop:Generator_UserColumnName="PostedDateToDisplay" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Year" msprop:Generator_TableClassName="YearDataTable" msprop:Generator_TableVarName="tableYear" msprop:Generator_TablePropName="Year" msprop:Generator_RowDeletingName="YearRowDeleting" msprop:Generator_UserTableName="Year" msprop:Generator_RowChangingName="YearRowChanging" msprop:Generator_RowEvHandlerName="YearRowChangeEventHandler" msprop:Generator_RowDeletedName="YearRowDeleted" msprop:Generator_RowEvArgName="YearRowChangeEvent" msprop:Generator_RowChangedName="YearRowChanged" msprop:Generator_RowClassName="YearRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Year" msprop:Generator_ColumnVarNameInTable="columnYear" msprop:Generator_ColumnPropNameInRow="Year" msprop:Generator_ColumnPropNameInTable="YearColumn" msprop:Generator_UserColumnName="Year" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="CTRCode" msprop:Generator_TableClassName="CTRCodeDataTable" msprop:Generator_TableVarName="tableCTRCode" msprop:Generator_TablePropName="CTRCode" msprop:Generator_RowDeletingName="CTRCodeRowDeleting" msprop:Generator_UserTableName="CTRCode" msprop:Generator_RowChangingName="CTRCodeRowChanging" msprop:Generator_RowEvHandlerName="CTRCodeRowChangeEventHandler" msprop:Generator_RowDeletedName="CTRCodeRowDeleted" msprop:Generator_RowEvArgName="CTRCodeRowChangeEvent" msprop:Generator_RowChangedName="CTRCodeRowChanged" msprop:Generator_RowClassName="CTRCodeRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CTRCode" msprop:Generator_ColumnVarNameInTable="columnCTRCode" msprop:Generator_ColumnPropNameInRow="CTRCode" msprop:Generator_ColumnPropNameInTable="CTRCodeColumn" msprop:Generator_UserColumnName="CTRCode">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Week" />
+      <xs:field xpath="mstns:Year" />
+      <xs:field xpath="mstns:Week" />
+    </xs:unique>
+    <xs:unique name="Year_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Year" />
+      <xs:field xpath="mstns:Year" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

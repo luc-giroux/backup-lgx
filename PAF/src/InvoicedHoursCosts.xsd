@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="InvoicedHoursCosts" targetNamespace="http://tempuri.org/InvoicedHoursCosts.xsd" xmlns:mstns="http://tempuri.org/InvoicedHoursCosts.xsd" xmlns="http://tempuri.org/InvoicedHoursCosts.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="InvoicedHoursCosts" msdata:IsDataSet="true" msdata:Locale="en-US" msprop:Generator_DataSetName="InvoicedHoursCosts" msprop:Generator_UserDSName="InvoicedHoursCosts">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="GetInvoiceHours" msprop:Generator_TableClassName="GetInvoiceHoursDataTable" msprop:Generator_TableVarName="tableGetInvoiceHours" msprop:Generator_TablePropName="GetInvoiceHours" msprop:Generator_RowDeletingName="GetInvoiceHoursRowDeleting" msprop:Generator_UserTableName="GetInvoiceHours" msprop:Generator_RowChangingName="GetInvoiceHoursRowChanging" msprop:Generator_RowEvHandlerName="GetInvoiceHoursRowChangeEventHandler" msprop:Generator_RowDeletedName="GetInvoiceHoursRowDeleted" msprop:Generator_RowEvArgName="GetInvoiceHoursRowChangeEvent" msprop:Generator_RowChangedName="GetInvoiceHoursRowChanged" msprop:Generator_RowClassName="GetInvoiceHoursRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="HoursEntryID" msprop:Generator_ColumnVarNameInTable="columnHoursEntryID" msprop:Generator_ColumnPropNameInRow="HoursEntryID" msprop:Generator_ColumnPropNameInTable="HoursEntryIDColumn" msprop:Generator_UserColumnName="HoursEntryID" type="xs:int" minOccurs="0" />
+              <xs:element name="Contract" msprop:Generator_ColumnVarNameInTable="columnContract" msprop:Generator_ColumnPropNameInRow="Contract" msprop:Generator_ColumnPropNameInTable="ContractColumn" msprop:Generator_UserColumnName="Contract" type="xs:string" minOccurs="0" />
+              <xs:element name="AssignedLocation" msprop:Generator_ColumnVarNameInTable="columnAssignedLocation" msprop:Generator_ColumnPropNameInRow="AssignedLocation" msprop:Generator_ColumnPropNameInTable="AssignedLocationColumn" msprop:Generator_UserColumnName="AssignedLocation" type="xs:string" minOccurs="0" />
+              <xs:element name="PayCurrencyID" msprop:Generator_ColumnVarNameInTable="columnPayCurrencyID" msprop:Generator_ColumnPropNameInRow="PayCurrencyID" msprop:Generator_ColumnPropNameInTable="PayCurrencyIDColumn" msprop:Generator_UserColumnName="PayCurrencyID" type="xs:string" minOccurs="0" />
+              <xs:element name="DisciplineCode" msprop:Generator_ColumnVarNameInTable="columnDisciplineCode" msprop:Generator_ColumnPropNameInRow="DisciplineCode" msprop:Generator_ColumnPropNameInTable="DisciplineCodeColumn" msprop:Generator_UserColumnName="DisciplineCode" type="xs:string" minOccurs="0" />
+              <xs:element name="DisciplineDescription" msprop:Generator_ColumnVarNameInTable="columnDisciplineDescription" msprop:Generator_ColumnPropNameInRow="DisciplineDescription" msprop:Generator_ColumnPropNameInTable="DisciplineDescriptionColumn" msprop:Generator_UserColumnName="DisciplineDescription" type="xs:string" minOccurs="0" />
+              <xs:element name="CompanyID" msprop:Generator_ColumnVarNameInTable="columnCompanyID" msprop:Generator_ColumnPropNameInRow="CompanyID" msprop:Generator_ColumnPropNameInTable="CompanyIDColumn" msprop:Generator_UserColumnName="CompanyID" type="xs:string" minOccurs="0" />
+              <xs:element name="EmployeeID" msprop:Generator_ColumnVarNameInTable="columnEmployeeID" msprop:Generator_ColumnPropNameInRow="EmployeeID" msprop:Generator_ColumnPropNameInTable="EmployeeIDColumn" msprop:Generator_UserColumnName="EmployeeID" type="xs:int" minOccurs="0" />
+              <xs:element name="EmployeeName" msprop:Generator_ColumnVarNameInTable="columnEmployeeName" msprop:Generator_ColumnPropNameInRow="EmployeeName" msprop:Generator_ColumnPropNameInTable="EmployeeNameColumn" msprop:Generator_UserColumnName="EmployeeName" type="xs:string" minOccurs="0" />
+              <xs:element name="WorkedDate" msprop:Generator_ColumnVarNameInTable="columnWorkedDate" msprop:Generator_ColumnPropNameInRow="WorkedDate" msprop:Generator_ColumnPropNameInTable="WorkedDateColumn" msprop:Generator_UserColumnName="WorkedDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="PostedDate" msprop:Generator_ColumnVarNameInTable="columnPostedDate" msprop:Generator_ColumnPropNameInRow="PostedDate" msprop:Generator_ColumnPropNameInTable="PostedDateColumn" msprop:Generator_UserColumnName="PostedDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Hours" msprop:Generator_ColumnVarNameInTable="columnHours" msprop:Generator_ColumnPropNameInRow="Hours" msprop:Generator_ColumnPropNameInTable="HoursColumn" msprop:Generator_UserColumnName="Hours" type="xs:double" minOccurs="0" />
+              <xs:element name="WorkPackageID" msprop:Generator_ColumnVarNameInTable="columnWorkPackageID" msprop:Generator_ColumnPropNameInRow="WorkPackageID" msprop:Generator_ColumnPropNameInTable="WorkPackageIDColumn" msprop:Generator_UserColumnName="WorkPackageID" type="xs:int" minOccurs="0" />
+              <xs:element name="Invoiced" msprop:Generator_ColumnVarNameInTable="columnInvoiced" msprop:Generator_ColumnPropNameInRow="Invoiced" msprop:Generator_ColumnPropNameInTable="InvoicedColumn" msprop:Generator_UserColumnName="Invoiced" type="xs:boolean" minOccurs="0" />
+              <xs:element name="InvoiceClosed" msprop:Generator_ColumnVarNameInTable="columnInvoiceClosed" msprop:Generator_ColumnPropNameInRow="InvoiceClosed" msprop:Generator_ColumnPropNameInTable="InvoiceClosedColumn" msprop:Generator_UserColumnName="InvoiceClosed" type="xs:boolean" minOccurs="0" />
+              <xs:element name="LabourCost" msprop:Generator_ColumnVarNameInTable="columnLabourCost" msprop:Generator_ColumnPropNameInRow="LabourCost" msprop:Generator_ColumnPropNameInTable="LabourCostColumn" msprop:Generator_UserColumnName="LabourCost" type="xs:double" minOccurs="0" />
+              <xs:element name="OtherOfficeSpace" msprop:Generator_ColumnVarNameInTable="columnOtherOfficeSpace" msprop:Generator_ColumnPropNameInRow="OtherOfficeSpace" msprop:Generator_ColumnPropNameInTable="OtherOfficeSpaceColumn" msprop:Generator_UserColumnName="OtherOfficeSpace" type="xs:double" minOccurs="0" />
+              <xs:element name="OtherOfficeExpenses" msprop:Generator_ColumnVarNameInTable="columnOtherOfficeExpenses" msprop:Generator_ColumnPropNameInRow="OtherOfficeExpenses" msprop:Generator_ColumnPropNameInTable="OtherOfficeExpensesColumn" msprop:Generator_UserColumnName="OtherOfficeExpenses" type="xs:double" minOccurs="0" />
+              <xs:element name="OtherIT" msprop:Generator_ColumnVarNameInTable="columnOtherIT" msprop:Generator_ColumnPropNameInRow="OtherIT" msprop:Generator_ColumnPropNameInTable="OtherITColumn" msprop:Generator_UserColumnName="OtherIT" type="xs:double" minOccurs="0" />
+              <xs:element name="OtherITCore" msprop:Generator_ColumnVarNameInTable="columnOtherITCore" msprop:Generator_ColumnPropNameInRow="OtherITCore" msprop:Generator_ColumnPropNameInTable="OtherITCoreColumn" msprop:Generator_UserColumnName="OtherITCore" type="xs:double" minOccurs="0" />
+              <xs:element name="Adjustment" msprop:Generator_ColumnVarNameInTable="columnAdjustment" msprop:Generator_ColumnPropNameInRow="Adjustment" msprop:Generator_ColumnPropNameInTable="AdjustmentColumn" msprop:Generator_UserColumnName="Adjustment" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

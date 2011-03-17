@@ -1,0 +1,39 @@
+<?xml version="1.0" standalone="yes" ?>
+<xs:schema id="WorkPackage" targetNamespace="http://www.tempuri.org/WorkPackage.xsd" xmlns:mstns="http://www.tempuri.org/WorkPackage.xsd"
+	xmlns="http://www.tempuri.org/WorkPackage.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" attributeFormDefault="qualified" elementFormDefault="qualified">
+	<xs:element name="WorkPackage" msdata:IsDataSet="true">
+		<xs:complexType>
+			<xs:choice maxOccurs="unbounded">
+				<xs:element name="WorkPackageList">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="WorkPackageID" msdata:ReadOnly="true" msdata:AutoIncrement="true" type="xs:int" />
+							<xs:element name="PhaseID" msdata:ReadOnly="true" msdata:AutoIncrement="true" type="xs:int" />
+							<xs:element name="PhaseDescription" type="xs:string" minOccurs="0" />
+							<xs:element name="LocationID" type="xs:string" />
+							<xs:element name="LocationDescription" type="xs:string" />
+							<xs:element name="LocationSortOrder" type="xs:int" minOccurs="0" />
+							<xs:element name="AreaID" msdata:ReadOnly="true" msdata:AutoIncrement="true" type="xs:int" />
+							<xs:element name="AreaDescription" type="xs:string" />
+							<xs:element name="AreaSortOrder" type="xs:int" minOccurs="0" />
+							<xs:element name="UnitID" type="xs:string" />
+							<xs:element name="UnitDescription" type="xs:string" minOccurs="0" />
+							<xs:element name="UnitSortOrder" type="xs:int" minOccurs="0" />
+							<xs:element name="GroupID" msdata:ReadOnly="true" msdata:AutoIncrement="true" type="xs:int" />
+							<xs:element name="GroupDescription" type="xs:string" minOccurs="0" />
+							<xs:element name="GroupSortOrder" type="xs:int" minOccurs="0" />
+							<xs:element name="DisciplineID" msdata:ReadOnly="true" msdata:AutoIncrement="true" type="xs:int" />
+							<xs:element name="DisciplineNo" type="xs:string" />
+							<xs:element name="DisciplineDescription" type="xs:string" minOccurs="0" />
+							<xs:element name="DisciplineLevel3SortOrder" type="xs:int" minOccurs="0" />
+							<xs:element name="SectionID" msdata:ReadOnly="true" msdata:AutoIncrement="true" type="xs:int" />
+							<xs:element name="SectionNo" type="xs:string" />
+							<xs:element name="SectionDescription" type="xs:string" minOccurs="0" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:choice>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

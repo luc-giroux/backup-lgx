@@ -1,0 +1,33 @@
+;WSP CAB destination and filename
+
+.Set DiskDirectory1="c:\wsp"
+
+.Set CabinetNameTemplate="PAFMaintenance.wsp"
+
+ 
+
+;All references from project root $(ProjectDir)
+
+ 
+
+;Files to place into the CAB's root
+
+manifest.xml
+
+bin\Debug\PAFMaintenance.dll
+
+AdddboCompany.webpart
+UpdatedboCompany.webpart
+DeletedboCompany.webpart
+AdddboDiscipline.webpart
+UpdatedboDiscipline.webpart
+DeletedboDiscipline.webpart
+AdddboLocation.webpart
+UpdatedboLocation.webpart
+DeletedboLocation.webpart
+AdddboCurrency.webpart
+UpdatedboCurrency.webpart
+DeletedboCurrency.webpart
+
+
+

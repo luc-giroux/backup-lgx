@@ -1,0 +1,777 @@
+<?xml version="1.0"?>
+<LobSystem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:schemaLocation="http://schemas.microsoft.com/office/2006/03/BusinessDataCatalog BDCMetadata.XSD" Type="Database" Version="1.0.0.0" Name="PAF_Maintenance" xmlns="http://schemas.microsoft.com/office/2006/03/BusinessDataCatalog">
+  <Properties>
+    <Property Name="WildcardCharacter" Type="System.String">%</Property>
+  </Properties>
+  <AccessControlList>
+    <AccessControlEntry Principal="KONINET\sp_admin">
+	  <Right BdcRight="Execute" />
+	  <Right BdcRight="Edit" />
+	  <Right BdcRight="SetPermissions" />
+	  <Right BdcRight="SelectableInClients" />
+	</AccessControlEntry>
+	<AccessControlEntry Principal="KONINET\sp_sspservice">
+	  <Right BdcRight="Execute" />
+	  <Right BdcRight="Edit" />
+	  <Right BdcRight="SetPermissions" />
+	  <Right BdcRight="SelectableInClients" />
+	</AccessControlEntry>  	
+    <AccessControlEntry Principal="KONINET\sp_paf_maintenance">
+      <Right BdcRight="Execute"/>
+    </AccessControlEntry>
+	<AccessControlEntry Principal="KONINET\sp_paf_maintenanceadm">
+      <Right BdcRight="Execute"/>
+    </AccessControlEntry>
+  </AccessControlList>
+  <LobSystemInstances>
+    <LobSystemInstance Name="PAF_Maintenance">
+      <Properties>
+        <Property Name="AuthenticationMode" Type="Microsoft.Office.Server.ApplicationRegistry.SystemSpecific.Db.DbAuthenticationMode">RevertToSelf</Property>
+		<Property Name="DatabaseAccessProvider" Type="Microsoft.Office.Server.ApplicationRegistry.SystemSpecific.Db.DbAccessProvider">SqlServer</Property>
+        <Property Name="RdbConnection Data Source" Type="System.String">VAVDB2</Property>
+        <Property Name="RdbConnection Initial Catalog" Type="System.String">PAF_DATA</Property>
+        <Property Name="RdbConnection Integrated Security" Type="System.String">false</Property>
+		<Property Name="RdbConnection User ID" Type="System.String">sp_sspservice</Property>
+		<Property Name="RdbConnection Password" Type="System.String">2010service</Property>
+      </Properties>
+    </LobSystemInstance>
+  </LobSystemInstances>
+  <Entities>
+  <!---COMPANY -->
+    <Entity EstimatedInstanceCount="0" Name="dbo.Company"  DefaultDisplayName="Companies">
+	  <Properties>
+        <Property Name="Title" Type="System.String">CompanyID</Property>
+      </Properties>	
+      <Identifiers>
+        <Identifier TypeName="System.String" Name="[CompanyID]" />
+      </Identifiers>
+      <Methods>
+        <Method Name="Getdbo.[Company]">
+          <Properties>
+            <Property Name="RdbCommandText" Type="System.String">Select [CompanyID],[CompanyName] From dbo.[Company]</Property>
+            <Property Name="RdbCommandType" Type="System.Data.CommandType">Text</Property>
+          </Properties>
+          <Parameters>
+            <Parameter Direction="Return" Name="dbo.[Company]">
+              <TypeDescriptor TypeName="System.Data.IDataReader, System.Data, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" IsCollection="true" Name="dbo.[Company]DataReader">
+                <TypeDescriptors>
+                  <TypeDescriptor TypeName="System.Data.IDataRecord, System.Data, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" Name="dbo.[Company]DataRecord">
+                    <TypeDescriptors>
+                      <TypeDescriptor TypeName="System.String" Name="CompanyID" IdentifierName="[CompanyID]" />
+                      <TypeDescriptor TypeName="System.String" Name="CompanyName" DefaultDisplayName="Company Name"/>
+                    </TypeDescriptors>
+                  </TypeDescriptor>
+                </TypeDescriptors>
+              </TypeDescriptor>
+            </Parameter>
+          </Parameters>
+          <MethodInstances>
+            <MethodInstance Name="dbo.[Company]Finder" Type="Finder" ReturnParameterName="dbo.[Company]" ReturnTypeDescriptorName="dbo.[Company]DataReader" ReturnTypeDescriptorLevel="0" />
+          </MethodInstances>
+        </Method>
+        <Method Name="dbo.[Company]SpecificFinder">
+          <Properties>
+            <Property Name="RdbCommandText" Type="System.String">Select [CompanyID],[CompanyName] From dbo.[Company] Where ([CompanyID]=@CompanyID)</Property>
+            <Property Name="RdbCommandType" Type="System.Data.CommandType">Text</Property>
+          </Properties>
+          <Parameters>
+            <Parameter Direction="In" Name="@CompanyID">
+              <TypeDescriptor TypeName="System.String" Name="[CompanyID]" IdentifierName="[CompanyID]" />
+            </Parameter>
+            <Parameter Direction="Return" Name="dbo.[Company]">
+              <TypeDescriptor TypeName="System.Data.IDataReader, System.Data, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" IsCollection="true" Name="dbo.[Company]DataReader">
+                <TypeDescriptors>
+                  <TypeDescriptor TypeName="System.Data.IDataRecord, System.Data, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" Name="dbo.[Company]DataRecord">
+                    <TypeDescriptors>
+                      <TypeDescriptor TypeName="System.String" Name="CompanyID" IdentifierName="[CompanyID]" />
+                      <TypeDescriptor TypeName="System.String" Name="CompanyName" />
+                    </TypeDescriptors>
+                  </TypeDescriptor>
+                </TypeDescriptors>
+              </TypeDescriptor>
+            </Parameter>
+          </Parameters>
+          <MethodInstances>
+            <MethodInstance Name="dbo.[Company]SpecificFinder" Type="SpecificFinder" ReturnParameterName="dbo.[Company]" ReturnTypeDescriptorName="dbo.[Company]DataReader" ReturnTypeDescriptorLevel="0" />
+          </MethodInstances>
+        </Method>
+        <Method Name="dbo.[Company]IdEnumerator">
+          <Properties>
+            <Property Name="RdbCommandText" Type="System.String">Select [CompanyID] From dbo.[Company]</Property>
+            <Property Name="RdbCommandType" Type="System.Data.CommandType">Text</Property>
+          </Properties>
+          <Parameters>
+            <Parameter Direction="Return" Name="dbo.[Company]IDs">
+              <TypeDescriptor TypeName="System.Data.IDataReader, System.Data, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" IsCollection="true" Name="dbo.[Company]IDs">
+                <TypeDescriptors>
+                  <TypeDescriptor TypeName="System.Data.IDataRecord, System.Data, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" Name="dbo.[Company]">
+                    <TypeDescriptors>
+                      <TypeDescriptor TypeName="System.String" Name="CompanyID" IdentifierName="[CompanyID]" />
+                    </TypeDescriptors>
+                  </TypeDescriptor>
+                </TypeDescriptors>
+              </TypeDescriptor>
+            </Parameter>
+          </Parameters>
+          <MethodInstances>
+            <MethodInstance Name="dbo.[Company]EnumeratorInstance" Type="IdEnumerator" ReturnParameterName="dbo.[Company]IDs" />
+          </MethodInstances>
+        </Method>
+        <Method Name="insertdbo.Company">
+          <Properties>
+            <Property Name="RdbCommandText" Type="System.String">Insert into dbo.Company([CompanyID],[CompanyName]) Values(@CompanyID,@CompanyName);select SomethingToReturn = @@Identity</Property>
+            <Property Name="RdbCommandType" Type="System.String">Text</Property>
+          </Properties>
+          <Parameters>
+            <Parameter Direction="In" Name="@CompanyID">
+              <TypeDescriptor TypeName="System.String" Name="CompanyID" />
+            </Parameter>
+            <Parameter Direction="In" Name="@CompanyName">
+              <TypeDescriptor TypeName="System.String" Name="CompanyName" />
+            </Parameter>
+            <Parameter Direction="Return" Name="dbo.Company">
+              <TypeDescriptor TypeName="System.String" Name="SomethingToReturn" />
+            </Parameter>
+          </Parameters>
+          <MethodInstances>
+            <MethodInstance Name="dbo.CompanyInserter" Type="GenericInvoker" ReturnParameterName="dbo.Company" />
+          </MethodInstances>
+        </Method>
+        <Method Name="updatedbo.Company">
+          <Properties>
+            <Property Name="RdbCommandText" Type="System.String">Update dbo.Company SET [CompanyName]=@CompanyName WHERE([CompanyID]=@CompanyID);select SomethingToReturn = @@Identity</Property>
+            <Property Name="RdbCommandType" Type="System.String">Text</Property>
+          </Properties>
+          <Parameters>
+            <Parameter Direction="In" Name="@CompanyID">
+              <TypeDescriptor TypeName="System.String" Name="CompanyID" />
+            </Parameter>
+            <Parameter Direction="In" Name="@CompanyName">
+              <TypeDescriptor TypeName="System.String" Name="CompanyName" />
+            </Parameter>
+            <Parameter Direction="Return" Name="dbo.Company">
+              <TypeDescriptor TypeName="System.String" Name="SomethingToReturn" />
+            </Parameter>
+          </Parameters>
+          <MethodInstances>
+            <MethodInstance Name="dbo.CompanyUpdater" Type="GenericInvoker" ReturnParameterName="dbo.Company" />
+          </MethodInstances>
+        </Method>
+		<Method Name="deletedbo.Company">
+          <Properties>
+            <Property Name="RdbCommandText" Type="System.String">Delete from dbo.Company WHERE ([CompanyID]=@CompanyID);</Property>
+            <Property Name="RdbCommandType" Type="System.String">Text</Property>
+          </Properties>
+          <Parameters>
+            <Parameter Direction="In" Name="@CompanyID">
+              <TypeDescriptor TypeName="System.Int32" Name="CompanyID" />
+            </Parameter>
+			<Parameter Direction="Return" Name="dbo.Company">
+              <TypeDescriptor TypeName="System.String" Name="SomethingToReturn" />
+            </Parameter>
+          </Parameters>
+          <MethodInstances>
+            <MethodInstance Name="dbo.CompanyDeleter" Type="GenericInvoker" ReturnParameterName="dbo.Company" />
+          </MethodInstances>
+        </Method>		
+      </Methods>
+      <Actions>
+        <Action Name="Add" Position="1" IsOpenedInNewWindow="false" Url="https://cm.projetkoniambo.com/ProjectControl/paf_maintenance/Pages/AddCompany.aspx" ImageUrl="https://cm.projetkoniambo.com/_layouts/images/newitem.gif"  />
+        <Action Name="Edit" Position="2" IsOpenedInNewWindow="false" Url="https://cm.projetkoniambo.com/ProjectControl/paf_maintenance/Pages/EditCompany.aspx?CompanyID={0}" ImageUrl="https://cm.projetkoniambo.com/_layouts/images/edit.gif">
+          <ActionParameters>
+            <ActionParameter Name="CompanyID" Index="0" />
+          </ActionParameters>
+        </Action>
+        <Action Name="Delete" Position="3" IsOpenedInNewWindow="false" Url="https://cm.projetkoniambo.com/ProjectControl/paf_maintenance/Pages/DeleteCompany.aspx?CompanyID={0}" ImageUrl="https://cm.projetkoniambo.com/_layouts/images/delete.gif">
+          <ActionParameters>
+            <ActionParameter Name="CompanyID" Index="0" />
+          </ActionParameters>
+        </Action>
+      </Actions>
+    </Entity>
+	<!--DISCIPLINE-->
+    <Entity EstimatedInstanceCount="0" Name="dbo.Discipline"  DefaultDisplayName="Disciplines">	
+      <Properties>
+        <Property Name="Title" Type="System.String">DisciplineID</Property>
+      </Properties>
+	  <Identifiers>
+        <Identifier TypeName="System.Int32" Name="[DisciplineID]" />
+      </Identifiers>
+      <Methods>
+        <Method Name="Getdbo.[Discipline]">
+          <Properties>
+            <Property Name="RdbCommandText" Type="System.String">Select [DisciplineID],[DisciplineNo],[Description] From dbo.[Discipline]</Property>
+            <Property Name="RdbCommandType" Type="System.Data.CommandType">Text</Property>
+          </Properties>
+          <Parameters>
+            <Parameter Direction="Return" Name="dbo.[Discipline]">
+              <TypeDescriptor TypeName="System.Data.IDataReader, System.Data, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" IsCollection="true" Name="dbo.[Discipline]DataReader">
+                <TypeDescriptors>
+                  <TypeDescriptor TypeName="System.Data.IDataRecord, System.Data, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" Name="dbo.[Discipline]DataRecord">
+                    <TypeDescriptors>
+                      <TypeDescriptor TypeName="System.Int32" Name="DisciplineID" IdentifierName="[DisciplineID]" />
+                      <TypeDescriptor TypeName="System.String" Name="DisciplineNo" />
+                      <TypeDescriptor TypeName="System.String" Name="Description" />
+                    </TypeDescriptors>
+                  </TypeDescriptor>
+                </TypeDescriptors>
+              </TypeDescriptor>
+            </Parameter>
+          </Parameters>
+          <MethodInstances>
+            <MethodInstance Name="dbo.[Discipline]Finder" Type="Finder" ReturnParameterName="dbo.[Discipline]" ReturnTypeDescriptorName="dbo.[Discipline]DataReader" ReturnTypeDescriptorLevel="0" />
+          </MethodInstances>
+        </Method>
+        <Method Name="dbo.[Discipline]SpecificFinder">
+          <Properties>
+            <Property Name="RdbCommandText" Type="System.String">Select [DisciplineID],[DisciplineNo],[Description] From dbo.[Discipline] Where ([DisciplineID]=@DisciplineID)</Property>
+            <Property Name="RdbCommandType" Type="System.Data.CommandType">Text</Property>
+          </Properties>
+          <Parameters>
+            <Parameter Direction="In" Name="@DisciplineID">
+              <TypeDescriptor TypeName="System.Int32" Name="[DisciplineID]" IdentifierName="[DisciplineID]" />
+            </Parameter>
+            <Parameter Direction="Return" Name="dbo.[Discipline]">
+              <TypeDescriptor TypeName="System.Data.IDataReader, System.Data, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" IsCollection="true" Name="dbo.[Discipline]DataReader">
+                <TypeDescriptors>
+                  <TypeDescriptor TypeName="System.Data.IDataRecord, System.Data, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" Name="dbo.[Discipline]DataRecord">
+                    <TypeDescriptors>
+                      <TypeDescriptor TypeName="System.Int32" Name="DisciplineID" IdentifierName="[DisciplineID]" />
+                      <TypeDescriptor TypeName="System.String" Name="DisciplineNo" />
+                      <TypeDescriptor TypeName="System.String" Name="Description" />
+                    </TypeDescriptors>
+                  </TypeDescriptor>
+                </TypeDescriptors>
+              </TypeDescriptor>
+            </Parameter>
+          </Parameters>
+          <MethodInstances>
+            <MethodInstance Name="dbo.[Discipline]SpecificFinder" Type="SpecificFinder" ReturnParameterName="dbo.[Discipline]" ReturnTypeDescriptorName="dbo.[Discipline]DataReader" ReturnTypeDescriptorLevel="0" />
+          </MethodInstances>
+        </Method>
+        <Method Name="dbo.[Discipline]IdEnumerator">
+          <Properties>
+            <Property Name="RdbCommandText" Type="System.String">Select [DisciplineID] From dbo.[Discipline]</Property>
+            <Property Name="RdbCommandType" Type="System.Data.CommandType">Text</Property>
+          </Properties>
+          <Parameters>
+            <Parameter Direction="Return" Name="dbo.[Discipline]IDs">
+              <TypeDescriptor TypeName="System.Data.IDataReader, System.Data, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" IsCollection="true" Name="dbo.[Discipline]IDs">
+                <TypeDescriptors>
+                  <TypeDescriptor TypeName="System.Data.IDataRecord, System.Data, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" Name="dbo.[Discipline]">
+                    <TypeDescriptors>
+                      <TypeDescriptor TypeName="System.Int32" Name="DisciplineID" IdentifierName="[DisciplineID]" />
+                    </TypeDescriptors>
+                  </TypeDescriptor>
+                </TypeDescriptors>
+              </TypeDescriptor>
+            </Parameter>
+          </Parameters>
+          <MethodInstances>
+            <MethodInstance Name="dbo.[Discipline]EnumeratorInstance" Type="IdEnumerator" ReturnParameterName="dbo.[Discipline]IDs" />
+          </MethodInstances>
+        </Method>
+        <Method Name="insertdbo.Discipline">
+          <Properties>
+            <Property Name="RdbCommandText" Type="System.String">Insert into dbo.Discipline([DisciplineID],[DisciplineNo],[Description]) Values(@DisciplineID,@DisciplineNo,@Description);select SomethingToReturn = @@Identity</Property>
+            <Property Name="RdbCommandType" Type="System.String">Text</Property>
+          </Properties>
+          <Parameters>
+            <Parameter Direction="In" Name="@DisciplineID">
+              <TypeDescriptor TypeName="System.Int32" Name="DisciplineID" />
+            </Parameter>
+            <Parameter Direction="In" Name="@DisciplineNo">
+              <TypeDescriptor TypeName="System.String" Name="DisciplineNo" />
+            </Parameter>
+            <Parameter Direction="In" Name="@Description">
+              <TypeDescriptor TypeName="System.String" Name="Description" />
+            </Parameter>
+            <Parameter Direction="Return" Name="dbo.Discipline">
+              <TypeDescriptor TypeName="System.String" Name="SomethingToReturn" />
+            </Parameter>
+          </Parameters>
+          <MethodInstances>
+            <MethodInstance Name="dbo.DisciplineInserter" Type="GenericInvoker" ReturnParameterName="dbo.Discipline" />
+          </MethodInstances>
+        </Method>
+        <Method Name="updatedbo.Discipline">
+          <Properties>
+            <Property Name="RdbCommandText" Type="System.String">Update dbo.Discipline SET [DisciplineNo]=@DisciplineNo,[Description]=@Description WHERE([DisciplineID]=@DisciplineID);select SomethingToReturn = @@Identity</Property>
+            <Property Name="RdbCommandType" Type="System.String">Text</Property>
+          </Properties>
+          <Parameters>
+            <Parameter Direction="In" Name="@DisciplineID">
+              <TypeDescriptor TypeName="System.Int32" Name="DisciplineID" />
+            </Parameter>
+            <Parameter Direction="In" Name="@DisciplineNo">
+              <TypeDescriptor TypeName="System.String" Name="DisciplineNo" />
+            </Parameter>
+            <Parameter Direction="In" Name="@Description">
+              <TypeDescriptor TypeName="System.String" Name="Description" />
+            </Parameter>
+            <Parameter Direction="Return" Name="dbo.Discipline">
+              <TypeDescriptor TypeName="System.String" Name="SomethingToReturn" />
+            </Parameter>
+          </Parameters>
+          <MethodInstances>
+            <MethodInstance Name="dbo.DisciplineUpdater" Type="GenericInvoker" ReturnParameterName="dbo.Discipline" />
+          </MethodInstances>
+        </Method>
+		<Method Name="deletedbo.Discipline">
+          <Properties>
+            <Property Name="RdbCommandText" Type="System.String">Delete from dbo.Discipline WHERE ([DisciplineID]=@DisciplineID);</Property>
+            <Property Name="RdbCommandType" Type="System.String">Text</Property>
+          </Properties>
+          <Parameters>
+            <Parameter Direction="In" Name="@DisciplineID">
+              <TypeDescriptor TypeName="System.Int32" Name="DisciplineID" />
+            </Parameter>
+			<Parameter Direction="Return" Name="dbo.Discipline">
+              <TypeDescriptor TypeName="System.String" Name="SomethingToReturn" />
+            </Parameter>
+          </Parameters>
+          <MethodInstances>
+            <MethodInstance Name="dbo.DisciplineDeleter" Type="GenericInvoker" ReturnParameterName="dbo.Discipline" />
+          </MethodInstances>
+        </Method>			
+      </Methods>
+      <Actions>
+        <Action Name="Add" Position="1" IsOpenedInNewWindow="false" Url="https://cm.projetkoniambo.com/ProjectControl/paf_maintenance/Pages/AddDiscipline.aspx" ImageUrl="https://cm.projetkoniambo.com/_layouts/images/newitem.gif"  />
+        <Action Name="Edit" Position="2" IsOpenedInNewWindow="false" Url="https://cm.projetkoniambo.com/ProjectControl/paf_maintenance/Pages/EditDiscipline.aspx?DisciplineID={0}" ImageUrl="https://cm.projetkoniambo.com/_layouts/images/edit.gif">
+          <ActionParameters>
+            <ActionParameter Name="DisciplineID" Index="0" />
+          </ActionParameters>
+        </Action>
+        <Action Name="Delete" Position="3" IsOpenedInNewWindow="false" Url="https://cm.projetkoniambo.com/ProjectControl/paf_maintenance/Pages/DeleteDiscipline.aspx?DisciplineID={0}" ImageUrl="https://cm.projetkoniambo.com/_layouts/images/delete.gif">
+          <ActionParameters>
+            <ActionParameter Name="DisciplineID" Index="0" />
+          </ActionParameters>
+        </Action>
+      </Actions>
+    </Entity>
+	<!--LOCATION-->
+    <Entity EstimatedInstanceCount="0" Name="dbo.Location" DefaultDisplayName="Locations">
+      <Properties>
+        <Property Name="Title" Type="System.String">LocationID</Property>
+      </Properties>
+	  <Identifiers>
+        <Identifier TypeName="System.String" Name="[LocationID]" />
+      </Identifiers>
+      <Methods>
+        <Method Name="Getdbo.[Location]">
+          <Properties>
+            <Property Name="RdbCommandText" Type="System.String">Select [LocationID],[LocationName],[CompanyID],[CurrencyID],[StandardWorkingHours],[Multiplier],[OtherOfficeSpace],[OtherOfficeExpenses],[OtherIT],[OtherITCore],[OtherTotal],[Revision],[RevisionEffectiveDate],[Comments],[SortOrder] From dbo.[Location]</Property>
+            <Property Name="RdbCommandType" Type="System.Data.CommandType">Text</Property>
+          </Properties>
+          <Parameters>
+            <Parameter Direction="Return" Name="dbo.[Location]">
+              <TypeDescriptor TypeName="System.Data.IDataReader, System.Data, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" IsCollection="true" Name="dbo.[Location]DataReader">
+                <TypeDescriptors>
+                  <TypeDescriptor TypeName="System.Data.IDataRecord, System.Data, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" Name="dbo.[Location]DataRecord">
+                    <TypeDescriptors>
+                      <TypeDescriptor TypeName="System.String" Name="LocationID" IdentifierName="[LocationID]" />
+                      <TypeDescriptor TypeName="System.String" Name="LocationName"  DefaultDisplayName="Location Name"/>
+                      <TypeDescriptor TypeName="System.String" Name="CompanyID" />
+                      <TypeDescriptor TypeName="System.String" Name="CurrencyID" />
+                      <TypeDescriptor TypeName="System.Int32" Name="StandardWorkingHours" DefaultDisplayName="Standard Working Hours"/>
+                      <TypeDescriptor TypeName="System.Double" Name="Multiplier" />
+                      <TypeDescriptor TypeName="System.Decimal" Name="OtherOfficeSpace" DefaultDisplayName="Other Office Space" />
+                      <TypeDescriptor TypeName="System.Decimal" Name="OtherOfficeExpenses" DefaultDisplayName="Other Office Expenses" />
+                      <TypeDescriptor TypeName="System.Decimal" Name="OtherIT" DefaultDisplayName="Other IT" />
+                      <TypeDescriptor TypeName="System.Decimal" Name="OtherITCore" DefaultDisplayName="Other IT Core" />
+                      <TypeDescriptor TypeName="System.Decimal" Name="OtherTotal" DefaultDisplayName="Other Total" />
+                      <TypeDescriptor TypeName="System.Int32" Name="Revision" />
+                      <TypeDescriptor TypeName="System.String" Name="RevisionEffectiveDate" DefaultDisplayName="Revision Effective Date" />
+                      <TypeDescriptor TypeName="System.String" Name="Comments" />
+                      <TypeDescriptor TypeName="System.Int32" Name="SortOrder" DefaultDisplayName="Sort Order" />
+                    </TypeDescriptors>
+                  </TypeDescriptor>
+                </TypeDescriptors>
+              </TypeDescriptor>
+            </Parameter>
+          </Parameters>
+          <MethodInstances>
+            <MethodInstance Name="dbo.[Location]Finder" Type="Finder" ReturnParameterName="dbo.[Location]" ReturnTypeDescriptorName="dbo.[Location]DataReader" ReturnTypeDescriptorLevel="0" />
+          </MethodInstances>
+        </Method>
+        <Method Name="dbo.[Location]SpecificFinder">
+          <Properties>
+            <Property Name="RdbCommandText" Type="System.String">Select [LocationID],[LocationName],[CompanyID],[CurrencyID],[StandardWorkingHours],[Multiplier],[OtherOfficeSpace],[OtherOfficeExpenses],[OtherIT],[OtherITCore],[OtherTotal],[Revision],[RevisionEffectiveDate],[Comments],[SortOrder] From dbo.[Location] Where ([LocationID]=@LocationID)</Property>
+            <Property Name="RdbCommandType" Type="System.Data.CommandType">Text</Property>
+          </Properties>
+          <Parameters>
+            <Parameter Direction="In" Name="@LocationID">
+              <TypeDescriptor TypeName="System.String" Name="[LocationID]" IdentifierName="[LocationID]" />
+            </Parameter>
+            <Parameter Direction="Return" Name="dbo.[Location]">
+              <TypeDescriptor TypeName="System.Data.IDataReader, System.Data, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" IsCollection="true" Name="dbo.[Location]DataReader">
+                <TypeDescriptors>
+                  <TypeDescriptor TypeName="System.Data.IDataRecord, System.Data, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" Name="dbo.[Location]DataRecord">
+                    <TypeDescriptors>
+                      <TypeDescriptor TypeName="System.String" Name="LocationID" IdentifierName="[LocationID]" />
+                      <TypeDescriptor TypeName="System.String" Name="LocationName" />
+                      <TypeDescriptor TypeName="System.String" Name="CompanyID" />
+                      <TypeDescriptor TypeName="System.String" Name="CurrencyID" />
+                      <TypeDescriptor TypeName="System.Int32" Name="StandardWorkingHours" />
+                      <TypeDescriptor TypeName="System.Double" Name="Multiplier" />
+                      <TypeDescriptor TypeName="System.Decimal" Name="OtherOfficeSpace" />
+                      <TypeDescriptor TypeName="System.Decimal" Name="OtherOfficeExpenses" />
+                      <TypeDescriptor TypeName="System.Decimal" Name="OtherIT" />
+                      <TypeDescriptor TypeName="System.Decimal" Name="OtherITCore" />
+                      <TypeDescriptor TypeName="System.Decimal" Name="OtherTotal" />
+                      <TypeDescriptor TypeName="System.Int32" Name="Revision" />
+                      <TypeDescriptor TypeName="System.String" Name="RevisionEffectiveDate" />
+                      <TypeDescriptor TypeName="System.String" Name="Comments" />
+                      <TypeDescriptor TypeName="System.Int32" Name="SortOrder" />
+                    </TypeDescriptors>
+                  </TypeDescriptor>
+                </TypeDescriptors>
+              </TypeDescriptor>
+            </Parameter>
+          </Parameters>
+          <MethodInstances>
+            <MethodInstance Name="dbo.[Location]SpecificFinder" Type="SpecificFinder" ReturnParameterName="dbo.[Location]" ReturnTypeDescriptorName="dbo.[Location]DataReader" ReturnTypeDescriptorLevel="0" />
+          </MethodInstances>
+        </Method>
+        <Method Name="dbo.[Location]IdEnumerator">
+          <Properties>
+            <Property Name="RdbCommandText" Type="System.String">Select [LocationID] From dbo.[Location]</Property>
+            <Property Name="RdbCommandType" Type="System.Data.CommandType">Text</Property>
+          </Properties>
+          <Parameters>
+            <Parameter Direction="Return" Name="dbo.[Location]IDs">
+              <TypeDescriptor TypeName="System.Data.IDataReader, System.Data, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" IsCollection="true" Name="dbo.[Location]IDs">
+                <TypeDescriptors>
+                  <TypeDescriptor TypeName="System.Data.IDataRecord, System.Data, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" Name="dbo.[Location]">
+                    <TypeDescriptors>
+                      <TypeDescriptor TypeName="System.String" Name="LocationID" IdentifierName="[LocationID]" />
+                    </TypeDescriptors>
+                  </TypeDescriptor>
+                </TypeDescriptors>
+              </TypeDescriptor>
+            </Parameter>
+          </Parameters>
+          <MethodInstances>
+            <MethodInstance Name="dbo.[Location]EnumeratorInstance" Type="IdEnumerator" ReturnParameterName="dbo.[Location]IDs" />
+          </MethodInstances>
+        </Method>
+        <Method Name="insertdbo.Location">
+          <Properties>
+            <Property Name="RdbCommandText" Type="System.String">Insert into dbo.Location([LocationID],[LocationName],[CompanyID],[CurrencyID],[StandardWorkingHours],[Multiplier],[OtherOfficeSpace],[OtherOfficeExpenses],[OtherIT],[OtherITCore],[OtherTotal],[Revision],[RevisionEffectiveDate],[Comments],[SortOrder]) Values(@LocationID,@LocationName,@CompanyID,@CurrencyID,@StandardWorkingHours,@Multiplier,@OtherOfficeSpace,@OtherOfficeExpenses,@OtherIT,@OtherITCore,@OtherTotal,@Revision,@RevisionEffectiveDate,@Comments,@SortOrder);select SomethingToReturn = @@Identity</Property>
+            <Property Name="RdbCommandType" Type="System.String">Text</Property>
+          </Properties>
+          <Parameters>
+            <Parameter Direction="In" Name="@LocationID">
+              <TypeDescriptor TypeName="System.String" Name="LocationID" />
+            </Parameter>
+            <Parameter Direction="In" Name="@LocationName">
+              <TypeDescriptor TypeName="System.String" Name="LocationName" />
+            </Parameter>
+            <Parameter Direction="In" Name="@CompanyID">
+              <TypeDescriptor TypeName="System.String" Name="CompanyID" />
+            </Parameter>
+            <Parameter Direction="In" Name="@CurrencyID">
+              <TypeDescriptor TypeName="System.String" Name="CurrencyID" />
+            </Parameter>
+            <Parameter Direction="In" Name="@StandardWorkingHours">
+              <TypeDescriptor TypeName="System.Int32" Name="StandardWorkingHours" />
+            </Parameter>
+            <Parameter Direction="In" Name="@Multiplier">
+              <TypeDescriptor TypeName="System.Double" Name="Multiplier" />
+            </Parameter>
+            <Parameter Direction="In" Name="@OtherOfficeSpace">
+              <TypeDescriptor TypeName="System.Decimal" Name="OtherOfficeSpace" />
+            </Parameter>
+            <Parameter Direction="In" Name="@OtherOfficeExpenses">
+              <TypeDescriptor TypeName="System.Decimal" Name="OtherOfficeExpenses" />
+            </Parameter>
+            <Parameter Direction="In" Name="@OtherIT">
+              <TypeDescriptor TypeName="System.Decimal" Name="OtherIT" />
+            </Parameter>
+            <Parameter Direction="In" Name="@OtherITCore">
+              <TypeDescriptor TypeName="System.Decimal" Name="OtherITCore" />
+            </Parameter>
+            <Parameter Direction="In" Name="@OtherTotal">
+              <TypeDescriptor TypeName="System.Decimal" Name="OtherTotal" />
+            </Parameter>
+            <Parameter Direction="In" Name="@Revision">
+              <TypeDescriptor TypeName="System.Int32" Name="Revision" />
+            </Parameter>
+            <Parameter Direction="In" Name="@RevisionEffectiveDate">
+              <TypeDescriptor TypeName="System.DateTime" Name="RevisionEffectiveDate" />
+            </Parameter>
+            <Parameter Direction="In" Name="@Comments">
+              <TypeDescriptor TypeName="System.String" Name="Comments" />
+            </Parameter>
+            <Parameter Direction="In" Name="@SortOrder">
+              <TypeDescriptor TypeName="System.Int32" Name="SortOrder" />
+            </Parameter>
+            <Parameter Direction="Return" Name="dbo.Location">
+              <TypeDescriptor TypeName="System.String" Name="SomethingToReturn" />
+            </Parameter>
+          </Parameters>
+          <MethodInstances>
+            <MethodInstance Name="dbo.LocationInserter" Type="GenericInvoker" ReturnParameterName="dbo.Location" />
+          </MethodInstances>
+        </Method>
+        <Method Name="updatedbo.Location">
+          <Properties>
+            <Property Name="RdbCommandText" Type="System.String">Update dbo.Location SET [LocationName]=@LocationName,[CompanyID]=@CompanyID,[CurrencyID]=@CurrencyID,[StandardWorkingHours]=@StandardWorkingHours,[Multiplier]=@Multiplier,[OtherOfficeSpace]=@OtherOfficeSpace,[OtherOfficeExpenses]=@OtherOfficeExpenses,[OtherIT]=@OtherIT,[OtherITCore]=@OtherITCore,[OtherTotal]=@OtherTotal,[Revision]=@Revision,[RevisionEffectiveDate]=@RevisionEffectiveDate,[Comments]=@Comments,[SortOrder]=@SortOrder WHERE([LocationID]=@LocationID);select SomethingToReturn = @@Identity</Property>
+            <Property Name="RdbCommandType" Type="System.String">Text</Property>
+          </Properties>
+          <Parameters>
+            <Parameter Direction="In" Name="@LocationID">
+              <TypeDescriptor TypeName="System.String" Name="LocationID" />
+            </Parameter>
+            <Parameter Direction="In" Name="@LocationName">
+              <TypeDescriptor TypeName="System.String" Name="LocationName" />
+            </Parameter>
+            <Parameter Direction="In" Name="@CompanyID">
+              <TypeDescriptor TypeName="System.String" Name="CompanyID" />
+            </Parameter>
+            <Parameter Direction="In" Name="@CurrencyID">
+              <TypeDescriptor TypeName="System.String" Name="CurrencyID" />
+            </Parameter>
+            <Parameter Direction="In" Name="@StandardWorkingHours">
+              <TypeDescriptor TypeName="System.Int32" Name="StandardWorkingHours" />
+            </Parameter>
+            <Parameter Direction="In" Name="@Multiplier">
+              <TypeDescriptor TypeName="System.Double" Name="Multiplier" />
+            </Parameter>
+            <Parameter Direction="In" Name="@OtherOfficeSpace">
+              <TypeDescriptor TypeName="System.Decimal" Name="OtherOfficeSpace" />
+            </Parameter>
+            <Parameter Direction="In" Name="@OtherOfficeExpenses">
+              <TypeDescriptor TypeName="System.Decimal" Name="OtherOfficeExpenses" />
+            </Parameter>
+            <Parameter Direction="In" Name="@OtherIT">
+              <TypeDescriptor TypeName="System.Decimal" Name="OtherIT" />
+            </Parameter>
+            <Parameter Direction="In" Name="@OtherITCore">
+              <TypeDescriptor TypeName="System.Decimal" Name="OtherITCore" />
+            </Parameter>
+            <Parameter Direction="In" Name="@OtherTotal">
+              <TypeDescriptor TypeName="System.Decimal" Name="OtherTotal" />
+            </Parameter>
+            <Parameter Direction="In" Name="@Revision">
+              <TypeDescriptor TypeName="System.Int32" Name="Revision" />
+            </Parameter>
+            <Parameter Direction="In" Name="@RevisionEffectiveDate">
+              <TypeDescriptor TypeName="System.DateTime" Name="RevisionEffectiveDate" />
+            </Parameter>
+            <Parameter Direction="In" Name="@Comments">
+              <TypeDescriptor TypeName="System.String" Name="Comments" />
+            </Parameter>
+            <Parameter Direction="In" Name="@SortOrder">
+              <TypeDescriptor TypeName="System.Int32" Name="SortOrder" />
+            </Parameter>
+            <Parameter Direction="Return" Name="dbo.Location">
+              <TypeDescriptor TypeName="System.String" Name="SomethingToReturn" />
+            </Parameter>
+          </Parameters>
+          <MethodInstances>
+            <MethodInstance Name="dbo.LocationUpdater" Type="GenericInvoker" ReturnParameterName="dbo.Location" />
+          </MethodInstances>
+        </Method>
+		<Method Name="deletedbo.Location">
+          <Properties>
+            <Property Name="RdbCommandText" Type="System.String">Delete from dbo.Location WHERE ([LocationID]=@LocationID);</Property>
+            <Property Name="RdbCommandType" Type="System.String">Text</Property>
+          </Properties>
+          <Parameters>
+            <Parameter Direction="In" Name="@LocationID">
+              <TypeDescriptor TypeName="System.Int32" Name="LocationID" />
+            </Parameter>
+			<Parameter Direction="Return" Name="dbo.Location">
+              <TypeDescriptor TypeName="System.String" Name="SomethingToReturn" />
+            </Parameter>
+          </Parameters>
+          <MethodInstances>
+            <MethodInstance Name="dbo.LocationDeleter" Type="GenericInvoker" ReturnParameterName="dbo.Location" />
+          </MethodInstances>
+        </Method>			
+      </Methods>
+      <Actions>
+        <Action Name="Add" Position="1" IsOpenedInNewWindow="false" Url="https://cm.projetkoniambo.com/ProjectControl/paf_maintenance/Pages/AddLocation.aspx" ImageUrl="https://cm.projetkoniambo.com/_layouts/images/newitem.gif" />
+        <Action Name="Edit" Position="2" IsOpenedInNewWindow="false" Url="https://cm.projetkoniambo.com/ProjectControl/paf_maintenance/Pages/EditLocation.aspx?LocationID={0}" ImageUrl="https://cm.projetkoniambo.com/_layouts/images/edit.gif">
+          <ActionParameters>
+            <ActionParameter Name="LocationID" Index="0" />
+          </ActionParameters>
+        </Action>
+        <Action Name="Delete" Position="3" IsOpenedInNewWindow="false" Url="https://cm.projetkoniambo.com/ProjectControl/paf_maintenance/Pages/DeleteLocation.aspx?LocationID={0}" ImageUrl="https://cm.projetkoniambo.com/_layouts/images/delete.gif">
+          <ActionParameters>
+            <ActionParameter Name="LocationID" Index="0" />
+          </ActionParameters>
+        </Action>
+      </Actions>
+    </Entity>
+	<!--CURRENCY-->
+    <Entity EstimatedInstanceCount="0" Name="dbo.Currency" DefaultDisplayName="Currencies">
+      <Properties>
+        <Property Name="Title" Type="System.String">CurrencyID</Property>
+      </Properties>
+	  <Identifiers>
+        <Identifier TypeName="System.String" Name="[CurrencyID]" />
+      </Identifiers>
+      <Methods>
+        <Method Name="Getdbo.[Currency]">
+          <Properties>
+            <Property Name="RdbCommandText" Type="System.String">Select [CurrencyID],[Description],[CurrencyToProjectrate],[Comments] From dbo.[Currency]</Property>
+            <Property Name="RdbCommandType" Type="System.Data.CommandType">Text</Property>
+          </Properties>
+          <Parameters>
+            <Parameter Direction="Return" Name="dbo.[Currency]">
+              <TypeDescriptor TypeName="System.Data.IDataReader, System.Data, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" IsCollection="true" Name="dbo.[Currency]DataReader">
+                <TypeDescriptors>
+                  <TypeDescriptor TypeName="System.Data.IDataRecord, System.Data, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" Name="dbo.[Currency]DataRecord">
+                    <TypeDescriptors>
+                      <TypeDescriptor TypeName="System.String" Name="CurrencyID" IdentifierName="[CurrencyID]" />
+                      <TypeDescriptor TypeName="System.String" Name="Description" />
+                      <TypeDescriptor TypeName="System.Double" Name="CurrencyToProjectrate" DefaultDisplayName="Currency To Project rate"/>
+                      <TypeDescriptor TypeName="System.String" Name="Comments" />
+                    </TypeDescriptors>
+                  </TypeDescriptor>
+                </TypeDescriptors>
+              </TypeDescriptor>
+            </Parameter>
+          </Parameters>
+          <MethodInstances>
+            <MethodInstance Name="dbo.[Currency]Finder" Type="Finder" ReturnParameterName="dbo.[Currency]" ReturnTypeDescriptorName="dbo.[Currency]DataReader" ReturnTypeDescriptorLevel="0" />
+          </MethodInstances>
+        </Method>
+        <Method Name="dbo.[Currency]SpecificFinder">
+          <Properties>
+            <Property Name="RdbCommandText" Type="System.String">Select [CurrencyID],[Description],[CurrencyToProjectrate],[Comments] From dbo.[Currency] Where ([CurrencyID]=@CurrencyID)</Property>
+            <Property Name="RdbCommandType" Type="System.Data.CommandType">Text</Property>
+          </Properties>
+          <Parameters>
+            <Parameter Direction="In" Name="@CurrencyID">
+              <TypeDescriptor TypeName="System.String" Name="[CurrencyID]" IdentifierName="[CurrencyID]" />
+            </Parameter>
+            <Parameter Direction="Return" Name="dbo.[Currency]">
+              <TypeDescriptor TypeName="System.Data.IDataReader, System.Data, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" IsCollection="true" Name="dbo.[Currency]DataReader">
+                <TypeDescriptors>
+                  <TypeDescriptor TypeName="System.Data.IDataRecord, System.Data, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" Name="dbo.[Currency]DataRecord">
+                    <TypeDescriptors>
+                      <TypeDescriptor TypeName="System.String" Name="CurrencyID" IdentifierName="[CurrencyID]" />
+                      <TypeDescriptor TypeName="System.String" Name="Description" />
+                      <TypeDescriptor TypeName="System.Double" Name="CurrencyToProjectrate" />
+                      <TypeDescriptor TypeName="System.String" Name="Comments" />
+                    </TypeDescriptors>
+                  </TypeDescriptor>
+                </TypeDescriptors>
+              </TypeDescriptor>
+            </Parameter>
+          </Parameters>
+          <MethodInstances>
+            <MethodInstance Name="dbo.[Currency]SpecificFinder" Type="SpecificFinder" ReturnParameterName="dbo.[Currency]" ReturnTypeDescriptorName="dbo.[Currency]DataReader" ReturnTypeDescriptorLevel="0" />
+          </MethodInstances>
+        </Method>
+        <Method Name="dbo.[Currency]IdEnumerator">
+          <Properties>
+            <Property Name="RdbCommandText" Type="System.String">Select [CurrencyID] From dbo.[Currency]</Property>
+            <Property Name="RdbCommandType" Type="System.Data.CommandType">Text</Property>
+          </Properties>
+          <Parameters>
+            <Parameter Direction="Return" Name="dbo.[Currency]IDs">
+              <TypeDescriptor TypeName="System.Data.IDataReader, System.Data, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" IsCollection="true" Name="dbo.[Currency]IDs">
+                <TypeDescriptors>
+                  <TypeDescriptor TypeName="System.Data.IDataRecord, System.Data, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" Name="dbo.[Currency]">
+                    <TypeDescriptors>
+                      <TypeDescriptor TypeName="System.String" Name="CurrencyID" IdentifierName="[CurrencyID]" />
+                    </TypeDescriptors>
+                  </TypeDescriptor>
+                </TypeDescriptors>
+              </TypeDescriptor>
+            </Parameter>
+          </Parameters>
+          <MethodInstances>
+            <MethodInstance Name="dbo.[Currency]EnumeratorInstance" Type="IdEnumerator" ReturnParameterName="dbo.[Currency]IDs" />
+          </MethodInstances>
+        </Method>
+        <Method Name="insertdbo.Currency">
+          <Properties>
+            <Property Name="RdbCommandText" Type="System.String">Insert into dbo.Currency([CurrencyID],[Description],[CurrencyToProjectrate],[Comments]) Values(@CurrencyID,@Description,@CurrencyToProjectrate,@Comments);select SomethingToReturn = @@Identity</Property>
+            <Property Name="RdbCommandType" Type="System.String">Text</Property>
+          </Properties>
+          <Parameters>
+            <Parameter Direction="In" Name="@CurrencyID">
+              <TypeDescriptor TypeName="System.String" Name="CurrencyID" />
+            </Parameter>
+            <Parameter Direction="In" Name="@Description">
+              <TypeDescriptor TypeName="System.String" Name="Description" />
+            </Parameter>
+            <Parameter Direction="In" Name="@CurrencyToProjectrate">
+              <TypeDescriptor TypeName="System.Double" Name="CurrencyToProjectrate" />
+            </Parameter>
+            <Parameter Direction="In" Name="@Comments">
+              <TypeDescriptor TypeName="System.String" Name="Comments" />
+            </Parameter>
+            <Parameter Direction="Return" Name="dbo.Currency">
+              <TypeDescriptor TypeName="System.String" Name="SomethingToReturn" />
+            </Parameter>
+          </Parameters>
+          <MethodInstances>
+            <MethodInstance Name="dbo.CurrencyInserter" Type="GenericInvoker" ReturnParameterName="dbo.Currency" />
+          </MethodInstances>
+        </Method>
+        <Method Name="updatedbo.Currency">
+          <Properties>
+            <Property Name="RdbCommandText" Type="System.String">Update dbo.Currency SET [Description]=@Description,[CurrencyToProjectrate]=@CurrencyToProjectrate,[Comments]=@Comments WHERE([CurrencyID]=@CurrencyID);select SomethingToReturn = @@Identity</Property>
+            <Property Name="RdbCommandType" Type="System.String">Text</Property>
+          </Properties>
+          <Parameters>
+            <Parameter Direction="In" Name="@CurrencyID">
+              <TypeDescriptor TypeName="System.String" Name="CurrencyID" />
+            </Parameter>
+            <Parameter Direction="In" Name="@Description">
+              <TypeDescriptor TypeName="System.String" Name="Description" />
+            </Parameter>
+            <Parameter Direction="In" Name="@CurrencyToProjectrate">
+              <TypeDescriptor TypeName="System.Double" Name="CurrencyToProjectrate" />
+            </Parameter>
+            <Parameter Direction="In" Name="@Comments">
+              <TypeDescriptor TypeName="System.String" Name="Comments" />
+            </Parameter>
+            <Parameter Direction="Return" Name="dbo.Currency">
+              <TypeDescriptor TypeName="System.String" Name="SomethingToReturn" />
+            </Parameter>
+          </Parameters>
+          <MethodInstances>
+            <MethodInstance Name="dbo.CurrencyUpdater" Type="GenericInvoker" ReturnParameterName="dbo.Currency" />
+          </MethodInstances>
+        </Method>
+		<Method Name="deletedbo.Currency">
+          <Properties>
+            <Property Name="RdbCommandText" Type="System.String">Delete from dbo.Currency WHERE ([CurrencyID]=@CurrencyID);</Property>
+            <Property Name="RdbCommandType" Type="System.String">Text</Property>
+          </Properties>
+          <Parameters>
+            <Parameter Direction="In" Name="@CurrencyID">
+              <TypeDescriptor TypeName="System.Int32" Name="CurrencyID" />
+            </Parameter>
+			<Parameter Direction="Return" Name="dbo.Currency">
+              <TypeDescriptor TypeName="System.String" Name="SomethingToReturn" />
+            </Parameter>
+          </Parameters>
+          <MethodInstances>
+            <MethodInstance Name="dbo.CurrencyDeleter" Type="GenericInvoker" ReturnParameterName="dbo.Currency" />
+          </MethodInstances>
+        </Method>
+      </Methods>
+      <Actions>
+        <Action Name="Add" Position="1" IsOpenedInNewWindow="false" Url="https://cm.projetkoniambo.com/ProjectControl/paf_maintenance/Pages/AddCurrency.aspx" ImageUrl="https://cm.projetkoniambo.com/_layouts/images/newitem.gif" />
+        <Action Name="Edit" Position="2" IsOpenedInNewWindow="false" Url="https://cm.projetkoniambo.com/ProjectControl/paf_maintenance/Pages/EditCurrency.aspx?CurrencyID={0}" ImageUrl="https://cm.projetkoniambo.com/_layouts/images/edit.gif">
+          <ActionParameters>
+            <ActionParameter Name="CurrencyID" Index="0" />
+          </ActionParameters>
+        </Action>
+        <Action Name="Delete" Position="3" IsOpenedInNewWindow="false" Url="https://cm.projetkoniambo.com/ProjectControl/paf_maintenance/Pages/DeleteCurrency.aspx?CurrencyID={0}" ImageUrl="https://cm.projetkoniambo.com/_layouts/images/delete.gif">	
+          <ActionParameters>
+            <ActionParameter Name="CurrencyID" Index="0" />
+          </ActionParameters>
+        </Action>
+      </Actions>
+    </Entity>	
+  </Entities>
+</LobSystem>

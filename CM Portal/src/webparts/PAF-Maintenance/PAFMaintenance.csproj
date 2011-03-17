@@ -1,0 +1,95 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8B44E34E-38BE-49F4-8EB2-B9AC727ABF6D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PAF-Maintenance</RootNamespace>
+    <AssemblyName>PAFMaintenance</AssemblyName>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>PAFMaintenance.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="microsoft.sharepoint.portal, Version=12.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>N:\Systèmes et Automatisation\SiteIT\Sharepoint software\microsoft.sharepoint.portal.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdddboCurrency.cs" />
+    <Compile Include="AdddboLocation.cs" />
+    <Compile Include="BdcHelpers.cs" />
+    <Compile Include="AdddboCompany.cs" />
+    <None Include="AdddboCompany.webpart" />
+    <Compile Include="DeletedboCompany.cs" />
+    <Compile Include="DeletedboCurrency.cs" />
+    <Compile Include="DeletedboDiscipline.cs" />
+    <Compile Include="DeletedboLocation.cs" />
+    <Compile Include="UpdatedboCompany.cs" />
+    <None Include="UpdatedboCompany.webpart" />
+    <Compile Include="AdddboDiscipline.cs" />
+    <None Include="AdddboDiscipline.webpart" />
+    <Compile Include="UpdatedboCurrency.cs" />
+    <Compile Include="UpdatedboDiscipline.cs" />
+    <None Include="UpdatedboDiscipline.webpart" />
+    <None Include="setup.bat" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UpdatedboLocation.cs" />
+    <Compile Include="WebpartUtils.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="AdddboCurrency.webpart" />
+    <None Include="AdddboLocation.webpart" />
+    <None Include="DeletedboCompany.webpart" />
+    <None Include="DeletedboCurrency.webpart" />
+    <None Include="DeletedboDiscipline.webpart" />
+    <None Include="DeletedboLocation.webpart" />
+    <None Include="PAFMaintenance.snk" />
+    <None Include="UpdatedboCurrency.webpart" />
+    <None Include="UpdatedboLocation.webpart" />
+    <None Include="WSP.ddf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Manifest.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>
+			cd "$(ProjectDir)"
+			"%25programfiles%25\Microsoft Visual Studio 8\SDK\v2.0\Bin\GacUtil.exe" /if "$(TargetPath)" /nologo
+			MakeCab.exe /f WSP.ddf
+			copy "setup.bat" "c:\wsp\setup.bat"
+		</PostBuildEvent>
+  </PropertyGroup>
+</Project>

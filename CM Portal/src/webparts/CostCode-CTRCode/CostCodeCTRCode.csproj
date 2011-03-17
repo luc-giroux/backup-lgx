@@ -1,0 +1,82 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8B44E34E-38BE-49F4-8EB2-B9AC727ABF6D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CostCodeCTRCode</RootNamespace>
+    <AssemblyName>CostCodeCTRCode</AssemblyName>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>CostCodeCTRCodeKey.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="microsoft.sharepoint.portal, Version=12.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>N:\Systemes et Automatisation\SiteIT\Sharepoint software\microsoft.sharepoint.portal.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BdcHelpers.cs" />
+    <Compile Include="AdddboCostCode.cs" />
+    <None Include="AdddboCostCode.webpart" />
+    <Compile Include="DeletedboCostCode.cs" />
+    <Compile Include="DeletedboCTRCode.cs" />
+    <Compile Include="UpdatedboCostCode.cs" />
+    <None Include="UpdatedboCostCode.webpart" />
+    <Compile Include="AdddboCTRCode.cs" />
+    <None Include="AdddboCTRCode.webpart" />
+    <Compile Include="UpdatedboCTRCode.cs" />
+    <None Include="UpdatedboCTRCode.webpart" />
+    <None Include="setup.bat" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="CostCodeCTRCodeKey.snk" />
+    <None Include="DeletedboCostCode.webpart" />
+    <None Include="DeletedboCTRCode.webpart" />
+    <None Include="WSP.ddf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Manifest.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>
+			cd "$(ProjectDir)"
+			"%25programfiles%25\Microsoft Visual Studio 8\SDK\v2.0\Bin\GacUtil.exe" /if "$(TargetPath)" /nologo
+			MakeCab.exe /f WSP.ddf
+			copy "setup.bat" "c:\wsp\setup.bat"
+		</PostBuildEvent>
+  </PropertyGroup>
+</Project>

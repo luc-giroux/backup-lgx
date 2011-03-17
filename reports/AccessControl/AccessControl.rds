@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RptDataSource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Name>AccessControl</Name>
+  <DataSourceID>a6b30ed9-b2a6-4498-8ec7-dba7b5869e8d</DataSourceID>
+  <ConnectionProperties>
+    <Extension>SQL</Extension>
+    <ConnectString>Data Source=VAVDB2;Initial Catalog=AccessControlQueries</ConnectString>
+  </ConnectionProperties>
+</RptDataSource>

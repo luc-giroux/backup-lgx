@@ -1,0 +1,371 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3FEE6A0A-A126-42B9-8B31-B2ED8FB8A790}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>PAF</AssemblyName>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyMode>None</AssemblyOriginatorKeyMode>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>WinExe</OutputType>
+    <OptionCompare>Binary</OptionCompare>
+    <OptionExplicit>On</OptionExplicit>
+    <OptionStrict>On</OptionStrict>
+    <RootNamespace>PAF</RootNamespace>
+    <StartupObject>PAF.MainForm</StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <MyType>WindowsFormsWithCustomSubMain</MyType>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <PublishUrl>http://localhost/PAF/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>PAF.xml</DocumentationFile>
+    <BaseAddress>285212672</BaseAddress>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>
+    </DefineConstants>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <DebugSymbols>true</DebugSymbols>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>1</WarningLevel>
+    <NoWarn>42016,42017,42018,42019,42032,42353,42354,42355</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>PAF.xml</DocumentationFile>
+    <BaseAddress>285212672</BaseAddress>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>
+    </DefineConstants>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>1</WarningLevel>
+    <NoWarn>42016,42017,42018,42019,42032,42353,42354,42355</NoWarn>
+    <DebugType>none</DebugType>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
+    </Reference>
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms">
+      <Name>System.Windows.Forms</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AdjustmentsDataset.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AdjustmentsDataset.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="EmployeeList.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>EmployeeList.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="FilterActive.ico" />
+    <Content Include="Hours.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Hours.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="InvoicedHours.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>InvoicedHours.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="InvoicedHoursCosts.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>InvoicedHoursCosts.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="NewLookupDataset.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>NewLookupDataset.Designer.vb</LastGenOutput>
+    </Content>
+    <Content Include="TimesheetLoad.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TimesheetLoad.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <Compile Include="AdjustmentsDataset.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AdjustmentsDataset.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="AdjustmentsForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AssemblyInfo.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="InvoicedHours.vb">
+      <DependentUpon>InvoicedHours.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SAPTimesheetLoadForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmployeeForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmployeeList.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EmployeeList.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Hours.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Hours.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="InvoicedHours.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvoicedHours.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="InvoicedHoursCosts.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvoicedHoursCosts.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="InvoicedHoursCosts.vb">
+      <DependentUpon>InvoicedHoursCosts.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="InvoiceEditionForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="NewLookupDataset.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NewLookupDataset.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="NewLookupDataset.vb">
+      <DependentUpon>NewLookupDataset.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SAPTimesheets.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SAPTimesheets.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SAPTimesheets.vb">
+      <DependentUpon>SAPTimesheets.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.vb" />
+    <Compile Include="TimesheetLoad.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TimesheetLoad.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="TimesheetLoad.vb">
+      <DependentUpon>TimesheetLoad.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="TimesheetLoadForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserControl1.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <None Include="AdjustmentsDataset.xsc">
+      <DependentUpon>AdjustmentsDataset.xsd</DependentUpon>
+    </None>
+    <None Include="AdjustmentsDataset.xss">
+      <DependentUpon>AdjustmentsDataset.xsd</DependentUpon>
+    </None>
+    <None Include="AdjustmentsDataset.xsx">
+      <DependentUpon>AdjustmentsDataset.xsd</DependentUpon>
+    </None>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="EmployeeList.xsc">
+      <DependentUpon>EmployeeList.xsd</DependentUpon>
+    </None>
+    <None Include="EmployeeList.xss">
+      <DependentUpon>EmployeeList.xsd</DependentUpon>
+    </None>
+    <None Include="EmployeeList.xsx">
+      <DependentUpon>EmployeeList.xsd</DependentUpon>
+    </None>
+    <None Include="Hours.xsc">
+      <DependentUpon>Hours.xsd</DependentUpon>
+    </None>
+    <None Include="Hours.xss">
+      <DependentUpon>Hours.xsd</DependentUpon>
+    </None>
+    <None Include="Hours.xsx">
+      <DependentUpon>Hours.xsd</DependentUpon>
+    </None>
+    <None Include="InvoicedHours.xsc">
+      <DependentUpon>InvoicedHours.xsd</DependentUpon>
+    </None>
+    <None Include="InvoicedHours.xss">
+      <DependentUpon>InvoicedHours.xsd</DependentUpon>
+    </None>
+    <None Include="InvoicedHours.xsx">
+      <DependentUpon>InvoicedHours.xsd</DependentUpon>
+    </None>
+    <None Include="InvoicedHoursCosts.xsc">
+      <DependentUpon>InvoicedHoursCosts.xsd</DependentUpon>
+    </None>
+    <None Include="InvoicedHoursCosts.xss">
+      <DependentUpon>InvoicedHoursCosts.xsd</DependentUpon>
+    </None>
+    <None Include="InvoicedHoursCosts.xsx">
+      <DependentUpon>InvoicedHoursCosts.xsd</DependentUpon>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="NewLookupDataset.xsc">
+      <DependentUpon>NewLookupDataset.xsd</DependentUpon>
+    </None>
+    <None Include="NewLookupDataset.xss">
+      <DependentUpon>NewLookupDataset.xsd</DependentUpon>
+    </None>
+    <None Include="SAPTimesheets.xsc">
+      <DependentUpon>SAPTimesheets.xsd</DependentUpon>
+    </None>
+    <None Include="SAPTimesheets.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SAPTimesheets.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="SAPTimesheets.xss">
+      <DependentUpon>SAPTimesheets.xsd</DependentUpon>
+    </None>
+    <None Include="TimesheetLoad.xsc">
+      <DependentUpon>TimesheetLoad.xsd</DependentUpon>
+    </None>
+    <None Include="TimesheetLoad.xss">
+      <DependentUpon>TimesheetLoad.xsd</DependentUpon>
+    </None>
+    <None Include="TimesheetLoad.xsx">
+      <DependentUpon>TimesheetLoad.xsd</DependentUpon>
+    </None>
+    <EmbeddedResource Include="AdjustmentsForm.resx">
+      <DependentUpon>AdjustmentsForm.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SAPTimesheetLoadForm.resx">
+      <DependentUpon>SAPTimesheetLoadForm.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmployeeForm.resx">
+      <DependentUpon>EmployeeForm.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InvoiceEditionForm.resx">
+      <DependentUpon>InvoiceEditionForm.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TimesheetLoadForm.resx">
+      <DependentUpon>TimesheetLoadForm.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl1.resx">
+      <DependentUpon>UserControl1.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

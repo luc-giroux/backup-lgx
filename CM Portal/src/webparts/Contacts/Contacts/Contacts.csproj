@@ -1,0 +1,101 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4155706F-64B0-44C5-8E0F-7E9D26465193}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Contacts</RootNamespace>
+    <AssemblyName>Contacts</AssemblyName>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>ContactKey.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="microsoft.sharepoint.portal, Version=12.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>N:\Systemes et Automatisation\SiteIT\Sharepoint software\microsoft.sharepoint.portal.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdddboContractors.cs" />
+    <Compile Include="AdddboEmployees.cs" />
+    <Compile Include="AdddboProjectOffices.cs" />
+    <Compile Include="AdddboRooms.cs" />
+    <Compile Include="AdddboVariousContact.cs" />
+    <Compile Include="BdcHelpers.cs" />
+    <Compile Include="DeletedboContractors.cs" />
+    <Compile Include="DeletedboEmployees.cs" />
+    <Compile Include="DeletedboProjectOffices.cs" />
+    <Compile Include="DeletedboRooms.cs" />
+    <Compile Include="DeletedboVariousContact.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UpdatedboContractors.cs" />
+    <Compile Include="UpdatedboEmployees.cs" />
+    <Compile Include="UpdatedboProjectOffices.cs" />
+    <Compile Include="UpdatedboRooms.cs" />
+    <Compile Include="UpdatedboVariousContact.cs" />
+    <Compile Include="WebpartUtils.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="AdddboContractors.webpart" />
+    <None Include="AdddboEmployees.webpart" />
+    <None Include="AdddboProjectOffices.webpart" />
+    <None Include="AdddboRooms.webpart" />
+    <None Include="AdddboVariousContact.webpart" />
+    <None Include="ContactKey.snk" />
+    <None Include="DeletedboContractors.webpart" />
+    <None Include="DeletedboEmployees.webpart" />
+    <None Include="DeletedboProjectOffices.webpart" />
+    <None Include="DeletedboRooms.webpart" />
+    <None Include="DeletedboVariousContact.webpart" />
+    <None Include="UpdatedboContractors.webpart" />
+    <None Include="UpdatedboEmployees.webpart" />
+    <None Include="UpdatedboProjectOffices.webpart" />
+    <None Include="UpdatedboRooms.webpart" />
+    <None Include="UpdatedboVariousContact.webpart" />
+    <None Include="WSP.ddf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Manifest.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>
+			cd "$(ProjectDir)"
+			"%25programfiles%25\Microsoft Visual Studio 8\SDK\v2.0\Bin\GacUtil.exe" /if "$(TargetPath)" /nologo
+			MakeCab.exe /f WSP.ddf
+			copy "setup.bat" "c:\wsp\setup.bat"
+		</PostBuildEvent>
+  </PropertyGroup>
+</Project>

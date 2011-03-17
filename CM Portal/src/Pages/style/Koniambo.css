@@ -1,0 +1,468 @@
+/** #075593 **/
+.ms-main {
+	background: #cae2f0 /*url(_layouts/1033/IMAGES/KONIAMBO/pageBack.gif) bottom left no-repeat*/;
+}
+/** 318ec4  **/
+.ms-globalTitleArea {
+	background: #085594 url("../_themes/KONIAMBO/_layouts/1033/IMAGES/KONIAMBO/left.png") top left  no-repeat;
+	padding: 0;
+}
+
+.ms-titleimagearea {
+	display: none;
+}
+/**
+.ms-sitetitle {
+	background: url(_layouts/1033/IMAGES/KONIAMBO/logo-koniambo.png) top left no-repeat;
+	padding: 10;
+	vertical-align: top;
+}
+**/
+/
+.ms-sitetitle h1 {
+	/*background: #ffffff; 
+	border-left: solid 6px #ffcc00; */
+	padding-left: 160px;
+	padding-right: 94px;
+	float: left;
+	margin-top: 32px;
+}
+
+
+.ms-sitetitle a {
+	font-weight: normal;
+	color: #FFFFFF;
+	font-family: Franklin Gothic Medium;
+	font-size: 29px;
+	text-transform:uppercase;
+	line-height: 51px;
+	display: block;
+	padding-left: 160px;
+
+}
+
+
+.ms-globalTitleArea table {
+	height: 100px;
+	background: url("../_themes/KONIAMBO/_layouts/1033/IMAGES/KONIAMBO/right.png") top right no-repeat;
+}
+
+.ms-globalTitleArea table table {
+	height: auto;
+}
+
+
+.ms-bannerContainer {
+	height: 20px;
+	background: #ffffff;
+	padding-left: 17px;
+}
+
+.ms-globalbreadcrumb {
+	background: #0e3e6f url("../_themes/KONIAMBO/_layouts/1033/IMAGES/KONIAMBO/topShade.gif") top left repeat-x;
+	padding: 0px;
+	padding-left: 9px;
+	padding-right: 9px;
+	height: 10px;
+}
+
+.ms-globallinks, .ms-globallinks a, .ms-SPLink a:link, .ms-SPLink a:visited, .ms-globalbreadcrumb a:hover, .ms-sblink a:link, .ms-sblink a:visited {
+	color:#FFFFFF;
+	font: arial;
+}
+
+.ms-sblink a:link, .ms-sblink a:visited {
+	font-weight: bold;
+}
+
+.ms-globalright td {
+	white-space: nowrap;
+}
+
+select.ms-sbscopes {
+	border-style: solid;
+	border-color: #58585a;
+}
+
+td.ms-sbcell {
+	border: solid 1px #58585a;
+	background: #ffffff;
+	padding-left: 0px;
+}
+
+td.ms-sblink {
+	border: none;
+	background: none;
+}
+
+.ms-sbtable-ex {
+	margin-top: 0px;
+}
+
+.ms-topnavContainer, .ms-topnavselected, .ms-topnav {
+	border: none;
+	background: none;
+	font-family: Arial;
+	font-size: 14px;
+	font-weight: normal;
+	color: #336699;
+	/*-->LGX Ajout*/
+	height:30px;
+	/*<--LGX Ajout*/
+}
+
+.ms-topnavselected, .ms-topnav {
+	border: solid 1px #ffffff;
+	border-bottom: solid 6px #ffffff;
+}
+
+.ms-topNavHover, .ms-topnav:hover {
+	border: solid 1px #e6e6e8;
+	border-bottom: solid 6px #ffcc00;
+	background: url("../_themes/KONIAMBO/_layouts/1033/IMAGES/KONIAMBO/navButton.gif") top left repeat-x;
+}
+
+.ms-topnav td {
+	height: 10px;
+}
+
+td.ms-titleareaframe, div.ms-titleareaframe, .ms-pagetitleareaframe, .ms-mwspagetitleareaframe, .ms-consoletitleareaframe {
+	background: #cae3f0 url("../_themes/KONIAMBO/_layouts/1033/IMAGES/KONIAMBO/breadShade.gif") top left repeat-x;
+	/*LGX*/
+	visibility:visible;
+	height:25px;
+	/*LGX*/
+
+}
+
+.ms-quicklaunchouter, .ms-quickLaunch {
+	margin: 0;
+	border: none;
+	width: 166px;
+}
+
+.ms-pagemargin, .ms-navframe img {
+	display: none;
+	margin-top:500px;
+}
+
+.ms-quicklaunchheader, table.ms-recyclebin td {
+	background: #336699 url("../_themes/KONIAMBO/_layouts/1033/IMAGES/KONIAMBO/quickLinksTitle.gif") top left repeat-x;
+	color: #ffffff;
+	border: none;
+	padding: 0;
+	text-align: center;
+	line-height: 25px;
+	font: arial 12px;
+}
+
+table.ms-recyclebin td {
+	text-align:left;
+	background: #336699 url("../_themes/KONIAMBO/_layouts/1033/IMAGES/KONIAMBO/recycleBack.gif") top left repeat-x;
+}
+
+table.ms-recyclebin td a {
+	color: #ffffff;
+	line-height: 28px;
+	background: url("../_themes/KONIAMBO/_layouts/1033/IMAGES/KONIAMBO/recycleBin.gif") top right no-repeat;
+	padding-right: 26px;
+	padding-left: 20px;
+	float: left;
+}
+
+.ms-quicklaunchheader a, .ms-unselectednav a {
+	color: #ffffff;
+	/*Enleve le lien "view all site content"*/
+	display:none;
+}
+
+.ms-quicklaunchheader a:hover, .ms-unselectednav a:hover, table.ms-recyclebin td a:hover {
+	color: #ffffff;
+}
+
+.ms-quicklaunch table td {
+	border: none;
+}
+
+.ms-quicklaunch table.ms-navheader td, .ms-navheader2 td, .ms-quicklaunch span.ms-navheader {
+	background: #ffffff;
+	border: none;
+}
+
+.ms-navheader {
+	background: #ffffff;
+	border-left: solid 6px #ffcc00;
+	font: bold arial 11px;
+	text-transform: uppercase;
+}
+
+a.ms-navheader {
+	display: block;
+	padding: 3px;
+	padding-left: 16px;
+}
+
+.ms-navsubmenu2 {
+	background: #cbe3f0 url("../_themes/KONIAMBO/_layouts/1033/IMAGES/KONIAMBO/quickLinksItem.gif") top left repeat-x;
+	margin: 0px;
+}
+
+table.ms-navitem td, span.ms-navitem {
+	padding-left: 29px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	color: #336699;
+	font: arial 11px normal;
+	background: url("../_themes/KONIAMBO/_layouts/1033/IMAGES/KONIAMBO/quickLinksArrow.gif") 21px 9px no-repeat;
+}
+
+#OuterLeftCell, .ms-bodyareacell {
+	background: #ffffff url("../_themes/KONIAMBO/_layouts/1033/IMAGES/KONIAMBO/contentLeftShade.gif") top left repeat-y;
+}
+
+.ms-bodyareaframe, .ms-viewareaframe {
+	border: none;
+}
+
+.ms-pagebreadcrumb {
+	background: #cbe3f0;
+	border: none;
+	border-bottom: solid 1px #7fa4c4;
+	color: #336699;
+	/*LGX height: 25px;*/
+	height: 12px;
+}
+
+.ms-bodyareapagemargin {
+	border: none;
+	background: /*url(_layouts/1033/IMAGES/KONIAMBO/pageBottomShade.gif)*/ top left repeat-x;
+	height: 20px;
+}
+
+.ms-nav, .ms-pagebottommargin, .ms-pagebottommarginleft, .ms-pagebottommarginright {
+	background: none
+}
+
+.ms-WPHeader td {
+	border-bottom: solid 1px #ffcc00;
+}
+
+.ms-WPTitle, .ms-WPHeader {
+	font-family: arial;
+	font-weight: normal;
+	font-size: 17px;
+	color: #336699;
+	text-transform: uppercase;
+}
+
+.bullet {
+	background: url("../_themes/KONIAMBO/_layouts/1033/IMAGES/KONIAMBO/bullet.gif") left 50% no-repeat;
+	padding-left: 14px;
+}
+
+.ms-WPBody a:link, .ms-WPBody a:visited, .ms-propertysheet a {
+	color: #336699;
+	background: none;
+}
+
+.ms-siteactionsmenu div div div, .ms-siteactionsmenu div div div.ms-siteactionsmenuhover {
+	background: #ffce09 url("../_themes/KONIAMBO/_layouts/1033/IMAGES/KONIAMBO/siteActionsBack.gif") top left repeat-x;
+	border: solid 1px #f6ecd0;
+	border-bottom: solid 1px #dab545;
+	border-right: solid 1px #dab545;
+	margin-bottom: 9px;
+}
+
+.ms-siteactionsmenu div div div a {
+	color: #333333;
+	font-size: 12px;
+	font-family: Arial;
+	font-weight: normal;
+}
+
+#OuterLeftCell, #OuterRightCell {
+	padding: 18px;
+}
+
+.zz1_TopNavigationMenu_8 {
+	background-color:#ffeda6 !important;
+	border:1px solid #ffcc00 !important;
+	border-bottom: solid 6px #ffcc00;
+	top: 150px !important;
+}
+
+.ms-topNavFlyOuts {
+	background-color:#ffeda6 !important;
+}
+
+.ms-topNavFlyOuts a {
+	color: #336699;
+	font-family: arial;
+	display: block;
+}
+
+a.ms-topNavFlyOutsHover {
+	background: #fff5cf !important;
+}
+
+div.ms-areaseparatorleft, div.ms-areaseparatorright {
+	background: none;
+	border: none;
+}
+
+td.ms-areaseparatorleft, .ms-titlearearight .ms-areaseparatorright {
+	background: none;
+	border: none;
+}
+
+table.ms-pageinformation {
+	background: none;
+}
+
+.ms-areaseparator, .ms-titlearearight {
+	background: url("../_themes/KONIAMBO/_layouts/1033/IMAGES/KONIAMBO/breadShade.gif") top left repeat-x;
+}
+
+.ms-linksectionheader .ms-standardheader {
+	color:#336699;
+	font-family:arial;
+	font-size:17px;
+	font-weight:normal;
+	text-transform:uppercase;
+}
+
+td.ms-linksectionheader, th.ms-linksectionheader {
+	border: none;
+	border-bottom: solid 1px #ffcc00;
+	background: none;
+}
+
+.ms-pagetitleareaframe table {
+	background: none;
+}
+
+.ms-quicklaunch table.ms-selectednav td, .ms-quicklaunch table.ms-selectednav {
+	border: none;
+	background: none;
+	line-height: 22px;
+	font-weight: bold;
+	margin: 0;
+	padding: 0;
+	padding-left: 5px;
+}
+
+.ms-menutoolbar {
+	background-color:#fdf4cf;
+	background-image:url("../_themes/KONIAMBO/_layouts/1033/IMAGES/KONIAMBO/listHeaderGrad.gif");
+	background-repeat:repeat-x;
+	border: none;
+	height:22px;
+}
+
+.ms-menutoolbar td {
+	border: none;
+}
+
+.ms-listdescription {
+	background: #ffffff;
+	border-bottom:1px solid #ffcc00;
+	color:#336699;
+	font-family:arial;
+	padding: 0;
+	line-height: 22px;
+	height: 24px;
+}
+
+.ms-descriptiontext {
+	height: 22px;
+	margin-left: 12px;
+}
+
+.ms-menubuttonactivehover, .ms-buttonactivehover {
+	border: none;
+	padding:2px 7px 3px;
+	margin: 2px;
+}
+
+.ms-bodyareaframe, .ms-viewareaframe {
+	background: none;
+}
+
+.ms-sctabrx, .ms-sctabcn, .ms-sctabcf, .ms-main .ms-sctabcf,
+.ms-sctabcnhover, .ms-sctabcfhover, .ms-main .ms-sctabcfhover {
+	border: none;
+	border-bottom: 6px #ffcc00 solid;
+	background: #ffffff;
+}
+
+
+.ms-propertysheet {
+	background: none;
+}
+
+.ms-authoringcontrols {
+	background: none;
+}
+
+
+
+.ms-quickLaunch {
+	background: #ffffff;
+}
+
+div.ms-treeviewouter div {
+	border: none;
+	width: auto !important;
+	height: auto !important;
+	padding-bottom: 22px;
+}
+
+.ms-navheader a, .ms-navheader2 a {
+	color: #336699;
+	padding-left: 8px;
+	line-height: 18px;
+}
+
+
+td.ms-ptabcn, td.ms-sctabcn, .ms-ptabcf {
+	border-bottom: solid 1px #336699 ;
+	background:#336699 url("../_themes/KONIAMBO/_layouts/1033/IMAGES/KONIAMBO/quickLinksTitle.gif") repeat-x scroll left top;
+}
+
+.ms-ptabcf a:link, .ms-ptabcf a:visited, .ms-ptabcfhover a:link, .ms-ptabcfhover a:visited, .ms-sctabcf a:link, .ms-sctabcf a:visited, .ms-sctabcfhover a:link, .ms-sctabcfhover a:visited {
+	color: #ffffff;
+}
+
+.ms-ptabcn, .ms-sctabcn {
+	border: solid 1px #336699 ;
+}
+
+td.ms-ptabcnhover, td.ms-ptabcfhover {
+	border: solid 1px #336699 ;
+	background:#336699 url("../_themes/KONIAMBO/_layouts/1033/IMAGES/KONIAMBO/quickLinksTitle.gif") repeat-x scroll left top;
+}
+
+.ms-ptabrx {
+	border-bottom: solid 1px #419740;
+}
+
+.ms-wikieditthird {
+	background:#336699 url("../_themes/KONIAMBO/_layouts/1033/IMAGES/KONIAMBO/quickLinksTitle.gif") repeat-x scroll left top;
+}
+
+.ms-wikieditouter {
+	border: none;
+	height: auto;
+}
+
+.ms-wikitoolbar a.ms-toolbar {
+	color:#ffffff;
+}
+
+.ms-separator {
+	color:#ffffff;
+}
+
+
+
+

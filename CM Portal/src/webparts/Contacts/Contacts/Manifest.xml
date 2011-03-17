@@ -1,0 +1,29 @@
+<Solution xmlns="http://schemas.microsoft.com/sharepoint/"
+          SolutionId="24c3afed-e871-47c4-bb39-3cd9450b4a2a">
+	<Assemblies>
+		<Assembly Location="Contacts.dll"
+				  DeploymentTarget="GlobalAssemblyCache">
+			<SafeControls>
+				<SafeControl Namespace="Contacts"   Safe="True" 
+							 TypeName="*" />
+			</SafeControls>
+		</Assembly>
+	</Assemblies>
+	<DwpFiles>
+	<DwpFile Location="AdddboContractors.webpart" />
+    <DwpFile Location="UpdatedboContractors.webpart" />
+	<DwpFile Location="DeletedboContractors.webpart" />
+    <DwpFile Location="AdddboEmployees.webpart" />
+    <DwpFile Location="UpdatedboEmployees.webpart" />
+	<DwpFile Location="DeletedboEmployees.webpart" />
+    <DwpFile Location="AdddboRooms.webpart" />
+    <DwpFile Location="UpdatedboRooms.webpart" />
+    <DwpFile Location="DeletedboRooms.webpart" />
+    <DwpFile Location="AdddboVariousContact.webpart" />
+    <DwpFile Location="UpdatedboVariousContact.webpart" />
+	<DwpFile Location="DeletedboVariousContact.webpart" />
+    <DwpFile Location="AdddboProjectOffices.webpart" />
+    <DwpFile Location="UpdatedboProjectOffices.webpart" />
+	<DwpFile Location="DeletedboProjectOffices.webpart" />
+	</DwpFiles>
+</Solution>

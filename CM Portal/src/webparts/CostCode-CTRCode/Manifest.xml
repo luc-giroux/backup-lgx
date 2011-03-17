@@ -1,0 +1,18 @@
+<Solution xmlns="http://schemas.microsoft.com/sharepoint/"
+          SolutionId="cd23606c-fe26-40f0-85ac-e8637b580099">
+	<Assemblies>
+		<Assembly Location="CostCodeCTRCode.dll"
+				  DeploymentTarget="GlobalAssemblyCache">
+			<SafeControls>
+				<SafeControl Namespace="CostCodeCTRCode"   Safe="True" 
+							 TypeName="*" />
+			</SafeControls>
+		</Assembly>
+	</Assemblies>
+	<DwpFiles>
+		<DwpFile Location="AdddboCostCode.webpart" />
+    <DwpFile Location="UpdatedboCostCode.webpart" />
+    <DwpFile Location="AdddboCTRCode.webpart" />
+    <DwpFile Location="UpdatedboCTRCode.webpart" />
+	</DwpFiles>
+</Solution>
