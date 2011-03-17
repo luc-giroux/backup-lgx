@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="AllianceTimesheetsModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2006/04/edm/ssdl">
+        <EntityContainer Name="AllianceTimesheetsModelStoreContainer">
+          <EntitySet Name="AppUser" EntityType="AllianceTimesheetsModel.Store.AppUser" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Company" EntityType="AllianceTimesheetsModel.Store.Company" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Contract" EntityType="AllianceTimesheetsModel.Store.Contract" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Contract_Company" Association="AllianceTimesheetsModel.Store.FK_Contract_Company">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="Contract" EntitySet="Contract" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="AppUser">
+          <Key>
+            <PropertyRef Name="userLogin" />
+          </Key>
+          <Property Name="userLogin" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="LastName" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="FirstName" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="Email" Type="varchar" Nullable="false" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="CompanyName" />
+          </Key>
+          <Property Name="CompanyName" Type="varchar" Nullable="false" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Contract">
+          <Key>
+            <PropertyRef Name="ContractNumber" />
+          </Key>
+          <Property Name="ContractNumber" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="CompanyName" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="Title" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="Area" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="Description" Type="varchar(max)" />
+        </EntityType>
+        <Association Name="FK_Contract_Company">
+          <End Role="Company" Type="AllianceTimesheetsModel.Store.Company" Multiplicity="1" />
+          <End Role="Contract" Type="AllianceTimesheetsModel.Store.Contract" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="CompanyName" />
+            </Principal>
+            <Dependent Role="Contract">
+              <PropertyRef Name="CompanyName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AllianceTimesheetsModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2006/04/edm">
+        <EntityContainer Name="AllianceTimesheetsEntities">
+          <EntitySet Name="AppUser" EntityType="AllianceTimesheetsModel.AppUser" />
+          <EntitySet Name="Company" EntityType="AllianceTimesheetsModel.Company" />
+          <EntitySet Name="Contract" EntityType="AllianceTimesheetsModel.Contract" />
+          <AssociationSet Name="FK_Contract_Company" Association="AllianceTimesheetsModel.FK_Contract_Company">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="Contract" EntitySet="Contract" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="AppUser">
+          <Key>
+            <PropertyRef Name="userLogin" />
+          </Key>
+          <Property Type="String" Name="userLogin" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="LastName" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="FirstName" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Email" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="CompanyName" />
+          </Key>
+          <Property Type="String" Name="CompanyName" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Contract" Relationship="AllianceTimesheetsModel.FK_Contract_Company" FromRole="Company" ToRole="Contract" />
+        </EntityType>
+        <EntityType Name="Contract">
+          <Key>
+            <PropertyRef Name="ContractNumber" />
+          </Key>
+          <Property Type="String" Name="ContractNumber" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Area" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Company" Relationship="AllianceTimesheetsModel.FK_Contract_Company" FromRole="Contract" ToRole="Company" />
+        </EntityType>
+        <Association Name="FK_Contract_Company">
+          <End Type="AllianceTimesheetsModel.Company" Role="Company" Multiplicity="1" />
+          <End Type="AllianceTimesheetsModel.Contract" Role="Contract" Multiplicity="*" />
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="urn:schemas-microsoft-com:windows:storage:mapping:CS">
+        <EntityContainerMapping StorageEntityContainer="AllianceTimesheetsModelStoreContainer" CdmEntityContainer="AllianceTimesheetsEntities">
+          <EntitySetMapping Name="AppUser">
+            <EntityTypeMapping TypeName="AllianceTimesheetsModel.AppUser">
+              <MappingFragment StoreEntitySet="AppUser">
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="userLogin" ColumnName="userLogin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Company">
+            <EntityTypeMapping TypeName="AllianceTimesheetsModel.Company">
+              <MappingFragment StoreEntitySet="Company">
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contract">
+            <EntityTypeMapping TypeName="AllianceTimesheetsModel.Contract">
+              <MappingFragment StoreEntitySet="Contract">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Area" ColumnName="Area" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ContractNumber" ColumnName="ContractNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="FK_Contract_Company" TypeName="AllianceTimesheetsModel.FK_Contract_Company" StoreEntitySet="Contract">
+            <EndProperty Name="Contract">
+              <ScalarProperty Name="ContractNumber" ColumnName="ContractNumber" />
+            </EndProperty>
+            <EndProperty Name="Company">
+              <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2007/06/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="False" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="ATSModel">
+        <EntityTypeShape EntityType="AllianceTimesheetsModel.AppUser" Width="1.5" PointX="3" PointY="4" Height="1.7566536458333317" />
+        <EntityTypeShape EntityType="AllianceTimesheetsModel.Company" Width="1.5" PointX="0.75" PointY="1.25" Height="1.2636116536458315" />
+        <EntityTypeShape EntityType="AllianceTimesheetsModel.Contract" Width="1.5" PointX="3" PointY="0.875" Height="1.9210009765624996" />
+        <AssociationConnector Association="AllianceTimesheetsModel.FK_Contract_Company" >
+          <ConnectorPoint PointX="2.25" PointY="1.8818058268229159" />
+          <ConnectorPoint PointX="3" PointY="1.8818058268229159" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

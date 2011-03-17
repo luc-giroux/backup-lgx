@@ -1,0 +1,548 @@
+﻿/* Cascading Stylesheet for Common Elements */
+
+/* Begin: General */
+
+body
+{
+    padding-left: 8px;
+    padding-right: 8px;
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 75%;
+    color: #666666;
+}
+body.template
+{
+    padding-left: 8px;
+    padding-right: 8px;
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 75%;
+    color: #666666;
+}
+body.template h1
+{
+    padding-bottom: 12px;
+    border-bottom: 1px dotted #bbbbbb;
+    font-size: 2.2em;
+    font-family: Trebuchet MS, Arial, sans-serif;
+    color: #888888;
+}
+span.allcaps
+{
+    font-variant: small-caps;
+}
+body.template h2
+{
+    margin-bottom: 10px;
+    font-family: Trebuchet MS, Arial, sans-serif;
+    font-size: 1.65em;
+    color: #888888;
+}
+div.back
+{
+    margin-bottom: -20px;
+    position: relative;
+    top: -28px;
+    padding-left: 5px;
+    padding-bottom: 5px;
+}
+div.back img
+{
+    position: relative;
+    margin-top: 0em;
+    padding-left: 8px;
+    padding-right: 8px;
+    border: none;
+    background-color: #ffffff;
+}
+div.back a:link,
+div.back a:visited
+{
+    color: #839ce7;
+    text-decoration: none;
+    background-color: #ffffff;
+    padding-right: 8px;
+    top: -.2em;
+    left: .25em;
+}
+div.back a:hover
+{
+    color: #000099;
+    text-decoration: underline !important;
+}
+/* End: General */
+
+/* Begin: Tables */
+body.template table.listview, table.gridview, table.detailstable 
+{
+    border: 1px solid #dbddff; 
+    border-bottom: 3px solid #dbddff;
+    border-collapse: collapse;
+    font-family: Tahoma, Arial, sans-serif;
+    color: #666666;
+    font-size: 95%; 
+
+}
+
+body table.listview th, table.gridview th, table.detailstable th,
+body table.listview td, table.gridview td, table.detailstable td 
+{
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-left: 10px;
+    padding-right: 10px;
+    line-height: 1.1em;
+}
+
+body table.listview th, table.gridview th, table.detailstable th
+{
+    background-position: 1px 1px;
+    background-repeat: repeat-x;
+    background-color: #ffffff;
+    font-size: 100%;
+    text-align: left;
+    line-height: 1.3em;
+    color: #666666;
+    border-left: 1px solid #dbddff;
+    border-right: 1px solid #dbddff;
+    border-bottom: 1px solid #dbddff;
+    text-align:center;
+}
+
+body table.listview td, table.gridview td, table.detailstable td
+{
+    border-left: 0px;
+    border-right: 0px;
+    border-bottom: 1px dotted #dadada;
+    text-align:center;
+}
+
+body td.bold {
+    font-weight:bold;
+}
+
+body th a:link,
+body th a:visited,
+body th a:hover
+{
+    color: #666666;
+    text-decoration: none;
+}
+
+body td a:link,
+body td a:visited
+{
+    color: #718ABE;
+    text-decoration: none;
+    padding-right: 6px;
+}
+body td a:hover
+{
+    color: #000099;
+    text-decoration: underline !important;
+}
+table.gridview
+{
+    width: 100%;
+}
+table.gridview table td
+{
+    padding-left: .5em;
+    padding-right: .5em;
+}
+
+table.gridview th {
+    background-image:url(DynamicData/Content/Images/header_back.gif);
+}
+
+table.listview
+{
+    width: 100%;
+}
+table.listview td a:link, 
+table.listview td a:visited
+{
+    font-size: 100%;
+}
+table.listview table td
+{
+    padding-left: .5em;
+    padding-right: .5em;
+}
+
+table.listview th {
+    background-image:url(DynamicData/Content/Images/header_back.gif);
+}
+
+table.detailstable td
+{
+    border-left: 1px solid #dbddff;
+    border-right: 1px solid #dbddff;
+    vertical-align:top;
+}
+
+table.detailstable th
+{
+    background: #FCFDFE;
+    vertical-align:top;
+}
+
+td.nowrap 
+{
+    white-space: nowrap;
+}
+/* The following modifies the details table */
+body.template tr
+{
+    background: #FCFDFE;
+}
+/* The following modifies the controls in the list table footer */
+tr.footer td
+{
+    background: #dbddff;
+    height: 1.5em;
+}
+
+/* The following modifies the selected row in the list table */
+tr.selected td
+{
+    background: #fdffb8;
+}
+
+/* End: Tables */
+
+/* The following modifies the page number control which exists under the main table */
+div.pager
+{
+    padding: 0px;
+    padding-left: 6px;
+    padding-right: 6px;
+}
+span.results1
+{
+    float:left;
+}
+span.results2
+{
+    float:right;
+}
+/* The following modifies the results per page control which exists under the main table */
+div.results
+{
+    display: inline;
+    position: relative;
+    padding: 0px;
+    padding-left: 6px;
+    padding-right: 6px;
+    margin-top: -1.75em;
+    float:right;
+}
+/* Set's the appearance of the drop down control*/
+.droplist
+{
+    padding: 0px;
+    font-family: Tahoma, Arial, Sans-Serif;
+    font-size: .95em;
+    color: #666666;
+}
+/* Bottom hyperlink design*/
+div.bottomhyperlink
+{
+    font-family: Tahoma, Arial, Sans-Serif;
+    font-size: 100%;
+    margin-top: -3px;
+}
+div.bottomhyperlink a:link,
+div.bottomhyperlink a:visited
+{
+    color: #839ce7;
+    text-decoration: none;
+
+    font-family: Tahoma, Arial, Sans-Serif;
+
+    font-size: 100%;
+
+    margin-top: -3px;
+}
+div.bottomhyperlink a:hover
+{
+
+    color: #000099;
+
+    text-decoration: underline !important;
+
+    font-family: Tahoma, Arial, Sans-Serif;
+
+    font-size: 100%;
+}
+div.bottomhyperlink img
+{
+    position: relative;
+    top: 0em;
+    padding-right: .4em;
+    border: none;
+}
+
+/* LGX CSS pour composants AJAXTOOLKIT*/
+
+.AjaxToolkitStyle .ajax__combobox_inputcontainer .ajax__combobox_textboxcontainer input
+{
+    background-image: url(img/ComboBox/images/toolkit-bg.gif);
+    background-position: top left;
+    border: 0px none;
+    color: #FFFFFF;
+    padding: 4px 0px 3px 5px;
+    font-size: 13px;
+    height: 16px;
+    width: 240px;
+}
+.AjaxToolkitStyle .ajax__combobox_inputcontainer .ajax__combobox_buttoncontainer button
+{
+    background-image: url(img/ComboBox/images/toolkit-arrow.gif);
+    background-position: top left;
+    border: 0px none;
+    height: 23px;
+    width: 23px;
+}
+.AjaxToolkitStyle .ajax__combobox_itemlist
+{
+    border-color: #0F2543;
+    background-color: #EFEFEF;
+}
+
+.AquaStyle .ajax__combobox_inputcontainer .ajax__combobox_textboxcontainer input
+{
+    margin: 0;
+    background-image: url(img/ComboBox/images/aqua-bg.gif);
+    background-position: top left;
+    border: 0px none;
+    padding: 2px 0px 0px 8px;
+    font-size: 11px;
+    height: 17px;
+    width: 150px;
+    font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
+}
+.AquaStyle .ajax__combobox_inputcontainer .ajax__combobox_buttoncontainer button
+{
+    background-image: url(img/ComboBox/images/aqua-arrow.gif);
+    background-position: top left;
+    border: 0px none;
+    height: 19px;
+    width: 19px;
+    font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
+}
+.AquaStyle .ajax__combobox_itemlist
+{
+    border-color: #000000;
+    background-color: #FFFFFF;
+    font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
+}
+
+.info, .success, .warning, .error, .validation {
+  border: 1px solid;
+  padding:5px 5px 5px 5px;
+  background-repeat: no-repeat;
+  background-position: 10px center;
+  font-size: 13px;
+}
+.info {
+  color: #00529B;
+  background-color: #BDE5F8;
+  background-image: url('img/info.png');
+}
+
+/*LGX : JNotify*/
+.jnotify-container {
+	position: fixed; 
+	top: 0; 
+	left: 0; 
+	width: 100%; 
+	z-index: 100000;
+}
+
+.jnotify-container .jnotify-notification {
+	position: relative; 
+}
+
+.jnotify-container .jnotify-notification .jnotify-background {
+	position: absolute; 
+	top: 0; 
+	left: 0; 
+	width: 100%; 
+	height: 100%;
+	background-color: #e3f0db; 
+	filter: alpha(opacity=90); 
+	-moz-opacity: 0.90; 
+	opacity: 0.90; 
+	z-index: 1; 
+}
+
+.jnotify-container .jnotify-notification a.jnotify-close,
+.jnotify-container .jnotify-notification a.jnotify-close:link,
+.jnotify-container .jnotify-notification a.jnotify-close:visited,
+.jnotify-container .jnotify-notification a.jnotify-close:focus,
+.jnotify-container .jnotify-notification a.jnotify-close:hover {
+	position: absolute;
+	top: 2px;
+	right: 5px;
+	padding: 0 5px;
+	font: bold 1.4em Arial,Helvetica,sans-serif;
+	line-height: 1em;
+	color: #567b1b;
+	text-decoration: none;
+	z-index: 3;
+	cursor: pointer;
+}
+
+.jnotify-container .jnotify-notification .jnotify-message {
+	position: relative; 
+	z-index: 2; 
+	padding: 20px;
+	text-align: center;
+	color: #567b1b;
+	font: bold 1.4em Arial,Helvetica,sans-serif;
+	line-height: 1.2em; 
+}
+
+.jnotify-container .jnotify-notification .jnotify-message * {
+	font-size: 1em;
+}
+
+/* notification type == "error" */
+.jnotify-container .jnotify-notification-error .jnotify-background {
+	background-color: #d79eac; 
+}
+
+.jnotify-container .jnotify-notification-error .jnotify-close,
+.jnotify-container .jnotify-notification-error .jnotify-message {
+	color: #a72947 !important;
+}
+
+/* notification type == "warning" */
+.jnotify-container .jnotify-notification-warning .jnotify-background {
+	background-color: #fff7d1; 
+}
+
+.jnotify-container .jnotify-notification-warning .jnotify-close,
+.jnotify-container .jnotify-notification-warning .jnotify-message {
+	color: #c2a928 !important;
+}
+
+
+/*LGX AJAX CONTROL TOOLKIT/
+
+/*Textbox Watermark*/
+
+.unwatermarked {
+	height:18px;
+	width:148px;
+}
+
+.watermarked {
+	height:20px;
+	width:150px;
+	padding:2px 0 0 2px;
+	border:1px solid #BEBEBE;
+	background-color:#F0F8FF;
+	color:gray;
+}
+
+/*LGX For the div of menu and main content*/
+
+.appmenu {
+position: absolute;
+top: 4.5em;
+left: 1.5%;
+width: 15%;
+background-color: #E8E8E8;
+}
+
+.appcontent 
+{
+
+}
+
+
+/*LGX For the style of form*/
+
+form.appform fieldset {
+  margin-bottom: 10px;
+}
+form.appform legend {
+  padding: 0 2px;
+  font-weight: bold;
+}
+form.appform label {
+  display: inline-block;
+  line-height: 1.8;
+  vertical-align: top;
+}
+form.appform fieldset ol {
+  margin: 0;
+  padding: 0;
+}
+form.appform fieldset li {
+  list-style: none;
+  padding: 5px;
+  margin: 0;
+}
+form.appform fieldset fieldset {
+  border: none;
+  margin: 3px 0 0;
+}
+form.appform fieldset fieldset legend {
+  padding: 0 0 5px;
+  font-weight: normal;
+}
+form.appform fieldset fieldset label {
+  display: block;
+  width: auto;
+}
+form.appform em {
+  font-weight: bold;
+  font-style: normal;
+  color: #f00;
+}
+form.appform label {
+  width: 120px; /* Width of labels */
+}
+form.appform fieldset fieldset label {
+  margin-left: 123px; /* Width plus 3 (html space) */
+}
+
+
+/*Modal Popup*/
+.modalBackground {
+	background-color:Gray;
+	filter:alpha(opacity=70);
+	opacity:0.7;
+}
+
+.modalPopup {
+	background-color:#ffffdd;
+	border-width:3px;
+	border-style:solid;
+	border-color:Gray;
+	padding:3px;
+	width:250px;
+}
+
+.modalPopup p {
+    padding: 5px;
+}
+
+
+.hiddencolumn
+    {
+        display:none;
+    }
+    
+
+/*LGX : MENU*/
+
+ .AspMenu
+{
+    border: solid 1px #00529B !important;
+    background-color :#cae1ef;
+    color: #075593;
+}
+
