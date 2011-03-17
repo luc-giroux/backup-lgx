@@ -1,0 +1,8 @@
+DMHR = Direct Man Hour Report
+
+1 rapport contenant tous les CWP sur une période donnée
+
+1 rapport contenant toutes les variations sur une période donnée
+
+1 rapport Summary (moins important)
+
