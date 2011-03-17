@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="PAF_DATADataSet" targetNamespace="http://tempuri.org/PAF_DATADataSet.xsd" xmlns:mstns="http://tempuri.org/PAF_DATADataSet.xsd" xmlns="http://tempuri.org/PAF_DATADataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="DB_CONNECTION_TO_PAF" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="DB_CONNECTION_TO_PAF (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.TimesheetApproval.My.MySettings.GlobalReference.Default.DB_CONNECTION_TO_PAF" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="LocationTableAdapter" GeneratorDataComponentClassName="LocationTableAdapter" Name="Location" UserDataComponentName="LocationTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="DB_CONNECTION_TO_PAF (MySettings)" DbObjectName="PAF_DATA.dbo.Location" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT [LocationID]
+      ,[LocationName]
+  FROM [PAF_DATA].[dbo].[Location]</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="LocationID" DataSetColumn="LocationID" />
+              <Mapping SourceColumn="LocationName" DataSetColumn="LocationName" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DisciplineTableAdapter" GeneratorDataComponentClassName="DisciplineTableAdapter" Name="Discipline" UserDataComponentName="DisciplineTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="DB_CONNECTION_TO_PAF (MySettings)" DbObjectName="PAF_DATA.dbo.Discipline" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT [DisciplineID]
+      ,[Description]
+  FROM [PAF_DATA].[dbo].[Discipline]</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="DisciplineID" DataSetColumn="DisciplineID" />
+              <Mapping SourceColumn="Description" DataSetColumn="Description" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="PAF_DATADataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="PAF_DATADataSet" msprop:Generator_UserDSName="PAF_DATADataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Location" msprop:Generator_TableClassName="LocationDataTable" msprop:Generator_TableVarName="tableLocation" msprop:Generator_TablePropName="Location" msprop:Generator_RowDeletingName="LocationRowDeleting" msprop:Generator_UserTableName="Location" msprop:Generator_RowChangingName="LocationRowChanging" msprop:Generator_RowEvHandlerName="LocationRowChangeEventHandler" msprop:Generator_RowDeletedName="LocationRowDeleted" msprop:Generator_RowEvArgName="LocationRowChangeEvent" msprop:Generator_RowChangedName="LocationRowChanged" msprop:Generator_RowClassName="LocationRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="LocationID" msprop:Generator_ColumnVarNameInTable="columnLocationID" msprop:Generator_ColumnPropNameInRow="LocationID" msprop:Generator_ColumnPropNameInTable="LocationIDColumn" msprop:Generator_UserColumnName="LocationID">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LocationName" msprop:Generator_ColumnVarNameInTable="columnLocationName" msprop:Generator_ColumnPropNameInRow="LocationName" msprop:Generator_ColumnPropNameInTable="LocationNameColumn" msprop:Generator_UserColumnName="LocationName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Discipline" msprop:Generator_TableClassName="DisciplineDataTable" msprop:Generator_TableVarName="tableDiscipline" msprop:Generator_TablePropName="Discipline" msprop:Generator_RowDeletingName="DisciplineRowDeleting" msprop:Generator_UserTableName="Discipline" msprop:Generator_RowChangingName="DisciplineRowChanging" msprop:Generator_RowEvHandlerName="DisciplineRowChangeEventHandler" msprop:Generator_RowDeletedName="DisciplineRowDeleted" msprop:Generator_RowEvArgName="DisciplineRowChangeEvent" msprop:Generator_RowChangedName="DisciplineRowChanged" msprop:Generator_RowClassName="DisciplineRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="DisciplineID" msprop:Generator_ColumnVarNameInTable="columnDisciplineID" msprop:Generator_ColumnPropNameInRow="DisciplineID" msprop:Generator_ColumnPropNameInTable="DisciplineIDColumn" msprop:Generator_UserColumnName="DisciplineID" type="xs:int" />
+              <xs:element name="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnPropNameInTable="DescriptionColumn" msprop:Generator_UserColumnName="Description" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Location" />
+      <xs:field xpath="mstns:LocationID" />
+    </xs:unique>
+    <xs:unique name="Discipline_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Discipline" />
+      <xs:field xpath="mstns:DisciplineID" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

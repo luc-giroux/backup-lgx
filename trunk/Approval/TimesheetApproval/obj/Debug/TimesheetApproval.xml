@@ -1,0 +1,408 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+TimesheetApproval
+</name>
+</assembly>
+<members>
+<member name="T:TimesheetApproval.TSAdjustmentDataSet.TimesheetDetailDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:TimesheetApproval.TSAdjustmentDataSet.HoursDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:TimesheetApproval.TSAdjustmentDataSet.CostCodeDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:TimesheetApproval.TSAdjustmentDataSet.CTRCodeDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:TimesheetApproval.TSAdjustmentDataSet.TimesheetErrorDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:TimesheetApproval.TSAdjustmentDataSet.TimesheetHeaderDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:TimesheetApproval.TSAdjustmentDataSet.TimesheetDetailRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:TimesheetApproval.TSAdjustmentDataSet.HoursRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:TimesheetApproval.TSAdjustmentDataSet.CostCodeRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:TimesheetApproval.TSAdjustmentDataSet.CTRCodeRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:TimesheetApproval.TSAdjustmentDataSet.TimesheetErrorRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:TimesheetApproval.TSAdjustmentDataSet.TimesheetHeaderRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:TimesheetApproval.TSAdjustmentDataSet.TimesheetDetailRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:TimesheetApproval.TSAdjustmentDataSet.HoursRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:TimesheetApproval.TSAdjustmentDataSet.CostCodeRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:TimesheetApproval.TSAdjustmentDataSet.CTRCodeRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:TimesheetApproval.TSAdjustmentDataSet.TimesheetErrorRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:TimesheetApproval.TSAdjustmentDataSet.TimesheetHeaderRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:TimesheetApproval.TSAdjustmentDataSet">
+	<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member><member name="T:TimesheetApproval.TSAdjustmentDataSetTableAdapters.TimesheetDetailTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:TimesheetApproval.TSAdjustmentDataSetTableAdapters.HoursTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:TimesheetApproval.TSAdjustmentDataSetTableAdapters.CostCodeTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:TimesheetApproval.TSAdjustmentDataSetTableAdapters.CTRCodeTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:TimesheetApproval.TSAdjustmentDataSetTableAdapters.TimesheetErrorTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:TimesheetApproval.TSAdjustmentDataSetTableAdapters.TimesheetHeaderTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="M:TimesheetApproval.TSAdjustmentDataSetTableAdapters.TableAdapterManager.UpdateUpdatedRows(TimesheetApproval.TSAdjustmentDataSet,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Update rows in top-down order.
+</summary>
+</member><member name="M:TimesheetApproval.TSAdjustmentDataSetTableAdapters.TableAdapterManager.UpdateInsertedRows(TimesheetApproval.TSAdjustmentDataSet,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Insert rows in top-down order.
+</summary>
+</member><member name="M:TimesheetApproval.TSAdjustmentDataSetTableAdapters.TableAdapterManager.UpdateDeletedRows(TimesheetApproval.TSAdjustmentDataSet,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Delete rows in bottom-up order.
+</summary>
+</member><member name="M:TimesheetApproval.TSAdjustmentDataSetTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member><member name="M:TimesheetApproval.TSAdjustmentDataSetTableAdapters.TableAdapterManager.UpdateAll(TimesheetApproval.TSAdjustmentDataSet)">
+	<summary>
+Update all changes to the dataset.
+</summary>
+</member><member name="T:TimesheetApproval.TSAdjustmentDataSetTableAdapters.TableAdapterManager.UpdateOrderOption">
+	<summary>
+Update Order Option
+</summary>
+</member><member name="T:TimesheetApproval.TSAdjustmentDataSetTableAdapters.TableAdapterManager.SelfReferenceComparer">
+	<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member><member name="T:TimesheetApproval.TSAdjustmentDataSetTableAdapters.TableAdapterManager">
+	<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member><member name="T:TimesheetApproval.ApplicationDataSet.FiltersTADataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:TimesheetApproval.ApplicationDataSet.FiltersNSDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:TimesheetApproval.ApplicationDataSet.FiltersOBDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:TimesheetApproval.ApplicationDataSet.NotSubmittedDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:TimesheetApproval.ApplicationDataSet.TimesheetDetailDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:TimesheetApproval.ApplicationDataSet.GenericListDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:TimesheetApproval.ApplicationDataSet.PendingManHourDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:TimesheetApproval.ApplicationDataSet.AutomationDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:TimesheetApproval.ApplicationDataSet.TimesheetHeaderDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:TimesheetApproval.ApplicationDataSet.SpecialRightsDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:TimesheetApproval.ApplicationDataSet.FiltersTARow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:TimesheetApproval.ApplicationDataSet.FiltersNSRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:TimesheetApproval.ApplicationDataSet.FiltersOBRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:TimesheetApproval.ApplicationDataSet.NotSubmittedRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:TimesheetApproval.ApplicationDataSet.TimesheetDetailRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:TimesheetApproval.ApplicationDataSet.GenericListRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:TimesheetApproval.ApplicationDataSet.PendingManHourRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:TimesheetApproval.ApplicationDataSet.AutomationRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:TimesheetApproval.ApplicationDataSet.TimesheetHeaderRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:TimesheetApproval.ApplicationDataSet.SpecialRightsRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:TimesheetApproval.ApplicationDataSet.FiltersTARowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:TimesheetApproval.ApplicationDataSet.FiltersNSRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:TimesheetApproval.ApplicationDataSet.FiltersOBRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:TimesheetApproval.ApplicationDataSet.NotSubmittedRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:TimesheetApproval.ApplicationDataSet.TimesheetDetailRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:TimesheetApproval.ApplicationDataSet.GenericListRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:TimesheetApproval.ApplicationDataSet.PendingManHourRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:TimesheetApproval.ApplicationDataSet.AutomationRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:TimesheetApproval.ApplicationDataSet.TimesheetHeaderRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:TimesheetApproval.ApplicationDataSet.SpecialRightsRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:TimesheetApproval.ApplicationDataSet">
+	<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member><member name="T:TimesheetApproval.ApplicationDataSetTableAdapters.FiltersTATableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:TimesheetApproval.ApplicationDataSetTableAdapters.FiltersNSTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:TimesheetApproval.ApplicationDataSetTableAdapters.FiltersOBTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:TimesheetApproval.PAF_DATADataSet.LocationDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:TimesheetApproval.PAF_DATADataSet.DisciplineDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:TimesheetApproval.PAF_DATADataSet.LocationRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:TimesheetApproval.PAF_DATADataSet.DisciplineRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:TimesheetApproval.PAF_DATADataSet.LocationRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:TimesheetApproval.PAF_DATADataSet.DisciplineRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:TimesheetApproval.PAF_DATADataSet">
+	<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member><member name="T:TimesheetApproval.PAF_DATADataSetTableAdapters.LocationTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:TimesheetApproval.PAF_DATADataSetTableAdapters.DisciplineTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="M:TimesheetApproval.PAF_DATADataSetTableAdapters.TableAdapterManager.UpdateUpdatedRows(TimesheetApproval.PAF_DATADataSet,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Update rows in top-down order.
+</summary>
+</member><member name="M:TimesheetApproval.PAF_DATADataSetTableAdapters.TableAdapterManager.UpdateInsertedRows(TimesheetApproval.PAF_DATADataSet,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Insert rows in top-down order.
+</summary>
+</member><member name="M:TimesheetApproval.PAF_DATADataSetTableAdapters.TableAdapterManager.UpdateDeletedRows(TimesheetApproval.PAF_DATADataSet,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Delete rows in bottom-up order.
+</summary>
+</member><member name="M:TimesheetApproval.PAF_DATADataSetTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member><member name="M:TimesheetApproval.PAF_DATADataSetTableAdapters.TableAdapterManager.UpdateAll(TimesheetApproval.PAF_DATADataSet)">
+	<summary>
+Update all changes to the dataset.
+</summary>
+</member><member name="T:TimesheetApproval.PAF_DATADataSetTableAdapters.TableAdapterManager.UpdateOrderOption">
+	<summary>
+Update Order Option
+</summary>
+</member><member name="T:TimesheetApproval.PAF_DATADataSetTableAdapters.TableAdapterManager.SelfReferenceComparer">
+	<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member><member name="T:TimesheetApproval.PAF_DATADataSetTableAdapters.TableAdapterManager">
+	<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member><member name="P:TimesheetApproval.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:TimesheetApproval.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="P:TimesheetApproval.My.Resources.Resources.Automation">
+	<summary>
+  Looks up a localized string similar to &lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition"&gt;
+  &lt;DataSources&gt;
+    &lt;DataSource Name="ApplicationDataSet"&gt;
+      &lt;ConnectionProperties&gt;
+        &lt;DataProvider&gt;System.Data.DataSet&lt;/DataProvider&gt;
+        &lt;ConnectString&gt;/* Local Connection */&lt;/ConnectString&gt;
+      &lt;/ConnectionProperties&gt;
+      &lt;rd:DataSourceID&gt;44a8df20-fd06-4c5e-bd86-1570488017d4&lt;/r [rest of string was truncated]";.
+</summary>
+</member><member name="P:TimesheetApproval.My.Resources.Resources.PendingManHour">
+	<summary>
+  Looks up a localized string similar to &lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition"&gt;
+  &lt;DataSources&gt;
+    &lt;DataSource Name="ApplicationDataSet"&gt;
+      &lt;ConnectionProperties&gt;
+        &lt;DataProvider&gt;System.Data.DataSet&lt;/DataProvider&gt;
+        &lt;ConnectString&gt;/* Local Connection */&lt;/ConnectString&gt;
+      &lt;/ConnectionProperties&gt;
+      &lt;rd:DataSourceID&gt;36d5c46c-c59a-4cf3-96b6-c9a7d1947abf&lt;/r [rest of string was truncated]";.
+</summary>
+</member><member name="P:TimesheetApproval.My.Resources.Resources.TimesheetDefault">
+	<summary>
+  Looks up a localized string similar to &lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition"&gt;
+  &lt;DataSources&gt;
+    &lt;DataSource Name="ApplicationDataSet"&gt;
+      &lt;ConnectionProperties&gt;
+        &lt;DataProvider&gt;System.Data.DataSet&lt;/DataProvider&gt;
+        &lt;ConnectString&gt;/* Local Connection */&lt;/ConnectString&gt;
+      &lt;/ConnectionProperties&gt;
+      &lt;rd:DataSourceID&gt;9a68cd4e-067c-40b2-a2f7-90c37a1da183&lt;/r [rest of string was truncated]";.
+</summary>
+</member><member name="P:TimesheetApproval.My.Resources.Resources.TimesheetDefaultCostCTRCodeGrouping">
+	<summary>
+  Looks up a localized string similar to &lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition"&gt;
+  &lt;DataSources&gt;
+    &lt;DataSource Name="ApplicationDataSet"&gt;
+      &lt;ConnectionProperties&gt;
+        &lt;DataProvider&gt;System.Data.DataSet&lt;/DataProvider&gt;
+        &lt;ConnectString&gt;/* Local Connection */&lt;/ConnectString&gt;
+      &lt;/ConnectionProperties&gt;
+      &lt;rd:DataSourceID&gt;e96b3ac8-148a-4cce-be40-c2f5ace26bdf&lt;/r [rest of string was truncated]";.
+</summary>
+</member><member name="T:TimesheetApproval.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+</members>
+</doc>

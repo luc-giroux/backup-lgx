@@ -1,0 +1,2473 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition">
+  <DataSources>
+    <DataSource Name="ApplicationDataSet">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>d02890ef-cab6-42e0-9133-961a19d57bdc</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="TimesheetDetail">
+      <Fields>
+        <Field Name="EmployeeID">
+          <DataField>EmployeeID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="EmployeeNo">
+          <DataField>EmployeeNo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="EmployeeName">
+          <DataField>EmployeeName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DisciplineNo">
+          <DataField>DisciplineNo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DisciplineDescription">
+          <DataField>DisciplineDescription</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Location">
+          <DataField>Location</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Year">
+          <DataField>Year</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Week">
+          <DataField>Week</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="CostCode">
+          <DataField>CostCode</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CTRCode">
+          <DataField>CTRCode</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Description">
+          <DataField>Description</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="NTSaturday">
+          <DataField>NTSaturday</DataField>
+          <rd:TypeName>System.Single</rd:TypeName>
+        </Field>
+        <Field Name="NTSunday">
+          <DataField>NTSunday</DataField>
+          <rd:TypeName>System.Single</rd:TypeName>
+        </Field>
+        <Field Name="NTMonday">
+          <DataField>NTMonday</DataField>
+          <rd:TypeName>System.Single</rd:TypeName>
+        </Field>
+        <Field Name="NTTuesday">
+          <DataField>NTTuesday</DataField>
+          <rd:TypeName>System.Single</rd:TypeName>
+        </Field>
+        <Field Name="NTWednesday">
+          <DataField>NTWednesday</DataField>
+          <rd:TypeName>System.Single</rd:TypeName>
+        </Field>
+        <Field Name="NTThursday">
+          <DataField>NTThursday</DataField>
+          <rd:TypeName>System.Single</rd:TypeName>
+        </Field>
+        <Field Name="NTFriday">
+          <DataField>NTFriday</DataField>
+          <rd:TypeName>System.Single</rd:TypeName>
+        </Field>
+        <Field Name="NTTotal">
+          <DataField>NTTotal</DataField>
+          <rd:TypeName>System.Single</rd:TypeName>
+        </Field>
+        <Field Name="OTSaturday">
+          <DataField>OTSaturday</DataField>
+          <rd:TypeName>System.Single</rd:TypeName>
+        </Field>
+        <Field Name="OTSunday">
+          <DataField>OTSunday</DataField>
+          <rd:TypeName>System.Single</rd:TypeName>
+        </Field>
+        <Field Name="OTMonday">
+          <DataField>OTMonday</DataField>
+          <rd:TypeName>System.Single</rd:TypeName>
+        </Field>
+        <Field Name="OTTuesday">
+          <DataField>OTTuesday</DataField>
+          <rd:TypeName>System.Single</rd:TypeName>
+        </Field>
+        <Field Name="OTWednesday">
+          <DataField>OTWednesday</DataField>
+          <rd:TypeName>System.Single</rd:TypeName>
+        </Field>
+        <Field Name="OTThursday">
+          <DataField>OTThursday</DataField>
+          <rd:TypeName>System.Single</rd:TypeName>
+        </Field>
+        <Field Name="OTFriday">
+          <DataField>OTFriday</DataField>
+          <rd:TypeName>System.Single</rd:TypeName>
+        </Field>
+        <Field Name="OTTotal">
+          <DataField>OTTotal</DataField>
+          <rd:TypeName>System.Single</rd:TypeName>
+        </Field>
+        <Field Name="SubmittedDate">
+          <DataField>SubmittedDate</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Endorsed">
+          <DataField>Endorsed</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="Approved">
+          <DataField>Approved</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="ApprovedDate">
+          <DataField>ApprovedDate</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ApprovedBy">
+          <DataField>ApprovedBy</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Rejected">
+          <DataField>Rejected</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="RejectedBy">
+          <DataField>RejectedBy</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="RejectedDate">
+          <DataField>RejectedDate</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="RejectReason">
+          <DataField>RejectReason</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="StartDate">
+          <DataField>StartDate</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>ApplicationDataSet</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <rd:DataSetInfo>
+        <rd:DataSetName>ApplicationDataSet</rd:DataSetName>
+        <rd:SchemaPath>C:\DEV\SVN repository\TimesheetApproval\TimesheetApproval\ApplicationDataSet.xsd</rd:SchemaPath>
+        <rd:TableName>TimesheetDetail</rd:TableName>
+        <rd:TableAdapterFillMethod />
+        <rd:TableAdapterGetDataMethod />
+        <rd:TableAdapterName />
+      </rd:DataSetInfo>
+    </DataSet>
+  </DataSets>
+  <Body>
+    <ReportItems>
+      <Tablix Name="Tablix1">
+        <TablixBody>
+          <TablixColumns>
+            <TablixColumn>
+              <Width>0.97343in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>0.97343in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>0.97343in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>0.97343in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>0.97343in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>0.97343in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>0.97343in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>0.97343in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>0.97343in</Width>
+            </TablixColumn>
+          </TablixColumns>
+          <TablixRows>
+            <TablixRow>
+              <Height>0.23622in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox2">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Employee No</Value>
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                                <FontSize>11pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox2</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>#7292cc</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>#4c68a2</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox3">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Employee Name</Value>
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                                <FontSize>11pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox3</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>#7292cc</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>#4c68a2</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox5">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Discipline Description</Value>
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                                <FontSize>11pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox5</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>#7292cc</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>#4c68a2</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox7">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Location</Value>
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                                <FontSize>11pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox7</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>#7292cc</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>#4c68a2</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox9">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Year</Value>
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                                <FontSize>11pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox9</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>#7292cc</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>#4c68a2</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox11">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Week</Value>
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                                <FontSize>11pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox11</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>#7292cc</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>#4c68a2</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox13">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Start Date</Value>
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                                <FontSize>11pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox13</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>#7292cc</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>#4c68a2</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox15">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Description</Value>
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                                <FontSize>11pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox15</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>#7292cc</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>#4c68a2</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox17">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Hours (over + normal time)</Value>
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                                <FontSize>11pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox17</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>#7292cc</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>#4c68a2</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.23622in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="EmployeeNo">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!EmployeeNo.Value</Value>
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                                <Color>#4d4d4d</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>EmployeeNo</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>#e5e5e5</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>=IIF(RowNumber(Nothing) Mod 2, "White", "Gainsboro")</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="EmployeeName">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!EmployeeName.Value</Value>
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                                <Color>#4d4d4d</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>EmployeeName</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>#e5e5e5</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>=IIF(RowNumber(Nothing) Mod 2, "White", "Gainsboro")</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="DisciplineDescription">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!DisciplineDescription.Value</Value>
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                                <Color>#4d4d4d</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>DisciplineDescription</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>#e5e5e5</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>=IIF(RowNumber(Nothing) Mod 2, "White", "Gainsboro")</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Location">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!Location.Value</Value>
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                                <Color>#4d4d4d</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Location</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>#e5e5e5</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>=IIF(RowNumber(Nothing) Mod 2, "White", "Gainsboro")</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Year">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!Year.Value</Value>
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                                <Color>#4d4d4d</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Year</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>#e5e5e5</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>=IIF(RowNumber(Nothing) Mod 2, "White", "Gainsboro")</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Week">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!Week.Value</Value>
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                                <Color>#4d4d4d</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Week</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>#e5e5e5</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>=IIF(RowNumber(Nothing) Mod 2, "White", "Gainsboro")</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="StartDate">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!StartDate.Value</Value>
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                                <Color>#4d4d4d</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>StartDate</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>#e5e5e5</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>=IIF(RowNumber(Nothing) Mod 2, "White", "Gainsboro")</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Description">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!Description.Value</Value>
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                                <Color>#4d4d4d</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Description</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>#e5e5e5</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>=IIF(RowNumber(Nothing) Mod 2, "White", "Gainsboro")</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="NTTotal">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!NTTotal.Value + Fields!OTTotal.Value</Value>
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                                <Color>=IIf(Fields!Approved.Value,"Green", "Red")</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>NTTotal</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>#e5e5e5</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>=IIF(RowNumber(Nothing) Mod 2, "White", "Gainsboro")</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.23622in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox46">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>#4c68a2</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox46</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>#e6eefc</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>#c6daf8</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox47">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>#4c68a2</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox47</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>#e6eefc</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>#c6daf8</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox48">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>#4c68a2</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox48</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>#e6eefc</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>#c6daf8</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox49">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>#4c68a2</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox49</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>#e6eefc</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>#c6daf8</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox50">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>#4c68a2</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox50</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>#e6eefc</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>#c6daf8</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox51">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>#4c68a2</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox51</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>#e6eefc</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>#c6daf8</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox52">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>#4c68a2</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox52</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>#e6eefc</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>#c6daf8</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox53">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>#4c68a2</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox53</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>#e6eefc</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>#c6daf8</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox54">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Sum(Fields!NTTotal.Value + Fields!OTTotal.Value)</Value>
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>#4c68a2</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox54</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>#e6eefc</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>#c6daf8</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.23622in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox36">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>#465678</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox36</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>#c6daf8</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>#9eb6e4</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox37">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>#465678</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox37</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>#c6daf8</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>#9eb6e4</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox38">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>#465678</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox38</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>#c6daf8</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>#9eb6e4</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox39">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>#465678</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox39</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>#c6daf8</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>#9eb6e4</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox82">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>#465678</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox82</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>#c6daf8</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>#9eb6e4</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox41">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>#465678</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox41</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>#c6daf8</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>#9eb6e4</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox42">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>#465678</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox42</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>#c6daf8</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>#9eb6e4</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox43">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>#465678</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox43</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>#c6daf8</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>#9eb6e4</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox44">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Sum(Fields!NTTotal.Value + Fields!OTTotal.Value)</Value>
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>#465678</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox44</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>#c6daf8</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>#9eb6e4</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.23622in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox25">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox25</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>#9eb6e4</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>#7292cc</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox26">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox26</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>#9eb6e4</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>#7292cc</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox27">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox27</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>#9eb6e4</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>#7292cc</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox28">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox28</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>#9eb6e4</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>#7292cc</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox29">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox29</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>#9eb6e4</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>#7292cc</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox83">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox83</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>#9eb6e4</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>#7292cc</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox31">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox31</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>#9eb6e4</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>#7292cc</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox32">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox32</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>#9eb6e4</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>#7292cc</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox33">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Sum(Fields!NTTotal.Value + Fields!OTTotal.Value)</Value>
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox33</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>#9eb6e4</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>#7292cc</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+          </TablixRows>
+        </TablixBody>
+        <TablixColumnHierarchy>
+          <TablixMembers>
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+          </TablixMembers>
+        </TablixColumnHierarchy>
+        <TablixRowHierarchy>
+          <TablixMembers>
+            <TablixMember>
+              <TablixHeader>
+                <Size>0.97343in</Size>
+                <CellContents>
+                  <Textbox Name="Textbox21">
+                    <CanGrow>true</CanGrow>
+                    <KeepTogether>true</KeepTogether>
+                    <Paragraphs>
+                      <Paragraph>
+                        <TextRuns>
+                          <TextRun>
+                            <Value>Cost Code</Value>
+                            <Style>
+                              <FontFamily>Tahoma</FontFamily>
+                              <FontSize>11pt</FontSize>
+                              <FontWeight>Bold</FontWeight>
+                              <Color>White</Color>
+                            </Style>
+                          </TextRun>
+                        </TextRuns>
+                        <Style />
+                      </Paragraph>
+                    </Paragraphs>
+                    <rd:DefaultName>Textbox21</rd:DefaultName>
+                    <Style>
+                      <Border>
+                        <Color>#7292cc</Color>
+                        <Style>Solid</Style>
+                      </Border>
+                      <BackgroundColor>#4c68a2</BackgroundColor>
+                      <PaddingLeft>2pt</PaddingLeft>
+                      <PaddingRight>2pt</PaddingRight>
+                      <PaddingTop>2pt</PaddingTop>
+                      <PaddingBottom>2pt</PaddingBottom>
+                    </Style>
+                  </Textbox>
+                  <rd:Selected>true</rd:Selected>
+                </CellContents>
+              </TablixHeader>
+              <TablixMembers>
+                <TablixMember>
+                  <TablixHeader>
+                    <Size>0.97343in</Size>
+                    <CellContents>
+                      <Textbox Name="Textbox19">
+                        <CanGrow>true</CanGrow>
+                        <KeepTogether>true</KeepTogether>
+                        <Paragraphs>
+                          <Paragraph>
+                            <TextRuns>
+                              <TextRun>
+                                <Value>CTRCode</Value>
+                                <Style>
+                                  <FontFamily>Tahoma</FontFamily>
+                                  <FontSize>11pt</FontSize>
+                                  <FontWeight>Bold</FontWeight>
+                                  <Color>White</Color>
+                                </Style>
+                              </TextRun>
+                            </TextRuns>
+                            <Style />
+                          </Paragraph>
+                        </Paragraphs>
+                        <rd:DefaultName>Textbox19</rd:DefaultName>
+                        <Style>
+                          <Border>
+                            <Color>#7292cc</Color>
+                            <Style>Solid</Style>
+                          </Border>
+                          <BackgroundColor>#4c68a2</BackgroundColor>
+                          <PaddingLeft>2pt</PaddingLeft>
+                          <PaddingRight>2pt</PaddingRight>
+                          <PaddingTop>2pt</PaddingTop>
+                          <PaddingBottom>2pt</PaddingBottom>
+                        </Style>
+                      </Textbox>
+                    </CellContents>
+                  </TablixHeader>
+                  <TablixMembers>
+                    <TablixMember />
+                  </TablixMembers>
+                </TablixMember>
+              </TablixMembers>
+              <KeepWithGroup>After</KeepWithGroup>
+              <RepeatOnNewPage>true</RepeatOnNewPage>
+            </TablixMember>
+            <TablixMember>
+              <Group Name="CostCode">
+                <GroupExpressions>
+                  <GroupExpression>=Fields!CostCode.Value</GroupExpression>
+                </GroupExpressions>
+              </Group>
+              <SortExpressions>
+                <SortExpression>
+                  <Value>=Fields!CostCode.Value</Value>
+                </SortExpression>
+              </SortExpressions>
+              <TablixHeader>
+                <Size>0.97343in</Size>
+                <CellContents>
+                  <Textbox Name="CostCode">
+                    <CanGrow>true</CanGrow>
+                    <KeepTogether>true</KeepTogether>
+                    <Paragraphs>
+                      <Paragraph>
+                        <TextRuns>
+                          <TextRun>
+                            <Value>=Fields!CostCode.Value</Value>
+                            <Style>
+                              <FontFamily>Tahoma</FontFamily>
+                              <FontWeight>Bold</FontWeight>
+                              <Color>#465678</Color>
+                            </Style>
+                          </TextRun>
+                        </TextRuns>
+                        <Style />
+                      </Paragraph>
+                    </Paragraphs>
+                    <rd:DefaultName>CostCode</rd:DefaultName>
+                    <Style>
+                      <Border>
+                        <Color>#c6daf8</Color>
+                        <Style>Solid</Style>
+                      </Border>
+                      <BackgroundColor>#9eb6e4</BackgroundColor>
+                      <PaddingLeft>2pt</PaddingLeft>
+                      <PaddingRight>2pt</PaddingRight>
+                      <PaddingTop>2pt</PaddingTop>
+                      <PaddingBottom>2pt</PaddingBottom>
+                    </Style>
+                  </Textbox>
+                </CellContents>
+              </TablixHeader>
+              <TablixMembers>
+                <TablixMember>
+                  <Group Name="CTRCode">
+                    <GroupExpressions>
+                      <GroupExpression>=Fields!CTRCode.Value</GroupExpression>
+                    </GroupExpressions>
+                  </Group>
+                  <SortExpressions>
+                    <SortExpression>
+                      <Value>=Fields!CTRCode.Value</Value>
+                    </SortExpression>
+                  </SortExpressions>
+                  <TablixHeader>
+                    <Size>0.97343in</Size>
+                    <CellContents>
+                      <Textbox Name="CTRCode">
+                        <CanGrow>true</CanGrow>
+                        <KeepTogether>true</KeepTogether>
+                        <Paragraphs>
+                          <Paragraph>
+                            <TextRuns>
+                              <TextRun>
+                                <Value>=Fields!CTRCode.Value</Value>
+                                <Style>
+                                  <FontFamily>Tahoma</FontFamily>
+                                  <FontWeight>Bold</FontWeight>
+                                  <Color>#4c68a2</Color>
+                                </Style>
+                              </TextRun>
+                            </TextRuns>
+                            <Style />
+                          </Paragraph>
+                        </Paragraphs>
+                        <rd:DefaultName>CTRCode</rd:DefaultName>
+                        <Style>
+                          <Border>
+                            <Color>#e6eefc</Color>
+                            <Style>Solid</Style>
+                          </Border>
+                          <BackgroundColor>#c6daf8</BackgroundColor>
+                          <PaddingLeft>2pt</PaddingLeft>
+                          <PaddingRight>2pt</PaddingRight>
+                          <PaddingTop>2pt</PaddingTop>
+                          <PaddingBottom>2pt</PaddingBottom>
+                        </Style>
+                      </Textbox>
+                    </CellContents>
+                  </TablixHeader>
+                  <TablixMembers>
+                    <TablixMember>
+                      <Group Name="Details" />
+                    </TablixMember>
+                    <TablixMember>
+                      <KeepWithGroup>Before</KeepWithGroup>
+                    </TablixMember>
+                  </TablixMembers>
+                </TablixMember>
+                <TablixMember>
+                  <TablixHeader>
+                    <Size>0.97343in</Size>
+                    <CellContents>
+                      <Textbox Name="Textbox35">
+                        <CanGrow>true</CanGrow>
+                        <KeepTogether>true</KeepTogether>
+                        <Paragraphs>
+                          <Paragraph>
+                            <TextRuns>
+                              <TextRun>
+                                <Value>Total</Value>
+                                <Style>
+                                  <FontFamily>Tahoma</FontFamily>
+                                  <FontWeight>Bold</FontWeight>
+                                  <Color>#465678</Color>
+                                </Style>
+                              </TextRun>
+                            </TextRuns>
+                            <Style />
+                          </Paragraph>
+                        </Paragraphs>
+                        <rd:DefaultName>Textbox35</rd:DefaultName>
+                        <Style>
+                          <Border>
+                            <Color>#c6daf8</Color>
+                            <Style>Solid</Style>
+                          </Border>
+                          <BackgroundColor>#9eb6e4</BackgroundColor>
+                          <PaddingLeft>2pt</PaddingLeft>
+                          <PaddingRight>2pt</PaddingRight>
+                          <PaddingTop>2pt</PaddingTop>
+                          <PaddingBottom>2pt</PaddingBottom>
+                        </Style>
+                      </Textbox>
+                    </CellContents>
+                  </TablixHeader>
+                  <KeepWithGroup>Before</KeepWithGroup>
+                </TablixMember>
+              </TablixMembers>
+            </TablixMember>
+            <TablixMember>
+              <TablixHeader>
+                <Size>0.97343in</Size>
+                <CellContents>
+                  <Textbox Name="Textbox23">
+                    <CanGrow>true</CanGrow>
+                    <KeepTogether>true</KeepTogether>
+                    <Paragraphs>
+                      <Paragraph>
+                        <TextRuns>
+                          <TextRun>
+                            <Value>Total</Value>
+                            <Style>
+                              <FontFamily>Tahoma</FontFamily>
+                              <FontWeight>Bold</FontWeight>
+                              <Color>White</Color>
+                            </Style>
+                          </TextRun>
+                        </TextRuns>
+                        <Style />
+                      </Paragraph>
+                    </Paragraphs>
+                    <rd:DefaultName>Textbox23</rd:DefaultName>
+                    <Style>
+                      <Border>
+                        <Color>#9eb6e4</Color>
+                        <Style>Solid</Style>
+                      </Border>
+                      <BackgroundColor>#7292cc</BackgroundColor>
+                      <PaddingLeft>2pt</PaddingLeft>
+                      <PaddingRight>2pt</PaddingRight>
+                      <PaddingTop>2pt</PaddingTop>
+                      <PaddingBottom>2pt</PaddingBottom>
+                    </Style>
+                  </Textbox>
+                </CellContents>
+              </TablixHeader>
+              <TablixMembers>
+                <TablixMember>
+                  <TablixHeader>
+                    <Size>0.97343in</Size>
+                    <CellContents>
+                      <Textbox Name="Textbox24">
+                        <CanGrow>true</CanGrow>
+                        <KeepTogether>true</KeepTogether>
+                        <Paragraphs>
+                          <Paragraph>
+                            <TextRuns>
+                              <TextRun>
+                                <Value />
+                                <Style>
+                                  <FontFamily>Tahoma</FontFamily>
+                                  <FontWeight>Bold</FontWeight>
+                                  <Color>White</Color>
+                                </Style>
+                              </TextRun>
+                            </TextRuns>
+                            <Style />
+                          </Paragraph>
+                        </Paragraphs>
+                        <rd:DefaultName>Textbox24</rd:DefaultName>
+                        <Style>
+                          <Border>
+                            <Color>#9eb6e4</Color>
+                            <Style>Solid</Style>
+                          </Border>
+                          <BackgroundColor>#7292cc</BackgroundColor>
+                          <PaddingLeft>2pt</PaddingLeft>
+                          <PaddingRight>2pt</PaddingRight>
+                          <PaddingTop>2pt</PaddingTop>
+                          <PaddingBottom>2pt</PaddingBottom>
+                        </Style>
+                      </Textbox>
+                    </CellContents>
+                  </TablixHeader>
+                </TablixMember>
+              </TablixMembers>
+              <KeepWithGroup>Before</KeepWithGroup>
+            </TablixMember>
+          </TablixMembers>
+        </TablixRowHierarchy>
+        <RepeatRowHeaders>true</RepeatRowHeaders>
+        <DataSetName>TimesheetDetail</DataSetName>
+        <Left>0.09525cm</Left>
+        <Height>2.99999cm</Height>
+        <Width>27.19764cm</Width>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Tablix>
+    </ReportItems>
+    <Height>1.25in</Height>
+    <Style />
+  </Body>
+  <ReportParameters>
+    <ReportParameter Name="CTRCode">
+      <DataType>String</DataType>
+      <Prompt>CTRCode</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="CostCode">
+      <DataType>String</DataType>
+      <Prompt>CostCode</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Discipline">
+      <DataType>String</DataType>
+      <Prompt>Discipline</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="StartDate">
+      <DataType>String</DataType>
+      <Prompt>StartDate</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="EndDate">
+      <DataType>String</DataType>
+      <Prompt>EndDate</Prompt>
+    </ReportParameter>
+  </ReportParameters>
+  <Width>10.82677in</Width>
+  <Page>
+    <PageHeader>
+      <Height>2.54cm</Height>
+      <PrintOnFirstPage>true</PrintOnFirstPage>
+      <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Textbox Name="Textbox1">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>="Report with the following filters " &amp; IIF(Parameters!Discipline.Value like "All","","Discipline " &amp; Parameters!Discipline.Value) &amp; IIF(Parameters!CTRCode.Value like "All","",", CTRCode " &amp; Parameters!CTRCode.Value) &amp; IIF(Parameters!CostCode.Value like "All","",", CostCode " &amp; Parameters!CostCode.Value) &amp; IIF(Parameters!StartDate.Value &lt;&gt; "All" and Parameters!EndDate.Value &lt;&gt; "All",", Timesheets record between " &amp; Parameters!StartDate.Value &amp; " and " &amp; Parameters!EndDate.Value, IIF(Parameters!StartDate.Value &lt;&gt; "All" and Parameters!EndDate.Value like "All",", Timesheets record from " &amp; Parameters!StartDate.Value,IIF(Parameters!StartDate.Value like "All" and Parameters!EndDate.Value &lt;&gt; "All",", Timesheets record until " &amp; Parameters!EndDate.Value,"")))</Value>
+                  <Style>
+                    <FontFamily>Tahoma</FontFamily>
+                    <FontSize>9pt</FontSize>
+                    <Color>#4c68a2</Color>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox1</rd:DefaultName>
+          <Top>1.07603cm</Top>
+          <Left>2.45492cm</Left>
+          <Height>1.15563cm</Height>
+          <Width>14.26529cm</Width>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="Textbox6">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>="Created by " &amp; User!UserID &amp; " the " &amp; Today.Day &amp; " " &amp; MonthName(Month(Today),False) &amp; " " &amp; Year(Today)</Value>
+                  <Style>
+                    <FontFamily>Tahoma</FontFamily>
+                    <FontWeight>Bold</FontWeight>
+                    <Color>#4c68a2</Color>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox6</rd:DefaultName>
+          <Top>0.30833cm</Top>
+          <Left>2.45492cm</Left>
+          <Height>0.6cm</Height>
+          <Width>16.14256cm</Width>
+          <ZIndex>1</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Image Name="Image1">
+          <Source>Embedded</Source>
+          <Value>VRAI_KNS</Value>
+          <Sizing>FitProportional</Sizing>
+          <Top>0.3132cm</Top>
+          <Left>0.30228cm</Left>
+          <Height>1.91846cm</Height>
+          <Width>1.97625cm</Width>
+          <ZIndex>2</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </Image>
+        <Textbox Name="Textbox10">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>Hours in red = unapproved hours.</Value>
+                  <Style>
+                    <FontFamily>Tahoma</FontFamily>
+                    <FontSize>9pt</FontSize>
+                    <Color>Red</Color>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Right</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox1</rd:DefaultName>
+          <Top>1.71103cm</Top>
+          <Left>21.63131cm</Left>
+          <Height>0.52063cm</Height>
+          <Width>5.5605cm</Width>
+          <ZIndex>3</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Image Name="Image3">
+          <Source>Embedded</Source>
+          <Value>VRAI</Value>
+          <Sizing>FitProportional</Sizing>
+          <Top>0.3132cm</Top>
+          <Left>24.02132cm</Left>
+          <Height>0.41521cm</Height>
+          <Width>1.5cm</Width>
+          <ZIndex>4</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </Image>
+        <Image Name="Image2">
+          <Source>Embedded</Source>
+          <Value>VRAI_TP</Value>
+          <Sizing>FitProportional</Sizing>
+          <Top>0.3132cm</Top>
+          <Left>25.69771cm</Left>
+          <Height>0.52063cm</Height>
+          <Width>1.5cm</Width>
+          <ZIndex>5</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </Image>
+      </ReportItems>
+      <Style>
+        <Border>
+          <Style>None</Style>
+        </Border>
+      </Style>
+    </PageHeader>
+    <PageFooter>
+      <Height>1.40229cm</Height>
+      <PrintOnFirstPage>true</PrintOnFirstPage>
+      <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Textbox Name="Textbox4">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=Globals!ExecutionTime</Value>
+                  <Style>
+                    <FontFamily>Tahoma</FontFamily>
+                    <Color>#4c68a2</Color>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Left</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox2</rd:DefaultName>
+          <Top>0.34089cm</Top>
+          <Left>0.04763cm</Left>
+          <Height>0.6cm</Height>
+          <Width>7.55354cm</Width>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Line Name="Line1">
+          <Top>0.31443cm</Top>
+          <Height>0cm</Height>
+          <Width>26.95552cm</Width>
+          <ZIndex>1</ZIndex>
+          <Style>
+            <Border>
+              <Color>#4c68a2</Color>
+              <Style>Solid</Style>
+            </Border>
+          </Style>
+        </Line>
+        <Textbox Name="Textbox8">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>="Page " &amp; Globals!PageNumber &amp; " to " &amp; Globals!TotalPages</Value>
+                  <Style>
+                    <FontFamily>Tahoma</FontFamily>
+                    <Color>#4c68a2</Color>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Right</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox3</rd:DefaultName>
+          <Top>0.37265cm</Top>
+          <Left>23.0124cm</Left>
+          <Height>0.6cm</Height>
+          <Width>4.00813cm</Width>
+          <ZIndex>2</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+      </ReportItems>
+      <Style>
+        <Border>
+          <Style>None</Style>
+        </Border>
+      </Style>
+    </PageFooter>
+    <PageHeight>21cm</PageHeight>
+    <PageWidth>29.7cm</PageWidth>
+    <LeftMargin>1cm</LeftMargin>
+    <RightMargin>1cm</RightMargin>
+    <TopMargin>1cm</TopMargin>
+    <BottomMargin>1cm</BottomMargin>
+    <ColumnSpacing>0.13cm</ColumnSpacing>
+    <Style />
+  </Page>
+  <EmbeddedImages>
+    <EmbeddedImage Name="VRAI_KNS">
+      <MIMEType>image/jpeg</MIMEType>
+      <ImageData>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</ImageData>
+    </EmbeddedImage>
+    <EmbeddedImage Name="VRAI">
+      <MIMEType>image/jpeg</MIMEType>
+      <ImageData>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</ImageData>
+    </EmbeddedImage>
+    <EmbeddedImage Name="VRAI_TP">
+      <MIMEType>image/jpeg</MIMEType>
+      <ImageData>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</ImageData>
+    </EmbeddedImage>
+  </EmbeddedImages>
+  <rd:ReportID>3812fddf-c2d0-4e5c-a3da-bef2178bd8d8</rd:ReportID>
+  <rd:ReportUnitType>Cm</rd:ReportUnitType>
+</Report>
