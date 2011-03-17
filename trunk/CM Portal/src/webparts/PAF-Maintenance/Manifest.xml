@@ -1,0 +1,26 @@
+<Solution xmlns="http://schemas.microsoft.com/sharepoint/"
+          SolutionId="f0e553c8-cdbc-4df3-b7fc-d818cc289569">
+	<Assemblies>
+		<Assembly Location="PAFMaintenance.dll"
+				  DeploymentTarget="GlobalAssemblyCache">
+			<SafeControls>
+				<SafeControl Namespace="PAFMaintenance"   Safe="True" 
+							 TypeName="*" />
+			</SafeControls>
+		</Assembly>
+	</Assemblies>
+	<DwpFiles>
+		<DwpFile Location="AdddboCompany.webpart" />
+		<DwpFile Location="UpdatedboCompany.webpart" />
+		<DwpFile Location="DeletedboCompany.webpart" />
+		<DwpFile Location="AdddboDiscipline.webpart" />
+		<DwpFile Location="UpdatedboDiscipline.webpart" />
+		<DwpFile Location="DeletedboDiscipline.webpart" />
+    <DwpFile Location="AdddboLocation.webpart" />
+    <DwpFile Location="UpdatedboLocation.webpart" />
+    <DwpFile Location="DeletedboLocation.webpart" />
+    <DwpFile Location="AdddboCurrency.webpart" />
+    <DwpFile Location="UpdatedboCurrency.webpart" />
+    <DwpFile Location="DeletedboCurrency.webpart" />
+	</DwpFiles>
+</Solution>

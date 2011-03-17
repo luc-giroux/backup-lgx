@@ -1,0 +1,1098 @@
+<?xml version="1.0"?>
+<LobSystem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:schemaLocation="http://schemas.microsoft.com/office/2006/03/BusinessDataCatalog BDCMetadata.XSD" Type="Database" Version="1.0.0.0" Name="Contacts" xmlns="http://schemas.microsoft.com/office/2006/03/BusinessDataCatalog">
+  <Properties>
+    <Property Name="WildcardCharacter" Type="System.String">%</Property>
+  </Properties>
+  <AccessControlList>
+    <AccessControlEntry Principal="KONINET\sp_admin">
+	  <Right BdcRight="Execute" />
+	  <Right BdcRight="Edit" />
+	  <Right BdcRight="SetPermissions" />
+	  <Right BdcRight="SelectableInClients" />
+	</AccessControlEntry>
+	<AccessControlEntry Principal="KONINET\sp_sspservice">
+	  <Right BdcRight="Execute" />
+	  <Right BdcRight="Edit" />
+	  <Right BdcRight="SetPermissions" />
+	  <Right BdcRight="SelectableInClients" />
+	</AccessControlEntry>  	
+    <AccessControlEntry Principal="KONINET\sp_public">
+      <Right BdcRight="Execute"/>
+    </AccessControlEntry>
+  </AccessControlList>
+  <LobSystemInstances>
+    <LobSystemInstance Name="Contacts">
+	  <!--The authentication mode use an sql account defined below-->	
+	  <Properties>
+		<Property Name="AuthenticationMode" Type="Microsoft.Office.Server.ApplicationRegistry.SystemSpecific.Db.DbAuthenticationMode">RevertToSelf</Property>
+		<Property Name="DatabaseAccessProvider" Type="Microsoft.Office.Server.ApplicationRegistry.SystemSpecific.Db.DbAccessProvider">SqlServer</Property>
+		<Property Name="RdbConnection Data Source" Type="System.String">VAVDB1</Property>
+		<Property Name="RdbConnection Initial Catalog" Type="System.String">Contacts</Property> 
+		<Property Name="RdbConnection Integrated Security" Type="System.String">false</Property>
+		<Property Name="RdbConnection User ID" Type="System.String">sp_sspservice</Property>
+		<Property Name="RdbConnection Password" Type="System.String">2010service</Property>
+	  </Properties>
+    </LobSystemInstance>
+  </LobSystemInstances>
+  <Entities>
+    <!--CONTRACTORS-->
+	<Entity EstimatedInstanceCount="0" Name="dbo.Contractors" DefaultDisplayName="Contractors">
+      <Properties>
+        <Property Name="Title" Type="System.String">ContractorCompany</Property>
+      </Properties>
+      <Identifiers>
+        <Identifier TypeName="System.Int32" Name="[ContractorID]" />
+      </Identifiers>
+      <Methods>
+        <Method Name="Getdbo.[Contractors]">
+          <Properties>
+            <Property Name="RdbCommandText" Type="System.String">Select [ContractorID],[ContractorCompany],[ContractorLastname],[ContractorFirstname],[ContractorEmail],[ContractorPhoneNumber],[ContractorContractNumber],[ContractorLocationCode] From dbo.[Contractors] where([ContractorContractNumber] LIKE @ContractNumber) and ([ContractorFirstname] LIKE @FirstName) and ([ContractorLastname] LIKE @LastName) and ([ContractorCompany] LIKE @Company)</Property>
+            <Property Name="RdbCommandType" Type="System.Data.CommandType">Text</Property>
+          </Properties>
+          <FilterDescriptors>
+            <FilterDescriptor Type="Wildcard" Name="Company" />
+            <FilterDescriptor Type="Wildcard" Name="Last Name" />
+            <FilterDescriptor Type="Wildcard" Name="First Name" />
+            <FilterDescriptor Type="Wildcard" Name="Contract Number" />
+          </FilterDescriptors>
+          <Parameters>
+            <Parameter Direction="In" Name="@ContractNumber">
+              <TypeDescriptor TypeName="System.String" Name="ContractorContractNumber" AssociatedFilter="Contract Number">
+                <DefaultValues>
+                  <DefaultValue MethodInstanceName="dbo.[Contractors]Finder" Type="System.String">%</DefaultValue>
+                </DefaultValues>
+              </TypeDescriptor>
+            </Parameter>
+            <Parameter Direction="In" Name="@FirstName">
+              <TypeDescriptor TypeName="System.String" Name="ContractorFirstname" AssociatedFilter="First Name">
+                <DefaultValues>
+                  <DefaultValue MethodInstanceName="dbo.[Contractors]Finder" Type="System.String">%</DefaultValue>
+                </DefaultValues>
+              </TypeDescriptor>
+            </Parameter>
+            <Parameter Direction="In" Name="@LastName">
+              <TypeDescriptor TypeName="System.String" Name="ContractorLastname" AssociatedFilter="Last Name">
+                <DefaultValues>
+                  <DefaultValue MethodInstanceName="dbo.[Contractors]Finder" Type="System.String">%</DefaultValue>
+                </DefaultValues>
+              </TypeDescriptor>
+            </Parameter>
+            <Parameter Direction="In" Name="@Company">
+              <TypeDescriptor TypeName="System.String" Name="ContractorCompany" AssociatedFilter="Company">
+                <DefaultValues>
+                  <DefaultValue MethodInstanceName="dbo.[Contractors]Finder" Type="System.String">%</DefaultValue>
+                </DefaultValues>
+              </TypeDescriptor>
+            </Parameter>
+            <Parameter Direction="Return" Name="dbo.[Contractors]">
+              <TypeDescriptor TypeName="System.Data.IDataReader, System.Data, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" IsCollection="true" Name="dbo.[Contractors]DataReader">
+                <TypeDescriptors>
+                  <TypeDescriptor TypeName="System.Data.IDataRecord, System.Data, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" Name="dbo.[Contractors]DataRecord">
+                    <TypeDescriptors>
+                      <TypeDescriptor TypeName="System.Int32" Name="ContractorID" IdentifierName="[ContractorID]" />
+                      <TypeDescriptor TypeName="System.String" Name="ContractorCompany" DefaultDisplayName="Company"/>
+                      <TypeDescriptor TypeName="System.String" Name="ContractorLastname" DefaultDisplayName="Last name"/>
+                      <TypeDescriptor TypeName="System.String" Name="ContractorFirstname" DefaultDisplayName="First name"/>
+                      <TypeDescriptor TypeName="System.String" Name="ContractorEmail" DefaultDisplayName="Email"/>
+                      <TypeDescriptor TypeName="System.String" Name="ContractorPhoneNumber" DefaultDisplayName="Phone number"/>
+                      <TypeDescriptor TypeName="System.String" Name="ContractorContractNumber" DefaultDisplayName="Contract number"/>
+                      <TypeDescriptor TypeName="System.String" Name="ContractorLocationCode" DefaultDisplayName="Location code"/>
+                    </TypeDescriptors>
+                  </TypeDescriptor>
+                </TypeDescriptors>
+              </TypeDescriptor>
+            </Parameter>
+          </Parameters>
+          <MethodInstances>
+            <MethodInstance Name="dbo.[Contractors]Finder" Type="Finder" ReturnParameterName="dbo.[Contractors]" ReturnTypeDescriptorName="dbo.[Contractors]DataReader" ReturnTypeDescriptorLevel="0" />
+          </MethodInstances>
+        </Method>
+        <Method Name="dbo.[Contractors]SpecificFinder">
+          <Properties>
+            <Property Name="RdbCommandText" Type="System.String">Select [ContractorID],[ContractorCompany],[ContractorLastname],[ContractorFirstname],[ContractorEmail],[ContractorPhoneNumber],[ContractorContractNumber],[ContractorLocationCode] From dbo.[Contractors] Where ([ContractorID]=@ContractorID)</Property>
+            <Property Name="RdbCommandType" Type="System.Data.CommandType">Text</Property>
+          </Properties>
+          <Parameters>
+            <Parameter Direction="In" Name="@ContractorID">
+              <TypeDescriptor TypeName="System.Int32" Name="[ContractorID]" IdentifierName="[ContractorID]" />
+            </Parameter>
+            <Parameter Direction="Return" Name="dbo.[Contractors]">
+              <TypeDescriptor TypeName="System.Data.IDataReader, System.Data, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" IsCollection="true" Name="dbo.[Contractors]DataReader">
+                <TypeDescriptors>
+                  <TypeDescriptor TypeName="System.Data.IDataRecord, System.Data, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" Name="dbo.[Contractors]DataRecord">
+                    <TypeDescriptors>
+                      <TypeDescriptor TypeName="System.Int32" Name="ContractorID" IdentifierName="[ContractorID]" />
+                      <TypeDescriptor TypeName="System.String" Name="ContractorCompany" />
+                      <TypeDescriptor TypeName="System.String" Name="ContractorLastname" />
+                      <TypeDescriptor TypeName="System.String" Name="ContractorFirstname" />
+                      <TypeDescriptor TypeName="System.String" Name="ContractorEmail" />
+                      <TypeDescriptor TypeName="System.String" Name="ContractorPhoneNumber" />
+                      <TypeDescriptor TypeName="System.String" Name="ContractorContractNumber" />
+                      <TypeDescriptor TypeName="System.String" Name="ContractorLocationCode" />
+                    </TypeDescriptors>
+                  </TypeDescriptor>
+                </TypeDescriptors>
+              </TypeDescriptor>
+            </Parameter>
+          </Parameters>
+          <MethodInstances>
+            <MethodInstance Name="dbo.[Contractors]SpecificFinder" Type="SpecificFinder" ReturnParameterName="dbo.[Contractors]" ReturnTypeDescriptorName="dbo.[Contractors]DataReader" ReturnTypeDescriptorLevel="0" />
+          </MethodInstances>
+        </Method>
+        <Method Name="dbo.[Contractors]IdEnumerator">
+          <Properties>
+            <Property Name="RdbCommandText" Type="System.String">Select [ContractorID] From dbo.[Contractors]</Property>
+            <Property Name="RdbCommandType" Type="System.Data.CommandType">Text</Property>
+          </Properties>
+          <Parameters>
+            <Parameter Direction="Return" Name="dbo.[Contractors]IDs">
+              <TypeDescriptor TypeName="System.Data.IDataReader, System.Data, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" IsCollection="true" Name="dbo.[Contractors]IDs">
+                <TypeDescriptors>
+                  <TypeDescriptor TypeName="System.Data.IDataRecord, System.Data, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" Name="dbo.[Contractors]">
+                    <TypeDescriptors>
+                      <TypeDescriptor TypeName="System.Int32" Name="ContractorID" IdentifierName="[ContractorID]" />
+                    </TypeDescriptors>
+                  </TypeDescriptor>
+                </TypeDescriptors>
+              </TypeDescriptor>
+            </Parameter>
+          </Parameters>
+          <MethodInstances>
+            <MethodInstance Name="dbo.[Contractors]EnumeratorInstance" Type="IdEnumerator" ReturnParameterName="dbo.[Contractors]IDs" />
+          </MethodInstances>
+        </Method>
+        <Method Name="insertdbo.Contractors">
+          <Properties>
+            <Property Name="RdbCommandText" Type="System.String">Insert into dbo.Contractors([ContractorCompany],[ContractorLastname],[ContractorFirstname],[ContractorEmail],[ContractorPhoneNumber],[ContractorContractNumber],[ContractorLocationCode]) Values(@ContractorCompany,@ContractorLastname,@ContractorFirstname,@ContractorEmail,@ContractorPhoneNumber,@ContractorContractNumber,@ContractorLocationCode);select SomethingToReturn = @@Identity</Property>
+            <Property Name="RdbCommandType" Type="System.String">Text</Property>
+          </Properties>
+          <Parameters>
+            <Parameter Direction="In" Name="@ContractorCompany">
+              <TypeDescriptor TypeName="System.String" Name="ContractorCompany" />
+            </Parameter>
+            <Parameter Direction="In" Name="@ContractorLastname">
+              <TypeDescriptor TypeName="System.String" Name="ContractorLastname" />
+            </Parameter>
+            <Parameter Direction="In" Name="@ContractorFirstname">
+              <TypeDescriptor TypeName="System.String" Name="ContractorFirstname" />
+            </Parameter>
+            <Parameter Direction="In" Name="@ContractorEmail">
+              <TypeDescriptor TypeName="System.String" Name="ContractorEmail" />
+            </Parameter>
+            <Parameter Direction="In" Name="@ContractorPhoneNumber">
+              <TypeDescriptor TypeName="System.String" Name="ContractorPhoneNumber" />
+            </Parameter>
+            <Parameter Direction="In" Name="@ContractorContractNumber">
+              <TypeDescriptor TypeName="System.String" Name="ContractorContractNumber" />
+            </Parameter>
+            <Parameter Direction="In" Name="@ContractorLocationCode">
+              <TypeDescriptor TypeName="System.String" Name="ContractorLocationCode" />
+            </Parameter>
+            <Parameter Direction="Return" Name="dbo.Contractors">
+              <TypeDescriptor TypeName="System.String" Name="SomethingToReturn" />
+            </Parameter>
+          </Parameters>
+          <MethodInstances>
+            <MethodInstance Name="dbo.ContractorsInserter" Type="GenericInvoker" ReturnParameterName="dbo.Contractors" />
+          </MethodInstances>
+        </Method>
+        <Method Name="updatedbo.Contractors">
+          <Properties>
+            <Property Name="RdbCommandText" Type="System.String">Update dbo.Contractors SET [ContractorCompany]=@ContractorCompany,[ContractorLastname]=@ContractorLastname,[ContractorFirstname]=@ContractorFirstname,[ContractorEmail]=@ContractorEmail,[ContractorPhoneNumber]=@ContractorPhoneNumber,[ContractorContractNumber]=@ContractorContractNumber,[ContractorLocationCode]=@ContractorLocationCode WHERE([ContractorID]=@ContractorID);select SomethingToReturn = @@Identity</Property>
+            <Property Name="RdbCommandType" Type="System.String">Text</Property>
+          </Properties>
+          <Parameters>
+            <Parameter Direction="In" Name="@ContractorID">
+              <TypeDescriptor TypeName="System.Int32" Name="ContractorID" />
+            </Parameter>
+            <Parameter Direction="In" Name="@ContractorCompany">
+              <TypeDescriptor TypeName="System.String" Name="ContractorCompany" />
+            </Parameter>
+            <Parameter Direction="In" Name="@ContractorLastname">
+              <TypeDescriptor TypeName="System.String" Name="ContractorLastname" />
+            </Parameter>
+            <Parameter Direction="In" Name="@ContractorFirstname">
+              <TypeDescriptor TypeName="System.String" Name="ContractorFirstname" />
+            </Parameter>
+            <Parameter Direction="In" Name="@ContractorEmail">
+              <TypeDescriptor TypeName="System.String" Name="ContractorEmail" />
+            </Parameter>
+            <Parameter Direction="In" Name="@ContractorPhoneNumber">
+              <TypeDescriptor TypeName="System.String" Name="ContractorPhoneNumber" />
+            </Parameter>
+            <Parameter Direction="In" Name="@ContractorContractNumber">
+              <TypeDescriptor TypeName="System.String" Name="ContractorContractNumber" />
+            </Parameter>
+            <Parameter Direction="In" Name="@ContractorLocationCode">
+              <TypeDescriptor TypeName="System.String" Name="ContractorLocationCode" />
+            </Parameter>
+            <Parameter Direction="Return" Name="dbo.Contractors">
+              <TypeDescriptor TypeName="System.String" Name="SomethingToReturn" />
+            </Parameter>
+          </Parameters>
+          <MethodInstances>
+            <MethodInstance Name="dbo.ContractorsUpdater" Type="GenericInvoker" ReturnParameterName="dbo.Contractors" />
+          </MethodInstances>
+        </Method>
+		<Method Name="deletedbo.Contractors">
+          <Properties>
+            <Property Name="RdbCommandText" Type="System.String">Delete from dbo.Contractors WHERE ([ContractorID]=@ContractorID);</Property>
+            <Property Name="RdbCommandType" Type="System.String">Text</Property>
+          </Properties>
+          <Parameters>
+            <Parameter Direction="In" Name="@ContractorID">
+              <TypeDescriptor TypeName="System.Int32" Name="ContractorID" />
+            </Parameter>
+			<Parameter Direction="Return" Name="dbo.Contractors">
+              <TypeDescriptor TypeName="System.String" Name="SomethingToReturn" />
+            </Parameter>
+          </Parameters>
+          <MethodInstances>
+            <MethodInstance Name="dbo.ContractorsDeleter" Type="GenericInvoker" ReturnParameterName="dbo.Contractors" />
+          </MethodInstances>
+        </Method>
+      </Methods>
+      <Actions>
+        <Action Name="Add" Position="1" IsOpenedInNewWindow="false" Url="https://cm.projetkoniambo.com/Contacts/Pages/AddContractor.aspx" ImageUrl="https://cm.projetkoniambo.com/_layouts/images/newitem.gif" />
+        <Action Name="Edit" Position="2" IsOpenedInNewWindow="false" Url="https://cm.projetkoniambo.com/Contacts/Pages/EditContractor.aspx?ContractorID={0}" ImageUrl="https://cm.projetkoniambo.com/_layouts/images/edit.gif">
+          <ActionParameters>
+            <ActionParameter Name="ContractorID" Index="0" />
+          </ActionParameters>
+        </Action>
+        <Action Name="Delete" Position="3" IsOpenedInNewWindow="false" Url="https://cm.projetkoniambo.com/Contacts/Pages/DeleteContractor.aspx?ContractorID={0}" ImageUrl="https://cm.projetkoniambo.com/_layouts/images/delete.gif">
+		  <ActionParameters>
+            <ActionParameter Name="ContractorID" Index="0" />
+          </ActionParameters>
+		</Action> 
+      </Actions>
+    </Entity>
+	<!--EMPLOYEES-->
+	<Entity EstimatedInstanceCount="0" Name="dbo.Employees" DefaultDisplayName="Employees">
+      <Properties>
+        <Property Name="Title" Type="System.String">EmployeeLastname</Property>
+      </Properties>
+      <Identifiers>
+        <Identifier TypeName="System.Int32" Name="[EmployeeID]" />
+      </Identifiers>
+      <Methods>
+        <Method Name="Getdbo.[Employees]">
+          <Properties>
+            <Property Name="RdbCommandText" Type="System.String">Select [EmployeeID],[EmployeeLastname],[EmployeeFirstname],[EmployeeEmail],[EmployeeInternalPhoneNumber],[EmployeeExternalPhoneNumber],[EmployeeMobilePhoneNumber],[EmployeeLocation],[EmployeeLocationCode],[EmployeeCompany] From dbo.[Employees] where([EmployeeCompany] LIKE @Company) and ([EmployeeLocation] LIKE @Location) and ([EmployeeFirstname] LIKE @FirstName) and ([EmployeeLastname] LIKE @LastName)</Property>
+            <Property Name="RdbCommandType" Type="System.Data.CommandType">Text</Property>
+          </Properties>
+          <FilterDescriptors>
+            <FilterDescriptor Type="Wildcard" Name="Last Name" />
+            <FilterDescriptor Type="Wildcard" Name="First Name" />
+            <FilterDescriptor Type="Wildcard" Name="Location" />
+            <FilterDescriptor Type="Wildcard" Name="Company" />
+          </FilterDescriptors>
+          <Parameters>
+            <Parameter Direction="In" Name="@Company">
+              <TypeDescriptor TypeName="System.String" Name="EmployeeCompany" AssociatedFilter="Company">
+                <DefaultValues>
+                  <DefaultValue MethodInstanceName="dbo.[Employees]Finder" Type="System.String">%</DefaultValue>
+                </DefaultValues>
+              </TypeDescriptor>
+            </Parameter>
+            <Parameter Direction="In" Name="@Location">
+              <TypeDescriptor TypeName="System.String" Name="EmployeeLocation" AssociatedFilter="Location">
+                <DefaultValues>
+                  <DefaultValue MethodInstanceName="dbo.[Employees]Finder" Type="System.String">%</DefaultValue>
+                </DefaultValues>
+              </TypeDescriptor>
+            </Parameter>
+            <Parameter Direction="In" Name="@FirstName">
+              <TypeDescriptor TypeName="System.String" Name="EmployeeFirstname" AssociatedFilter="First Name">
+                <DefaultValues>
+                  <DefaultValue MethodInstanceName="dbo.[Employees]Finder" Type="System.String">%</DefaultValue>
+                </DefaultValues>
+              </TypeDescriptor>
+            </Parameter>
+            <Parameter Direction="In" Name="@LastName">
+              <TypeDescriptor TypeName="System.String" Name="EmployeeLastname" AssociatedFilter="Last Name">
+                <DefaultValues>
+                  <DefaultValue MethodInstanceName="dbo.[Employees]Finder" Type="System.String">%</DefaultValue>
+                </DefaultValues>
+              </TypeDescriptor>
+            </Parameter>
+            <Parameter Direction="Return" Name="dbo.[Employees]">
+              <TypeDescriptor TypeName="System.Data.IDataReader, System.Data, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" IsCollection="true" Name="dbo.[Employees]DataReader">
+                <TypeDescriptors>
+                  <TypeDescriptor TypeName="System.Data.IDataRecord, System.Data, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" Name="dbo.[Employees]DataRecord">
+                    <TypeDescriptors>
+                      <TypeDescriptor TypeName="System.Int32" Name="EmployeeID" IdentifierName="[EmployeeID]" />
+                      <TypeDescriptor TypeName="System.String" Name="EmployeeLastname" DefaultDisplayName="Last name"/>
+                      <TypeDescriptor TypeName="System.String" Name="EmployeeFirstname" DefaultDisplayName="First name"/>
+                      <TypeDescriptor TypeName="System.String" Name="EmployeeEmail" DefaultDisplayName="Email"/>
+                      <TypeDescriptor TypeName="System.String" Name="EmployeeInternalPhoneNumber" DefaultDisplayName="Internal phone"/>
+                      <TypeDescriptor TypeName="System.String" Name="EmployeeExternalPhoneNumber" DefaultDisplayName="External phone"/>
+                      <TypeDescriptor TypeName="System.String" Name="EmployeeMobilePhoneNumber" DefaultDisplayName="Mobile phone"/>
+                      <TypeDescriptor TypeName="System.String" Name="EmployeeLocation" DefaultDisplayName="Location"/>
+                      <TypeDescriptor TypeName="System.String" Name="EmployeeLocationCode" DefaultDisplayName="Location code"/>
+					  <TypeDescriptor TypeName="System.String" Name="EmployeeCompany" DefaultDisplayName="Company"/>
+                    </TypeDescriptors>
+                  </TypeDescriptor>
+                </TypeDescriptors>
+              </TypeDescriptor>
+            </Parameter>
+          </Parameters>
+          <MethodInstances>
+            <MethodInstance Name="dbo.[Employees]Finder" Type="Finder" ReturnParameterName="dbo.[Employees]" ReturnTypeDescriptorName="dbo.[Employees]DataReader" ReturnTypeDescriptorLevel="0" />
+          </MethodInstances>
+        </Method>
+        <Method Name="dbo.[Employees]SpecificFinder">
+          <Properties>
+            <Property Name="RdbCommandText" Type="System.String">Select [EmployeeID],[EmployeeLastname],[EmployeeFirstname],[EmployeeEmail],[EmployeeInternalPhoneNumber],[EmployeeExternalPhoneNumber],[EmployeeMobilePhoneNumber],[EmployeeLocation],[EmployeeLocationCode],[EmployeeCompany] From dbo.[Employees] Where ([EmployeeID]=@EmployeeID)</Property>
+            <Property Name="RdbCommandType" Type="System.Data.CommandType">Text</Property>
+          </Properties>
+          <Parameters>
+            <Parameter Direction="In" Name="@EmployeeID">
+              <TypeDescriptor TypeName="System.Int32" Name="[EmployeeID]" IdentifierName="[EmployeeID]" />
+            </Parameter>
+            <Parameter Direction="Return" Name="dbo.[Employees]">
+              <TypeDescriptor TypeName="System.Data.IDataReader, System.Data, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" IsCollection="true" Name="dbo.[Employees]DataReader">
+                <TypeDescriptors>
+                  <TypeDescriptor TypeName="System.Data.IDataRecord, System.Data, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" Name="dbo.[Employees]DataRecord">
+                    <TypeDescriptors>
+                      <TypeDescriptor TypeName="System.Int32" Name="EmployeeID" IdentifierName="[EmployeeID]" />
+                      <TypeDescriptor TypeName="System.String" Name="EmployeeLastname" />
+                      <TypeDescriptor TypeName="System.String" Name="EmployeeFirstname" />
+                      <TypeDescriptor TypeName="System.String" Name="EmployeeEmail" />
+                      <TypeDescriptor TypeName="System.String" Name="EmployeeInternalPhoneNumber" />
+                      <TypeDescriptor TypeName="System.String" Name="EmployeeExternalPhoneNumber" />
+                      <TypeDescriptor TypeName="System.String" Name="EmployeeMobilePhoneNumber" />
+                      <TypeDescriptor TypeName="System.String" Name="EmployeeLocation" />
+                      <TypeDescriptor TypeName="System.String" Name="EmployeeLocationCode" />
+                      <TypeDescriptor TypeName="System.String" Name="EmployeeCompany" />
+                    </TypeDescriptors>
+                  </TypeDescriptor>
+                </TypeDescriptors>
+              </TypeDescriptor>
+            </Parameter>
+          </Parameters>
+          <MethodInstances>
+            <MethodInstance Name="dbo.[Employees]SpecificFinder" Type="SpecificFinder" ReturnParameterName="dbo.[Employees]" ReturnTypeDescriptorName="dbo.[Employees]DataReader" ReturnTypeDescriptorLevel="0" />
+          </MethodInstances>
+        </Method>
+        <Method Name="dbo.[Employees]IdEnumerator">
+          <Properties>
+            <Property Name="RdbCommandText" Type="System.String">Select [EmployeeID] From dbo.[Employees]</Property>
+            <Property Name="RdbCommandType" Type="System.Data.CommandType">Text</Property>
+          </Properties>
+          <Parameters>
+            <Parameter Direction="Return" Name="dbo.[Employees]IDs">
+              <TypeDescriptor TypeName="System.Data.IDataReader, System.Data, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" IsCollection="true" Name="dbo.[Employees]IDs">
+                <TypeDescriptors>
+                  <TypeDescriptor TypeName="System.Data.IDataRecord, System.Data, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" Name="dbo.[Employees]">
+                    <TypeDescriptors>
+                      <TypeDescriptor TypeName="System.Int32" Name="EmployeeID" IdentifierName="[EmployeeID]" />
+                    </TypeDescriptors>
+                  </TypeDescriptor>
+                </TypeDescriptors>
+              </TypeDescriptor>
+            </Parameter>
+          </Parameters>
+          <MethodInstances>
+            <MethodInstance Name="dbo.[Employees]EnumeratorInstance" Type="IdEnumerator" ReturnParameterName="dbo.[Employees]IDs" />
+          </MethodInstances>
+        </Method>
+        <Method Name="insertdbo.Employees">
+          <Properties>
+            <Property Name="RdbCommandText" Type="System.String">Insert into dbo.Employees([EmployeeFirstname],[EmployeeLastname],[EmployeeEmail],[EmployeeInternalPhoneNumber],[EmployeeExternalPhoneNumber],[EmployeeMobilePhoneNumber],[EmployeeLocation],[EmployeeLocationCode],[EmployeeCompany]) Values(@EmployeeFirstname,@EmployeeLastname,@EmployeeEmail,@EmployeeInternalPhoneNumber,@EmployeeExternalPhoneNumber,@EmployeeMobilePhoneNumber,@EmployeeLocation,@EmployeeLocationCode,@EmployeeCompany);select SomethingToReturn = @@Identity</Property>
+            <Property Name="RdbCommandType" Type="System.String">Text</Property>
+          </Properties>
+          <Parameters>
+            <Parameter Direction="In" Name="@EmployeeFirstname">
+              <TypeDescriptor TypeName="System.String" Name="EmployeeLastname" />
+            </Parameter>
+            <Parameter Direction="In" Name="@EmployeeLastname">
+              <TypeDescriptor TypeName="System.String" Name="EmployeeFirstname" />
+            </Parameter>
+            <Parameter Direction="In" Name="@EmployeeEmail">
+              <TypeDescriptor TypeName="System.String" Name="EmployeeEmail" />
+            </Parameter>
+            <Parameter Direction="In" Name="@EmployeeInternalPhoneNumber">
+              <TypeDescriptor TypeName="System.String" Name="EmployeeInternalPhoneNumber" />
+            </Parameter>
+            <Parameter Direction="In" Name="@EmployeeExternalPhoneNumber">
+              <TypeDescriptor TypeName="System.String" Name="EmployeeExternalPhoneNumber" />
+            </Parameter>
+            <Parameter Direction="In" Name="@EmployeeMobilePhoneNumber">
+              <TypeDescriptor TypeName="System.String" Name="EmployeeMobilePhoneNumber" />
+            </Parameter>
+            <Parameter Direction="In" Name="@EmployeeLocation">
+              <TypeDescriptor TypeName="System.String" Name="EmployeeLocation" />
+            </Parameter>
+            <Parameter Direction="In" Name="@EmployeeLocationCode">
+              <TypeDescriptor TypeName="System.String" Name="EmployeeLocationCode" />
+            </Parameter>
+			<Parameter Direction="In" Name="@EmployeeCompany">
+              <TypeDescriptor TypeName="System.String" Name="EmployeeCompany" />
+            </Parameter>
+            <Parameter Direction="Return" Name="dbo.Employees">
+              <TypeDescriptor TypeName="System.String" Name="SomethingToReturn" />
+            </Parameter>
+          </Parameters>
+          <MethodInstances>
+            <MethodInstance Name="dbo.EmployeesInserter" Type="GenericInvoker" ReturnParameterName="dbo.Employees" />
+          </MethodInstances>
+        </Method>
+        <Method Name="updatedbo.Employees">
+          <Properties>
+            <Property Name="RdbCommandText" Type="System.String">Update dbo.Employees SET [EmployeeLastname]=@EmployeeLastname,[EmployeeFirstname]=@EmployeeFirstname,[EmployeeEmail]=@EmployeeEmail,[EmployeeInternalPhoneNumber]=@EmployeeInternalPhoneNumber,[EmployeeExternalPhoneNumber]=@EmployeeExternalPhoneNumber,[EmployeeMobilePhoneNumber]=@EmployeeMobilePhoneNumber,[EmployeeLocation]=@EmployeeLocation,[EmployeeLocationCode]=@EmployeeLocationCode,[EmployeeCompany]=@EmployeeCompany WHERE([EmployeeID]=@EmployeeID);select SomethingToReturn = @@Identity</Property>
+            <Property Name="RdbCommandType" Type="System.String">Text</Property>
+          </Properties>
+          <Parameters>
+            <Parameter Direction="In" Name="@EmployeeID">
+              <TypeDescriptor TypeName="System.Int32" Name="EmployeeID" />
+            </Parameter>
+            <Parameter Direction="In" Name="@EmployeeLastname">
+              <TypeDescriptor TypeName="System.String" Name="EmployeeLastname" />
+            </Parameter>
+            <Parameter Direction="In" Name="@EmployeeFirstname">
+              <TypeDescriptor TypeName="System.String" Name="EmployeeFirstname" />
+            </Parameter>
+            <Parameter Direction="In" Name="@EmployeeEmail">
+              <TypeDescriptor TypeName="System.String" Name="EmployeeEmail" />
+            </Parameter>
+            <Parameter Direction="In" Name="@EmployeeInternalPhoneNumber">
+              <TypeDescriptor TypeName="System.String" Name="EmployeeInternalPhoneNumber" />
+            </Parameter>
+            <Parameter Direction="In" Name="@EmployeeExternalPhoneNumber">
+              <TypeDescriptor TypeName="System.String" Name="EmployeeExternalPhoneNumber" />
+            </Parameter>
+            <Parameter Direction="In" Name="@EmployeeMobilePhoneNumber">
+              <TypeDescriptor TypeName="System.String" Name="EmployeeMobilePhoneNumber" />
+            </Parameter>
+            <Parameter Direction="In" Name="@EmployeeLocation">
+              <TypeDescriptor TypeName="System.String" Name="EmployeeLocation" />
+            </Parameter>
+            <Parameter Direction="In" Name="@EmployeeLocationCode">
+              <TypeDescriptor TypeName="System.String" Name="EmployeeLocationCode" />
+            </Parameter>
+			<Parameter Direction="In" Name="@EmployeeCompany">
+              <TypeDescriptor TypeName="System.String" Name="EmployeeCompany" />
+            </Parameter>
+            <Parameter Direction="Return" Name="dbo.Employees">
+              <TypeDescriptor TypeName="System.String" Name="SomethingToReturn" />
+            </Parameter>
+          </Parameters>
+          <MethodInstances>
+            <MethodInstance Name="dbo.EmployeesUpdater" Type="GenericInvoker" ReturnParameterName="dbo.Employees" />
+          </MethodInstances>
+        </Method>
+		<Method Name="deletedbo.Employees">
+          <Properties>
+            <Property Name="RdbCommandText" Type="System.String">Delete from dbo.Employees WHERE ([EmployeeID]=@EmployeeID);</Property>
+            <Property Name="RdbCommandType" Type="System.String">Text</Property>
+          </Properties>
+          <Parameters>
+            <Parameter Direction="In" Name="@EmployeeID">
+              <TypeDescriptor TypeName="System.Int32" Name="EmployeeID" />
+            </Parameter>
+			<Parameter Direction="Return" Name="dbo.Employees">
+              <TypeDescriptor TypeName="System.String" Name="SomethingToReturn" />
+            </Parameter>
+          </Parameters>
+          <MethodInstances>
+            <MethodInstance Name="dbo.EmployeesDeleter" Type="GenericInvoker" ReturnParameterName="dbo.Employees" />
+          </MethodInstances>
+        </Method>
+      </Methods>
+      <Actions>
+        <Action Name="Add" Position="1" IsOpenedInNewWindow="false" Url="https://cm.projetkoniambo.com/Contacts/Pages/AddEmployee.aspx" ImageUrl="https://cm.projetkoniambo.com/_layouts/images/newitem.gif" />
+        <Action Name="Edit" Position="2" IsOpenedInNewWindow="false" Url="https://cm.projetkoniambo.com/Contacts/Pages/EditEmployee.aspx?EmployeeID={0}" ImageUrl="https://cm.projetkoniambo.com/_layouts/images/edit.gif">
+          <ActionParameters>
+            <ActionParameter Name="EmployeeID" Index="0" />
+          </ActionParameters>
+        </Action>
+        <Action Name="Delete" Position="3" IsOpenedInNewWindow="false" Url="https://cm.projetkoniambo.com/Contacts/Pages/DeleteEmployee.aspx?EmployeeID={0}" ImageUrl="https://cm.projetkoniambo.com/_layouts/images/delete.gif">
+          <ActionParameters>
+            <ActionParameter Name="EmployeeID" Index="0" />
+          </ActionParameters>
+        </Action>
+      </Actions>
+    </Entity>
+	<!--ROOMS-->
+	<Entity EstimatedInstanceCount="0" Name="dbo.Rooms" DefaultDisplayName="Rooms">
+      <Properties>
+        <Property Name="Title" Type="System.String">RoomName</Property>
+      </Properties>
+      <Identifiers>
+        <Identifier TypeName="System.Int32" Name="[RoomID]" />
+      </Identifiers>
+      <Methods>
+        <Method Name="Getdbo.[Rooms]">
+          <Properties>
+            <Property Name="RdbCommandText" Type="System.String">Select [RoomID],[RoomName],[RoomPhoneNumber],[RoomLocationCode] From dbo.[Rooms] where([RoomName] LIKE @Name)</Property>
+            <Property Name="RdbCommandType" Type="System.Data.CommandType">Text</Property>
+          </Properties>
+          <FilterDescriptors>
+            <FilterDescriptor Type="Wildcard" Name="Name" />
+          </FilterDescriptors>
+          <Parameters>
+            <Parameter Direction="In" Name="@Name">
+              <TypeDescriptor TypeName="System.String" Name="RoomName" AssociatedFilter="Name">
+                <DefaultValues>
+                  <DefaultValue MethodInstanceName="dbo.[Rooms]Finder" Type="System.String">%</DefaultValue>
+                </DefaultValues>
+              </TypeDescriptor>
+            </Parameter>
+            <Parameter Direction="Return" Name="dbo.[Rooms]">
+              <TypeDescriptor TypeName="System.Data.IDataReader, System.Data, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" IsCollection="true" Name="dbo.[Rooms]DataReader">
+                <TypeDescriptors>
+                  <TypeDescriptor TypeName="System.Data.IDataRecord, System.Data, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" Name="dbo.[Rooms]DataRecord">
+                    <TypeDescriptors>
+                      <TypeDescriptor TypeName="System.Int32" Name="RoomID" IdentifierName="[RoomID]" />
+                      <TypeDescriptor TypeName="System.String" Name="RoomName" DefaultDisplayName="Name"/>
+                      <TypeDescriptor TypeName="System.String" Name="RoomPhoneNumber" DefaultDisplayName="Phone number"/>
+                      <TypeDescriptor TypeName="System.String" Name="RoomLocationCode" DefaultDisplayName="Location Code"/>
+                    </TypeDescriptors>
+                  </TypeDescriptor>
+                </TypeDescriptors>
+              </TypeDescriptor>
+            </Parameter>
+          </Parameters>
+          <MethodInstances>
+            <MethodInstance Name="dbo.[Rooms]Finder" Type="Finder" ReturnParameterName="dbo.[Rooms]" ReturnTypeDescriptorName="dbo.[Rooms]DataReader" ReturnTypeDescriptorLevel="0" />
+          </MethodInstances>
+        </Method>
+        <Method Name="dbo.[Rooms]SpecificFinder">
+          <Properties>
+            <Property Name="RdbCommandText" Type="System.String">Select [RoomID],[RoomName],[RoomPhoneNumber],[RoomLocationCode] From dbo.[Rooms] Where ([RoomID]=@RoomID)</Property>
+            <Property Name="RdbCommandType" Type="System.Data.CommandType">Text</Property>
+          </Properties>
+          <Parameters>
+            <Parameter Direction="In" Name="@RoomID">
+              <TypeDescriptor TypeName="System.Int32" Name="[RoomID]" IdentifierName="[RoomID]" />
+            </Parameter>
+            <Parameter Direction="Return" Name="dbo.[Rooms]">
+              <TypeDescriptor TypeName="System.Data.IDataReader, System.Data, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" IsCollection="true" Name="dbo.[Rooms]DataReader">
+                <TypeDescriptors>
+                  <TypeDescriptor TypeName="System.Data.IDataRecord, System.Data, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" Name="dbo.[Rooms]DataRecord">
+                    <TypeDescriptors>
+                      <TypeDescriptor TypeName="System.Int32" Name="RoomID" IdentifierName="[RoomID]" />
+                      <TypeDescriptor TypeName="System.String" Name="RoomName" />
+                      <TypeDescriptor TypeName="System.String" Name="RoomPhoneNumber" />
+                      <TypeDescriptor TypeName="System.String" Name="RoomLocationCode" />
+                    </TypeDescriptors>
+                  </TypeDescriptor>
+                </TypeDescriptors>
+              </TypeDescriptor>
+            </Parameter>
+          </Parameters>
+          <MethodInstances>
+            <MethodInstance Name="dbo.[Rooms]SpecificFinder" Type="SpecificFinder" ReturnParameterName="dbo.[Rooms]" ReturnTypeDescriptorName="dbo.[Rooms]DataReader" ReturnTypeDescriptorLevel="0" />
+          </MethodInstances>
+        </Method>
+        <Method Name="dbo.[Rooms]IdEnumerator">
+          <Properties>
+            <Property Name="RdbCommandText" Type="System.String">Select [RoomID] From dbo.[Rooms]</Property>
+            <Property Name="RdbCommandType" Type="System.Data.CommandType">Text</Property>
+          </Properties>
+          <Parameters>
+            <Parameter Direction="Return" Name="dbo.[Rooms]IDs">
+              <TypeDescriptor TypeName="System.Data.IDataReader, System.Data, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" IsCollection="true" Name="dbo.[Rooms]IDs">
+                <TypeDescriptors>
+                  <TypeDescriptor TypeName="System.Data.IDataRecord, System.Data, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" Name="dbo.[Rooms]">
+                    <TypeDescriptors>
+                      <TypeDescriptor TypeName="System.Int32" Name="RoomID" IdentifierName="[RoomID]" />
+                    </TypeDescriptors>
+                  </TypeDescriptor>
+                </TypeDescriptors>
+              </TypeDescriptor>
+            </Parameter>
+          </Parameters>
+          <MethodInstances>
+            <MethodInstance Name="dbo.[Rooms]EnumeratorInstance" Type="IdEnumerator" ReturnParameterName="dbo.[Rooms]IDs" />
+          </MethodInstances>
+        </Method>
+        <Method Name="insertdbo.Rooms">
+          <Properties>
+            <Property Name="RdbCommandText" Type="System.String">Insert into dbo.Rooms([RoomName],[RoomPhoneNumber],[RoomLocationCode]) Values(@RoomName,@RoomPhoneNumber,@RoomLocationCode);select SomethingToReturn = @@Identity</Property>
+            <Property Name="RdbCommandType" Type="System.String">Text</Property>
+          </Properties>
+          <Parameters>
+            <Parameter Direction="In" Name="@RoomName">
+              <TypeDescriptor TypeName="System.String" Name="RoomName" />
+            </Parameter>
+            <Parameter Direction="In" Name="@RoomPhoneNumber">
+              <TypeDescriptor TypeName="System.String" Name="RoomPhoneNumber" />
+            </Parameter>
+            <Parameter Direction="In" Name="@RoomLocationCode">
+              <TypeDescriptor TypeName="System.String" Name="RoomLocationCode" />
+            </Parameter>
+            <Parameter Direction="Return" Name="dbo.Rooms">
+              <TypeDescriptor TypeName="System.String" Name="SomethingToReturn" />
+            </Parameter>
+          </Parameters>
+          <MethodInstances>
+            <MethodInstance Name="dbo.RoomsInserter" Type="GenericInvoker" ReturnParameterName="dbo.Rooms" />
+          </MethodInstances>
+        </Method>
+        <Method Name="updatedbo.Rooms">
+          <Properties>
+            <Property Name="RdbCommandText" Type="System.String">Update dbo.Rooms SET [RoomName]=@RoomName,[RoomPhoneNumber]=@RoomPhoneNumber,[RoomLocationCode]=@RoomLocationCode WHERE([RoomID]=@RoomID);select SomethingToReturn = @@Identity</Property>
+            <Property Name="RdbCommandType" Type="System.String">Text</Property>
+          </Properties>
+          <Parameters>
+            <Parameter Direction="In" Name="@RoomID">
+              <TypeDescriptor TypeName="System.Int32" Name="RoomID" />
+            </Parameter>
+            <Parameter Direction="In" Name="@RoomName">
+              <TypeDescriptor TypeName="System.String" Name="RoomName" />
+            </Parameter>
+            <Parameter Direction="In" Name="@RoomPhoneNumber">
+              <TypeDescriptor TypeName="System.String" Name="RoomPhoneNumber" />
+            </Parameter>
+            <Parameter Direction="In" Name="@RoomLocationCode">
+              <TypeDescriptor TypeName="System.String" Name="RoomLocationCode" />
+            </Parameter>
+            <Parameter Direction="Return" Name="dbo.Rooms">
+              <TypeDescriptor TypeName="System.String" Name="SomethingToReturn" />
+            </Parameter>
+          </Parameters>
+          <MethodInstances>
+            <MethodInstance Name="dbo.RoomsUpdater" Type="GenericInvoker" ReturnParameterName="dbo.Rooms" />
+          </MethodInstances>
+        </Method>
+		<Method Name="deletedbo.Rooms">
+          <Properties>
+            <Property Name="RdbCommandText" Type="System.String">Delete from dbo.Rooms WHERE ([RoomID]=@RoomID);</Property>
+            <Property Name="RdbCommandType" Type="System.String">Text</Property>
+          </Properties>
+          <Parameters>
+            <Parameter Direction="In" Name="@RoomID">
+              <TypeDescriptor TypeName="System.Int32" Name="RoomID" />
+            </Parameter>
+			<Parameter Direction="Return" Name="dbo.Rooms">
+              <TypeDescriptor TypeName="System.String" Name="SomethingToReturn" />
+            </Parameter>
+          </Parameters>
+          <MethodInstances>
+            <MethodInstance Name="dbo.RoomsDeleter" Type="GenericInvoker" ReturnParameterName="dbo.Rooms" />
+          </MethodInstances>
+        </Method>
+      </Methods>
+      <Actions>
+        <Action Name="Add" Position="1" IsOpenedInNewWindow="false" Url="https://cm.projetkoniambo.com/Contacts/Pages/AddRoom.aspx" ImageUrl="https://cm.projetkoniambo.com/_layouts/images/newitem.gif" />
+        <Action Name="edit" Position="2" IsOpenedInNewWindow="false" Url="https://cm.projetkoniambo.com/Contacts/Pages/EditRoom.aspx?RoomID={0}" ImageUrl="https://cm.projetkoniambo.com/_layouts/images/edit.gif">
+          <ActionParameters>
+            <ActionParameter Name="RoomID" Index="0" />
+          </ActionParameters>
+        </Action>
+		<Action Name="Delete" Position="3" IsOpenedInNewWindow="false" Url="https://cm.projetkoniambo.com/Contacts/Pages/DeleteRoom.aspx?RoomID={0}" ImageUrl="https://cm.projetkoniambo.com/_layouts/images/delete.gif">
+          <ActionParameters>
+            <ActionParameter Name="RoomID" Index="0" />
+          </ActionParameters>
+        </Action>
+      </Actions>
+    </Entity>
+	<!--PROJECT OFFICES-->
+	<Entity EstimatedInstanceCount="0" Name="dbo.ProjectOffices" DefaultDisplayName="Project Offices">
+      <Properties>
+        <Property Name="Title" Type="System.String">ProjectOfficeName</Property>
+      </Properties>
+      <Identifiers>
+        <Identifier TypeName="System.Int32" Name="[ProjectOfficeID]" />
+      </Identifiers>
+      <Methods>
+        <Method Name="Getdbo.[ProjectOffices]">
+          <Properties>
+            <Property Name="RdbCommandText" Type="System.String">Select [ProjectOfficeID],[ProjectOfficeName],[ProjectOfficeContact],[ProjectOfficePhoneNumber],[ProjectOfficeFaxNumber],[ProjectOfficeEmail],[ProjectOfficeAddress],[ProjectOfficeCountry] From dbo.[ProjectOffices] where([ProjectOfficeCountry] LIKE @Country) and ([ProjectOfficeContact] LIKE @Contact) and ([ProjectOfficeName] LIKE @Name)</Property>
+            <Property Name="RdbCommandType" Type="System.Data.CommandType">Text</Property>
+          </Properties>
+          <FilterDescriptors>
+            <FilterDescriptor Type="Wildcard" Name="Name" />
+            <FilterDescriptor Type="Wildcard" Name="Contact" />
+            <FilterDescriptor Type="Wildcard" Name="Country" />
+          </FilterDescriptors>
+          <Parameters>
+            <Parameter Direction="In" Name="@Country">
+              <TypeDescriptor TypeName="System.String" Name="ProjectOfficeCountry" AssociatedFilter="Country">
+                <DefaultValues>
+                  <DefaultValue MethodInstanceName="dbo.[ProjectOffices]Finder" Type="System.String">%</DefaultValue>
+                </DefaultValues>
+              </TypeDescriptor>
+            </Parameter>
+            <Parameter Direction="In" Name="@Contact">
+              <TypeDescriptor TypeName="System.String" Name="ProjectOfficeContact" AssociatedFilter="Contact">
+                <DefaultValues>
+                  <DefaultValue MethodInstanceName="dbo.[ProjectOffices]Finder" Type="System.String">%</DefaultValue>
+                </DefaultValues>
+              </TypeDescriptor>
+            </Parameter>
+            <Parameter Direction="In" Name="@Name">
+              <TypeDescriptor TypeName="System.String" Name="ProjectOfficeName" AssociatedFilter="Name">
+                <DefaultValues>
+                  <DefaultValue MethodInstanceName="dbo.[ProjectOffices]Finder" Type="System.String">%</DefaultValue>
+                </DefaultValues>
+              </TypeDescriptor>
+            </Parameter>
+            <Parameter Direction="Return" Name="dbo.[ProjectOffices]">
+              <TypeDescriptor TypeName="System.Data.IDataReader, System.Data, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" IsCollection="true" Name="dbo.[ProjectOffices]DataReader">
+                <TypeDescriptors>
+                  <TypeDescriptor TypeName="System.Data.IDataRecord, System.Data, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" Name="dbo.[ProjectOffices]DataRecord">
+                    <TypeDescriptors>
+                      <TypeDescriptor TypeName="System.Int32" Name="ProjectOfficeID" IdentifierName="[ProjectOfficeID]" />
+                      <TypeDescriptor TypeName="System.String" Name="ProjectOfficeName" DefaultDisplayName="Office Name"/>
+                      <TypeDescriptor TypeName="System.String" Name="ProjectOfficeContact" DefaultDisplayName="Contact"/>
+                      <TypeDescriptor TypeName="System.String" Name="ProjectOfficePhoneNumber" DefaultDisplayName="Phone number"/>
+                      <TypeDescriptor TypeName="System.String" Name="ProjectOfficeFaxNumber" DefaultDisplayName="Fax number"/>
+                      <TypeDescriptor TypeName="System.String" Name="ProjectOfficeEmail" DefaultDisplayName="Email"/>
+                      <TypeDescriptor TypeName="System.String" Name="ProjectOfficeAddress" DefaultDisplayName="Address"/>
+                      <TypeDescriptor TypeName="System.String" Name="ProjectOfficeCountry" DefaultDisplayName="Country"/>
+                    </TypeDescriptors>
+                  </TypeDescriptor>
+                </TypeDescriptors>
+              </TypeDescriptor>
+            </Parameter>
+          </Parameters>
+          <MethodInstances>
+            <MethodInstance Name="dbo.[ProjectOffices]Finder" Type="Finder" ReturnParameterName="dbo.[ProjectOffices]" ReturnTypeDescriptorName="dbo.[ProjectOffices]DataReader" ReturnTypeDescriptorLevel="0" />
+          </MethodInstances>
+        </Method>
+        <Method Name="dbo.[ProjectOffices]SpecificFinder">
+          <Properties>
+            <Property Name="RdbCommandText" Type="System.String">Select [ProjectOfficeID],[ProjectOfficeName],[ProjectOfficeContact],[ProjectOfficePhoneNumber],[ProjectOfficeFaxNumber],[ProjectOfficeEmail],[ProjectOfficeAddress],[ProjectOfficeCountry] From dbo.[ProjectOffices] Where ([ProjectOfficeID]=@ProjectOfficeID)</Property>
+            <Property Name="RdbCommandType" Type="System.Data.CommandType">Text</Property>
+          </Properties>
+          <Parameters>
+            <Parameter Direction="In" Name="@ProjectOfficeID">
+              <TypeDescriptor TypeName="System.Int32" Name="[ProjectOfficeID]" IdentifierName="[ProjectOfficeID]" />
+            </Parameter>
+            <Parameter Direction="Return" Name="dbo.[ProjectOffices]">
+              <TypeDescriptor TypeName="System.Data.IDataReader, System.Data, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" IsCollection="true" Name="dbo.[ProjectOffices]DataReader">
+                <TypeDescriptors>
+                  <TypeDescriptor TypeName="System.Data.IDataRecord, System.Data, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" Name="dbo.[ProjectOffices]DataRecord">
+                    <TypeDescriptors>
+                      <TypeDescriptor TypeName="System.Int32" Name="ProjectOfficeID" IdentifierName="[ProjectOfficeID]" />
+                      <TypeDescriptor TypeName="System.String" Name="ProjectOfficeName" />
+                      <TypeDescriptor TypeName="System.String" Name="ProjectOfficeContact" />
+                      <TypeDescriptor TypeName="System.String" Name="ProjectOfficePhoneNumber" />
+                      <TypeDescriptor TypeName="System.String" Name="ProjectOfficeFaxNumber" />
+                      <TypeDescriptor TypeName="System.String" Name="ProjectOfficeEmail" />
+                      <TypeDescriptor TypeName="System.String" Name="ProjectOfficeAddress" />
+                      <TypeDescriptor TypeName="System.String" Name="ProjectOfficeCountry" />
+                    </TypeDescriptors>
+                  </TypeDescriptor>
+                </TypeDescriptors>
+              </TypeDescriptor>
+            </Parameter>
+          </Parameters>
+          <MethodInstances>
+            <MethodInstance Name="dbo.[ProjectOffices]SpecificFinder" Type="SpecificFinder" ReturnParameterName="dbo.[ProjectOffices]" ReturnTypeDescriptorName="dbo.[ProjectOffices]DataReader" ReturnTypeDescriptorLevel="0" />
+          </MethodInstances>
+        </Method>
+        <Method Name="dbo.[ProjectOffices]IdEnumerator">
+          <Properties>
+            <Property Name="RdbCommandText" Type="System.String">Select [ProjectOfficeID] From dbo.[ProjectOffices]</Property>
+            <Property Name="RdbCommandType" Type="System.Data.CommandType">Text</Property>
+          </Properties>
+          <Parameters>
+            <Parameter Direction="Return" Name="dbo.[ProjectOffices]IDs">
+              <TypeDescriptor TypeName="System.Data.IDataReader, System.Data, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" IsCollection="true" Name="dbo.[ProjectOffices]IDs">
+                <TypeDescriptors>
+                  <TypeDescriptor TypeName="System.Data.IDataRecord, System.Data, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" Name="dbo.[ProjectOffices]">
+                    <TypeDescriptors>
+                      <TypeDescriptor TypeName="System.Int32" Name="ProjectOfficeID" IdentifierName="[ProjectOfficeID]" />
+                    </TypeDescriptors>
+                  </TypeDescriptor>
+                </TypeDescriptors>
+              </TypeDescriptor>
+            </Parameter>
+          </Parameters>
+          <MethodInstances>
+            <MethodInstance Name="dbo.[ProjectOffices]EnumeratorInstance" Type="IdEnumerator" ReturnParameterName="dbo.[ProjectOffices]IDs" />
+          </MethodInstances>
+        </Method>
+		<Method Name="insertdbo.ProjectOffices">
+          <Properties>
+            <Property Name="RdbCommandText" Type="System.String">Insert into dbo.ProjectOffices([ProjectOfficeName],[ProjectOfficeContact],[ProjectOfficePhoneNumber],[ProjectOfficeFaxNumber],[ProjectOfficeEmail],[ProjectOfficeAddress],[ProjectOfficeCountry]) Values(@ProjectOfficeName,@ProjectOfficeContact,@ProjectOfficePhoneNumber,@ProjectOfficeFaxNumber,@ProjectOfficeEmail,@ProjectOfficeAddress,@ProjectOfficeCountry);select SomethingToReturn = @@Identity</Property>
+            <Property Name="RdbCommandType" Type="System.String">Text</Property>
+          </Properties>
+          <Parameters>
+            <Parameter Direction="In" Name="@ProjectOfficeName">
+              <TypeDescriptor TypeName="System.String" Name="ProjectOfficeName" />
+            </Parameter>
+            <Parameter Direction="In" Name="@ProjectOfficeContact">
+              <TypeDescriptor TypeName="System.String" Name="ProjectOfficeContact" />
+            </Parameter>
+            <Parameter Direction="In" Name="@ProjectOfficePhoneNumber">
+              <TypeDescriptor TypeName="System.String" Name="ProjectOfficePhoneNumber" />
+            </Parameter>
+            <Parameter Direction="In" Name="@ProjectOfficeFaxNumber">
+              <TypeDescriptor TypeName="System.String" Name="ProjectOfficeFaxNumber" />
+            </Parameter>
+            <Parameter Direction="In" Name="@ProjectOfficeEmail">
+              <TypeDescriptor TypeName="System.String" Name="ProjectOfficeEmail" />
+            </Parameter>
+            <Parameter Direction="In" Name="@ProjectOfficeAddress">
+              <TypeDescriptor TypeName="System.String" Name="ProjectOfficeAddress" />
+            </Parameter>
+            <Parameter Direction="In" Name="@ProjectOfficeCountry">
+              <TypeDescriptor TypeName="System.String" Name="ProjectOfficeCountry" />
+            </Parameter>
+            <Parameter Direction="Return" Name="dbo.ProjectOffices">
+              <TypeDescriptor TypeName="System.String" Name="SomethingToReturn" />
+            </Parameter>
+          </Parameters>
+          <MethodInstances>
+            <MethodInstance Name="dbo.ProjectOfficesInserter" Type="GenericInvoker" ReturnParameterName="dbo.ProjectOffices" />
+          </MethodInstances>
+        </Method>
+        <Method Name="updatedbo.ProjectOffices">
+          <Properties>
+            <Property Name="RdbCommandText" Type="System.String">Update dbo.ProjectOffices SET [ProjectOfficeName]=@ProjectOfficeName,[ProjectOfficeContact]=@ProjectOfficeContact,[ProjectOfficePhoneNumber]=@ProjectOfficePhoneNumber,[ProjectOfficeFaxNumber]=@ProjectOfficeFaxNumber,[ProjectOfficeEmail]=@ProjectOfficeEmail,[ProjectOfficeAddress]=@ProjectOfficeAddress,[ProjectOfficeCountry]=@ProjectOfficeCountry WHERE([ProjectOfficeID]=@ProjectOfficeID);select SomethingToReturn = @@Identity</Property>
+            <Property Name="RdbCommandType" Type="System.String">Text</Property>
+          </Properties>
+          <Parameters>
+            <Parameter Direction="In" Name="@ProjectOfficeID">
+              <TypeDescriptor TypeName="System.Int32" Name="ProjectOfficeID" />
+            </Parameter>
+            <Parameter Direction="In" Name="@ProjectOfficeName">
+              <TypeDescriptor TypeName="System.String" Name="ProjectOfficeName" />
+            </Parameter>
+            <Parameter Direction="In" Name="@ProjectOfficeContact">
+              <TypeDescriptor TypeName="System.String" Name="ProjectOfficeContact" />
+            </Parameter>
+            <Parameter Direction="In" Name="@ProjectOfficePhoneNumber">
+              <TypeDescriptor TypeName="System.String" Name="ProjectOfficePhoneNumber" />
+            </Parameter>
+            <Parameter Direction="In" Name="@ProjectOfficeFaxNumber">
+              <TypeDescriptor TypeName="System.String" Name="ProjectOfficeFaxNumber" />
+            </Parameter>
+            <Parameter Direction="In" Name="@ProjectOfficeEmail">
+              <TypeDescriptor TypeName="System.String" Name="ProjectOfficeEmail" />
+            </Parameter>
+            <Parameter Direction="In" Name="@ProjectOfficeAddress">
+              <TypeDescriptor TypeName="System.String" Name="ProjectOfficeAddress" />
+            </Parameter>
+            <Parameter Direction="In" Name="@ProjectOfficeCountry">
+              <TypeDescriptor TypeName="System.String" Name="ProjectOfficeCountry" />
+            </Parameter>
+            <Parameter Direction="Return" Name="dbo.ProjectOffices">
+              <TypeDescriptor TypeName="System.String" Name="SomethingToReturn" />
+            </Parameter>
+          </Parameters>
+          <MethodInstances>
+            <MethodInstance Name="dbo.ProjectOfficesUpdater" Type="GenericInvoker" ReturnParameterName="dbo.ProjectOffices" />
+          </MethodInstances>
+        </Method>
+		<Method Name="deletedbo.ProjectOffices">
+          <Properties>
+            <Property Name="RdbCommandText" Type="System.String">Delete from dbo.ProjectOffices WHERE ([ProjectOfficeID]=@ProjectOfficeID);</Property>
+            <Property Name="RdbCommandType" Type="System.String">Text</Property>
+          </Properties>
+          <Parameters>
+            <Parameter Direction="In" Name="@ProjectOfficeID">
+              <TypeDescriptor TypeName="System.Int32" Name="ProjectOfficeID" />
+            </Parameter>
+			<Parameter Direction="Return" Name="dbo.ProjectOffices">
+              <TypeDescriptor TypeName="System.String" Name="SomethingToReturn" />
+            </Parameter>
+          </Parameters>
+          <MethodInstances>
+            <MethodInstance Name="dbo.ProjectOfficesDeleter" Type="GenericInvoker" ReturnParameterName="dbo.ProjectOffices" />
+          </MethodInstances>
+        </Method>
+      </Methods>
+      <Actions>
+        <Action Name="Add" Position="1" IsOpenedInNewWindow="false" Url="https://cm.projetkoniambo.com/Contacts/Pages/AddProjectOffice.aspx" ImageUrl="https://cm.projetkoniambo.com/_layouts/images/newitem.gif" />
+        <Action Name="Edit" Position="2" IsOpenedInNewWindow="false" Url="https://cm.projetkoniambo.com/Contacts/Pages/EditProjectOffice.aspx?ProjectOfficeID={0}" ImageUrl="https://cm.projetkoniambo.com/_layouts/images/edit.gif">
+          <ActionParameters>
+            <ActionParameter Name="ProjectOfficeID" Index="0" />
+          </ActionParameters>
+        </Action>
+        <Action Name="Delete" Position="3" IsOpenedInNewWindow="false" Url="https://cm.projetkoniambo.com/Contacts/Pages/DeleteProjectOffice.aspx?ProjectOfficeID={0}" ImageUrl="https://cm.projetkoniambo.com/_layouts/images/delete.gif">
+          <ActionParameters>
+            <ActionParameter Name="ProjectOfficeID" Index="0" />
+          </ActionParameters>
+        </Action>
+      </Actions>
+	</Entity>
+	<!--VARIOUS CONTACT-->
+	<Entity EstimatedInstanceCount="0" Name="dbo.VariousContact" DefaultDisplayName="Various Contact">
+      <Properties>
+        <Property Name="Title" Type="System.String">VariousContactName</Property>
+      </Properties>
+      <Identifiers>
+        <Identifier TypeName="System.Int32" Name="[VariousContactID]" />
+      </Identifiers>
+      <Methods>
+        <Method Name="Getdbo.[VariousContact]">
+          <Properties>
+            <Property Name="RdbCommandText" Type="System.String">Select [VariousContactID],[VariousContactName],[VariousContactPhoneNumber],[VariousContactFaxNumber],[VariousContactEmail] From dbo.[VariousContact] where([VariousContactName] LIKE @Name)</Property>
+            <Property Name="RdbCommandType" Type="System.Data.CommandType">Text</Property>
+          </Properties>
+          <FilterDescriptors>
+            <FilterDescriptor Type="Wildcard" Name="Name" />
+          </FilterDescriptors>
+          <Parameters>
+            <Parameter Direction="In" Name="@Name">
+              <TypeDescriptor TypeName="System.String" Name="VariousContactName" AssociatedFilter="Name">
+                <DefaultValues>
+                  <DefaultValue MethodInstanceName="dbo.[VariousContact]Finder" Type="System.String">%</DefaultValue>
+                </DefaultValues>
+              </TypeDescriptor>
+            </Parameter>
+            <Parameter Direction="Return" Name="dbo.[VariousContact]">
+              <TypeDescriptor TypeName="System.Data.IDataReader, System.Data, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" IsCollection="true" Name="dbo.[VariousContact]DataReader">
+                <TypeDescriptors>
+                  <TypeDescriptor TypeName="System.Data.IDataRecord, System.Data, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" Name="dbo.[VariousContact]DataRecord">
+                    <TypeDescriptors>
+                      <TypeDescriptor TypeName="System.Int32" Name="VariousContactID" IdentifierName="[VariousContactID]" />
+                      <TypeDescriptor TypeName="System.String" Name="VariousContactName" DefaultDisplayName="Name"/>
+                      <TypeDescriptor TypeName="System.String" Name="VariousContactPhoneNumber" DefaultDisplayName="Phone number"/>
+                      <TypeDescriptor TypeName="System.String" Name="VariousContactFaxNumber" DefaultDisplayName="Fax number"/>
+                      <TypeDescriptor TypeName="System.String" Name="VariousContactEmail" DefaultDisplayName="Email"/>
+                    </TypeDescriptors>
+                  </TypeDescriptor>
+                </TypeDescriptors>
+              </TypeDescriptor>
+            </Parameter>
+          </Parameters>
+          <MethodInstances>
+            <MethodInstance Name="dbo.[VariousContact]Finder" Type="Finder" ReturnParameterName="dbo.[VariousContact]" ReturnTypeDescriptorName="dbo.[VariousContact]DataReader" ReturnTypeDescriptorLevel="0" />
+          </MethodInstances>
+        </Method>
+        <Method Name="dbo.[VariousContact]SpecificFinder">
+          <Properties>
+            <Property Name="RdbCommandText" Type="System.String">Select [VariousContactID],[VariousContactName],[VariousContactPhoneNumber],[VariousContactFaxNumber],[VariousContactEmail] From dbo.[VariousContact] Where ([VariousContactID]=@VariousContactID)</Property>
+            <Property Name="RdbCommandType" Type="System.Data.CommandType">Text</Property>
+          </Properties>
+          <Parameters>
+            <Parameter Direction="In" Name="@VariousContactID">
+              <TypeDescriptor TypeName="System.Int32" Name="[VariousContactID]" IdentifierName="[VariousContactID]" />
+            </Parameter>
+            <Parameter Direction="Return" Name="dbo.[VariousContact]">
+              <TypeDescriptor TypeName="System.Data.IDataReader, System.Data, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" IsCollection="true" Name="dbo.[VariousContact]DataReader">
+                <TypeDescriptors>
+                  <TypeDescriptor TypeName="System.Data.IDataRecord, System.Data, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" Name="dbo.[VariousContact]DataRecord">
+                    <TypeDescriptors>
+                      <TypeDescriptor TypeName="System.Int32" Name="VariousContactID" IdentifierName="[VariousContactID]" />
+                      <TypeDescriptor TypeName="System.String" Name="VariousContactName" />
+                      <TypeDescriptor TypeName="System.String" Name="VariousContactPhoneNumber" />
+                      <TypeDescriptor TypeName="System.String" Name="VariousContactFaxNumber" />
+                      <TypeDescriptor TypeName="System.String" Name="VariousContactEmail" />
+                    </TypeDescriptors>
+                  </TypeDescriptor>
+                </TypeDescriptors>
+              </TypeDescriptor>
+            </Parameter>
+          </Parameters>
+          <MethodInstances>
+            <MethodInstance Name="dbo.[VariousContact]SpecificFinder" Type="SpecificFinder" ReturnParameterName="dbo.[VariousContact]" ReturnTypeDescriptorName="dbo.[VariousContact]DataReader" ReturnTypeDescriptorLevel="0" />
+          </MethodInstances>
+        </Method>
+        <Method Name="dbo.[VariousContact]IdEnumerator">
+          <Properties>
+            <Property Name="RdbCommandText" Type="System.String">Select [VariousContactID] From dbo.[VariousContact]</Property>
+            <Property Name="RdbCommandType" Type="System.Data.CommandType">Text</Property>
+          </Properties>
+          <Parameters>
+            <Parameter Direction="Return" Name="dbo.[VariousContact]IDs">
+              <TypeDescriptor TypeName="System.Data.IDataReader, System.Data, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" IsCollection="true" Name="dbo.[VariousContact]IDs">
+                <TypeDescriptors>
+                  <TypeDescriptor TypeName="System.Data.IDataRecord, System.Data, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" Name="dbo.[VariousContact]">
+                    <TypeDescriptors>
+                      <TypeDescriptor TypeName="System.Int32" Name="VariousContactID" IdentifierName="[VariousContactID]" />
+                    </TypeDescriptors>
+                  </TypeDescriptor>
+                </TypeDescriptors>
+              </TypeDescriptor>
+            </Parameter>
+          </Parameters>
+          <MethodInstances>
+            <MethodInstance Name="dbo.[VariousContact]EnumeratorInstance" Type="IdEnumerator" ReturnParameterName="dbo.[VariousContact]IDs" />
+          </MethodInstances>
+        </Method>
+        <Method Name="insertdbo.VariousContact">
+          <Properties>
+            <Property Name="RdbCommandText" Type="System.String">Insert into dbo.VariousContact([VariousContactName],[VariousContactPhoneNumber],[VariousContactFaxNumber],[VariousContactEmail]) Values(@VariousContactName,@VariousContactPhoneNumber,@VariousContactFaxNumber,@VariousContactEmail);select SomethingToReturn = @@Identity</Property>
+            <Property Name="RdbCommandType" Type="System.String">Text</Property>
+          </Properties>
+          <Parameters>
+            <Parameter Direction="In" Name="@VariousContactName">
+              <TypeDescriptor TypeName="System.String" Name="VariousContactName" />
+            </Parameter>
+            <Parameter Direction="In" Name="@VariousContactPhoneNumber">
+              <TypeDescriptor TypeName="System.String" Name="VariousContactPhoneNumber" />
+            </Parameter>
+            <Parameter Direction="In" Name="@VariousContactFaxNumber">
+              <TypeDescriptor TypeName="System.String" Name="VariousContactFaxNumber" />
+            </Parameter>
+            <Parameter Direction="In" Name="@VariousContactEmail">
+              <TypeDescriptor TypeName="System.String" Name="VariousContactEmail" />
+            </Parameter>
+            <Parameter Direction="Return" Name="dbo.VariousContact">
+              <TypeDescriptor TypeName="System.String" Name="SomethingToReturn" />
+            </Parameter>
+          </Parameters>
+          <MethodInstances>
+            <MethodInstance Name="dbo.VariousContactInserter" Type="GenericInvoker" ReturnParameterName="dbo.VariousContact" />
+          </MethodInstances>
+        </Method>
+        <Method Name="updatedbo.VariousContact">
+          <Properties>
+            <Property Name="RdbCommandText" Type="System.String">Update dbo.VariousContact SET [VariousContactName]=@VariousContactName,[VariousContactPhoneNumber]=@VariousContactPhoneNumber,[VariousContactFaxNumber]=@VariousContactFaxNumber,[VariousContactEmail]=@VariousContactEmail WHERE([VariousContactID]=@VariousContactID);select SomethingToReturn = @@Identity</Property>
+            <Property Name="RdbCommandType" Type="System.String">Text</Property>
+          </Properties>
+          <Parameters>
+            <Parameter Direction="In" Name="@VariousContactID">
+              <TypeDescriptor TypeName="System.Int32" Name="VariousContactID" />
+            </Parameter>
+            <Parameter Direction="In" Name="@VariousContactName">
+              <TypeDescriptor TypeName="System.String" Name="VariousContactName" />
+            </Parameter>
+            <Parameter Direction="In" Name="@VariousContactPhoneNumber">
+              <TypeDescriptor TypeName="System.String" Name="VariousContactPhoneNumber" />
+            </Parameter>
+            <Parameter Direction="In" Name="@VariousContactFaxNumber">
+              <TypeDescriptor TypeName="System.String" Name="VariousContactFaxNumber" />
+            </Parameter>
+            <Parameter Direction="In" Name="@VariousContactEmail">
+              <TypeDescriptor TypeName="System.String" Name="VariousContactEmail" />
+            </Parameter>
+            <Parameter Direction="Return" Name="dbo.VariousContact">
+              <TypeDescriptor TypeName="System.String" Name="SomethingToReturn" />
+            </Parameter>
+          </Parameters>
+          <MethodInstances>
+            <MethodInstance Name="dbo.VariousContactUpdater" Type="GenericInvoker" ReturnParameterName="dbo.VariousContact" />
+          </MethodInstances>
+        </Method>
+		<Method Name="deletedbo.VariousContact">
+          <Properties>
+            <Property Name="RdbCommandText" Type="System.String">Delete from dbo.VariousContact WHERE ([VariousContactID]=@VariousContactID);</Property>
+            <Property Name="RdbCommandType" Type="System.String">Text</Property>
+          </Properties>
+          <Parameters>
+            <Parameter Direction="In" Name="@VariousContactID">
+              <TypeDescriptor TypeName="System.Int32" Name="VariousContactID" />
+            </Parameter>
+			<Parameter Direction="Return" Name="dbo.VariousContact">
+              <TypeDescriptor TypeName="System.String" Name="SomethingToReturn" />
+            </Parameter>
+          </Parameters>
+          <MethodInstances>
+            <MethodInstance Name="dbo.VariousContactDeleter" Type="GenericInvoker" ReturnParameterName="dbo.VariousContact" />
+          </MethodInstances>
+        </Method>
+      </Methods>
+	   <Actions>
+        <Action Name="Add" Position="1" IsOpenedInNewWindow="false" Url="https://cm.projetkoniambo.com/Contacts/Pages/AddVariousContact.aspx" ImageUrl="https://cm.projetkoniambo.com/_layouts/images/newitem.gif" />
+        <Action Name="Edit" Position="2" IsOpenedInNewWindow="false" Url="https://cm.projetkoniambo.com/Contacts/Pages/EditVariousContact.aspx?VariousContactID={0}" ImageUrl="https://cm.projetkoniambo.com/_layouts/images/edit.gif">
+          <ActionParameters>
+            <ActionParameter Name="VariousContactID" Index="0" />
+          </ActionParameters>
+        </Action>
+        <Action Name="Delete" Position="3" IsOpenedInNewWindow="false" Url="https://cm.projetkoniambo.com/Contacts/Pages/DeleteVariousContact.aspx?VariousContactID={0}" ImageUrl="https://cm.projetkoniambo.com/_layouts/images/delete.gif">
+          <ActionParameters>
+            <ActionParameter Name="VariousContactID" Index="0" />
+          </ActionParameters>
+        </Action>
+      </Actions>	
+	</Entity>
+  </Entities>
+</LobSystem>

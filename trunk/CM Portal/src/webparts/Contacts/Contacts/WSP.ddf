@@ -1,0 +1,36 @@
+;WSP CAB destination and filename
+
+.Set DiskDirectory1="c:\wsp"
+
+.Set CabinetNameTemplate="Contacts.wsp"
+
+ 
+
+;All references from project root $(ProjectDir)
+
+ 
+
+;Files to place into the CAB's root
+
+manifest.xml
+
+bin\Debug\Contacts.dll
+
+AdddboContractors.webpart
+UpdatedboContractors.webpart
+DeletedboContractors.webpart
+AdddboEmployees.webpart
+UpdatedboEmployees.webpart
+DeletedboEmployees.webpart
+AdddboRooms.webpart
+UpdatedboRooms.webpart
+DeletedboRooms.webpart
+AdddboVariousContact.webpart
+UpdatedboVariousContact.webpart
+DeletedboVariousContact.webpart
+AdddboProjectOffices.webpart
+UpdatedboProjectOffices.webpart
+DeletedboProjectOffices.webpart
+
+
+

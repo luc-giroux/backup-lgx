@@ -1,0 +1,14 @@
+<webParts>
+  <webPart xmlns="http://schemas.microsoft.com/WebPart/v3">
+    <metaData>
+      <type name="Contacts.UpdatedboProjectOffices" />
+      <importErrorMessage>Cannot import this Web Part.</importErrorMessage>
+    </metaData>
+    <data>
+      <properties>
+        <property name="Title" type="string">Contacts - Update Project Office</property>
+        <property name="Description" type="string">Koniambo Webpart</property>
+      </properties>
+    </data>
+  </webPart>
+</webParts>

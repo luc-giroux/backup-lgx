@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="SAPTimesheetLoad" targetNamespace="http://tempuri.org/SAPTimesheets.xsd" xmlns:mstns="http://tempuri.org/SAPTimesheets.xsd" xmlns="http://tempuri.org/SAPTimesheets.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+        </Connections>
+        <Tables>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="SAPTimesheetLoad" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="SAPTimesheetLoad" msprop:Generator_DataSetName="SAPTimesheetLoad">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="LoadFormat" msprop:Generator_UserTableName="LoadFormat" msprop:Generator_RowDeletedName="LoadFormatRowDeleted" msprop:Generator_RowChangedName="LoadFormatRowChanged" msprop:Generator_RowClassName="LoadFormatRow" msprop:Generator_RowChangingName="LoadFormatRowChanging" msprop:Generator_RowEvArgName="LoadFormatRowChangeEvent" msprop:Generator_RowEvHandlerName="LoadFormatRowChangeEventHandler" msprop:Generator_TableClassName="LoadFormatDataTable" msprop:Generator_TableVarName="tableLoadFormat" msprop:Generator_RowDeletingName="LoadFormatRowDeleting" msprop:Generator_TablePropName="LoadFormat">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="EMPLOYEE_NUMBER" msprop:Generator_UserColumnName="EMPLOYEE_NUMBER" msprop:Generator_ColumnPropNameInRow="EMPLOYEE_NUMBER" msprop:Generator_ColumnVarNameInTable="columnEMPLOYEE_NUMBER" msprop:Generator_ColumnPropNameInTable="EMPLOYEE_NUMBERColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="EMPLOYEE_NAME" msprop:Generator_UserColumnName="EMPLOYEE_NAME" msprop:Generator_ColumnPropNameInRow="EMPLOYEE_NAME" msprop:Generator_ColumnVarNameInTable="columnEMPLOYEE_NAME" msprop:Generator_ColumnPropNameInTable="EMPLOYEE_NAMEColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="TOTAL_HOURS" msprop:Generator_UserColumnName="TOTAL_HOURS" msprop:Generator_ColumnPropNameInRow="TOTAL_HOURS" msprop:Generator_ColumnVarNameInTable="columnTOTAL_HOURS" msprop:Generator_ColumnPropNameInTable="TOTAL_HOURSColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="POSTING_DATE" msprop:Generator_UserColumnName="POSTING_DATE" msprop:Generator_ColumnPropNameInRow="POSTING_DATE" msprop:Generator_ColumnVarNameInTable="columnPOSTING_DATE" msprop:Generator_ColumnPropNameInTable="POSTING_DATEColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="WEEK_ENDING_DATE" msprop:Generator_UserColumnName="WEEK_ENDING_DATE" msprop:Generator_ColumnPropNameInRow="WEEK_ENDING_DATE" msprop:Generator_ColumnVarNameInTable="columnWEEK_ENDING_DATE" msprop:Generator_ColumnPropNameInTable="WEEK_ENDING_DATEColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="PROJECT_DEFINITION" msprop:Generator_UserColumnName="PROJECT_DEFINITION" msprop:Generator_ColumnPropNameInRow="PROJECT_DEFINITION" msprop:Generator_ColumnVarNameInTable="columnPROJECT_DEFINITION" msprop:Generator_ColumnPropNameInTable="PROJECT_DEFINITIONColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="NETWORK_OP" msprop:Generator_UserColumnName="NETWORK_OP" msprop:Generator_ColumnPropNameInRow="NETWORK_OP" msprop:Generator_ColumnVarNameInTable="columnNETWORK_OP" msprop:Generator_ColumnPropNameInTable="NETWORK_OPColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="NETWORKNOTMATCH" msprop:Generator_UserColumnName="NETWORKNOTMATCH" msprop:Generator_ColumnPropNameInRow="NETWORKNOTMATCH" msprop:Generator_ColumnVarNameInTable="columnNETWORKNOTMATCH" msprop:Generator_ColumnPropNameInTable="NETWORKNOTMATCHColumn" type="xs:boolean" minOccurs="0" />
+              <xs:element name="SAPCURRENCYID" msprop:Generator_UserColumnName="SAPCURRENCYID" msprop:Generator_ColumnVarNameInTable="columnSAPCURRENCYID" msprop:Generator_ColumnPropNameInRow="SAPCURRENCYID" msprop:Generator_ColumnPropNameInTable="SAPCURRENCYIDColumn" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="EmployeeLookup" msprop:Generator_UserTableName="EmployeeLookup" msprop:Generator_RowDeletedName="EmployeeLookupRowDeleted" msprop:Generator_RowChangedName="EmployeeLookupRowChanged" msprop:Generator_RowClassName="EmployeeLookupRow" msprop:Generator_RowChangingName="EmployeeLookupRowChanging" msprop:Generator_RowEvArgName="EmployeeLookupRowChangeEvent" msprop:Generator_RowEvHandlerName="EmployeeLookupRowChangeEventHandler" msprop:Generator_TableClassName="EmployeeLookupDataTable" msprop:Generator_TableVarName="tableEmployeeLookup" msprop:Generator_RowDeletingName="EmployeeLookupRowDeleting" msprop:Generator_TablePropName="EmployeeLookup">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="EmployeeID" msprop:Generator_UserColumnName="EmployeeID" msprop:Generator_ColumnVarNameInTable="columnEmployeeID" msprop:Generator_ColumnPropNameInRow="EmployeeID" msprop:Generator_ColumnPropNameInTable="EmployeeIDColumn" type="xs:int" />
+              <xs:element name="CompanyEmployeeNo" msprop:Generator_UserColumnName="CompanyEmployeeNo" msprop:Generator_ColumnVarNameInTable="columnCompanyEmployeeNo" msprop:Generator_ColumnPropNameInRow="CompanyEmployeeNo" msprop:Generator_ColumnPropNameInTable="CompanyEmployeeNoColumn" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="SAPTimesheets" msprop:Generator_UserTableName="SAPTimesheets" msprop:Generator_RowDeletedName="SAPTimesheetsRowDeleted" msprop:Generator_RowChangedName="SAPTimesheetsRowChanged" msprop:Generator_RowClassName="SAPTimesheetsRow" msprop:Generator_RowChangingName="SAPTimesheetsRowChanging" msprop:Generator_RowEvArgName="SAPTimesheetsRowChangeEvent" msprop:Generator_RowEvHandlerName="SAPTimesheetsRowChangeEventHandler" msprop:Generator_TableClassName="SAPTimesheetsDataTable" msprop:Generator_TableVarName="tableSAPTimesheets" msprop:Generator_RowDeletingName="SAPTimesheetsRowDeleting" msprop:Generator_TablePropName="SAPTimesheets">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="EmployeeNumber" msprop:Generator_UserColumnName="EmployeeNumber" msprop:Generator_ColumnVarNameInTable="columnEmployeeNumber" msprop:Generator_ColumnPropNameInRow="EmployeeNumber" msprop:Generator_ColumnPropNameInTable="EmployeeNumberColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="EmployeeName" msprop:Generator_UserColumnName="EmployeeName" msprop:Generator_ColumnVarNameInTable="columnEmployeeName" msprop:Generator_ColumnPropNameInRow="EmployeeName" msprop:Generator_ColumnPropNameInTable="EmployeeNameColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="EmployeeID" msprop:Generator_UserColumnName="EmployeeID" msprop:Generator_ColumnVarNameInTable="columnEmployeeID" msprop:Generator_ColumnPropNameInRow="EmployeeID" msprop:Generator_ColumnPropNameInTable="EmployeeIDColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="WeekEndDate" msprop:Generator_UserColumnName="WeekEndDate" msprop:Generator_ColumnVarNameInTable="columnWeekEndDate" msprop:Generator_ColumnPropNameInRow="WeekEndDate" msprop:Generator_ColumnPropNameInTable="WeekEndDateColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="SAPHours" msprop:Generator_UserColumnName="SAPHours" msprop:Generator_ColumnVarNameInTable="columnSAPHours" msprop:Generator_ColumnPropNameInRow="SAPHours" msprop:Generator_ColumnPropNameInTable="SAPHoursColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="EmployeeExistsInPAF" msprop:Generator_UserColumnName="EmployeeExistsInPAF" msprop:Generator_ColumnVarNameInTable="columnEmployeeExistsInPAF" msprop:Generator_ColumnPropNameInRow="EmployeeExistsInPAF" msprop:Generator_ColumnPropNameInTable="EmployeeExistsInPAFColumn" type="xs:boolean" minOccurs="0" />
+              <xs:element name="PAFHours" msprop:Generator_UserColumnName="PAFHours" msprop:Generator_ColumnVarNameInTable="columnPAFHours" msprop:Generator_ColumnPropNameInRow="PAFHours" msprop:Generator_ColumnPropNameInTable="PAFHoursColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="PAFTimesheetHours" msprop:Generator_UserColumnName="PAFTimesheetHours" msprop:Generator_ColumnVarNameInTable="columnPAFTimesheetHours" msprop:Generator_ColumnPropNameInRow="PAFTimesheetHours" msprop:Generator_ColumnPropNameInTable="PAFTimesheetHoursColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="NetworkOPNO" msprop:Generator_UserColumnName="NetworkOPNO" msprop:Generator_ColumnVarNameInTable="columnNetworkOPNO" msprop:Generator_ColumnPropNameInRow="NetworkOPNO" msprop:Generator_ColumnPropNameInTable="NetworkOPNOColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="NetworkCodeNotMatch" msprop:Generator_UserColumnName="NetworkCodeNotMatch" msprop:Generator_ColumnVarNameInTable="columnNetworkCodeNotMatch" msprop:Generator_ColumnPropNameInRow="NetworkCodeNotMatch" msprop:Generator_ColumnPropNameInTable="NetworkCodeNotMatchColumn" type="xs:boolean" minOccurs="0" />
+              <xs:element name="SAPCurrencyID" msprop:Generator_UserColumnName="SAPCurrencyID" msprop:Generator_ColumnVarNameInTable="columnSAPCurrencyID" msprop:Generator_ColumnPropNameInRow="SAPCurrencyID" msprop:Generator_ColumnPropNameInTable="SAPCurrencyIDColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="RatePayLocation" msprop:Generator_UserColumnName="RatePayLocation" msprop:Generator_ColumnPropNameInRow="RatePayLocation" msprop:Generator_ColumnVarNameInTable="columnRatePayLocation" msprop:Generator_ColumnPropNameInTable="RatePayLocationColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="RatePayCurrencyID" msprop:Generator_UserColumnName="RatePayCurrencyID" msprop:Generator_ColumnPropNameInRow="RatePayCurrencyID" msprop:Generator_ColumnVarNameInTable="columnRatePayCurrencyID" msprop:Generator_ColumnPropNameInTable="RatePayCurrencyIDColumn" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="SAPEmployeeMapping" msprop:Generator_UserTableName="SAPEmployeeMapping" msprop:Generator_RowDeletedName="SAPEmployeeMappingRowDeleted" msprop:Generator_RowChangedName="SAPEmployeeMappingRowChanged" msprop:Generator_RowClassName="SAPEmployeeMappingRow" msprop:Generator_RowChangingName="SAPEmployeeMappingRowChanging" msprop:Generator_RowEvArgName="SAPEmployeeMappingRowChangeEvent" msprop:Generator_RowEvHandlerName="SAPEmployeeMappingRowChangeEventHandler" msprop:Generator_TableClassName="SAPEmployeeMappingDataTable" msprop:Generator_TableVarName="tableSAPEmployeeMapping" msprop:Generator_RowDeletingName="SAPEmployeeMappingRowDeleting" msprop:Generator_TablePropName="SAPEmployeeMapping">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="OldEmployeeNumber" msprop:Generator_UserColumnName="OldEmployeeNumber" msprop:Generator_ColumnPropNameInRow="OldEmployeeNumber" msprop:Generator_ColumnVarNameInTable="columnOldEmployeeNumber" msprop:Generator_ColumnPropNameInTable="OldEmployeeNumberColumn" type="xs:int" />
+              <xs:element name="NewEmployeeNumber" msprop:Generator_UserColumnName="NewEmployeeNumber" msprop:Generator_ColumnPropNameInRow="NewEmployeeNumber" msprop:Generator_ColumnVarNameInTable="columnNewEmployeeNumber" msprop:Generator_ColumnPropNameInTable="NewEmployeeNumberColumn" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="SAPNetworkMapping" msprop:Generator_UserTableName="SAPNetworkMapping" msprop:Generator_RowDeletedName="SAPNetworkMappingRowDeleted" msprop:Generator_RowChangedName="SAPNetworkMappingRowChanged" msprop:Generator_RowClassName="SAPNetworkMappingRow" msprop:Generator_RowChangingName="SAPNetworkMappingRowChanging" msprop:Generator_RowEvArgName="SAPNetworkMappingRowChangeEvent" msprop:Generator_RowEvHandlerName="SAPNetworkMappingRowChangeEventHandler" msprop:Generator_TableClassName="SAPNetworkMappingDataTable" msprop:Generator_TableVarName="tableSAPNetworkMapping" msprop:Generator_RowDeletingName="SAPNetworkMappingRowDeleting" msprop:Generator_TablePropName="SAPNetworkMapping">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="NetworkCode" msprop:Generator_UserColumnName="NetworkCode" msprop:Generator_ColumnVarNameInTable="columnNetworkCode" msprop:Generator_ColumnPropNameInRow="NetworkCode" msprop:Generator_ColumnPropNameInTable="NetworkCodeColumn" type="xs:string" />
+              <xs:element name="Currency" msprop:Generator_UserColumnName="Currency" msprop:Generator_ColumnVarNameInTable="columnCurrency" msprop:Generator_ColumnPropNameInRow="Currency" msprop:Generator_ColumnPropNameInTable="CurrencyColumn" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="PAF_DATA" msprop:Generator_UserTableName="PAF_DATA" msprop:Generator_RowDeletedName="PAF_DATARowDeleted" msprop:Generator_RowChangedName="PAF_DATARowChanged" msprop:Generator_RowClassName="PAF_DATARow" msprop:Generator_RowChangingName="PAF_DATARowChanging" msprop:Generator_RowEvArgName="PAF_DATARowChangeEvent" msprop:Generator_RowEvHandlerName="PAF_DATARowChangeEventHandler" msprop:Generator_TableClassName="PAF_DATADataTable" msprop:Generator_TableVarName="tablePAF_DATA" msprop:Generator_RowDeletingName="PAF_DATARowDeleting" msprop:Generator_TablePropName="PAF_DATA">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="EmployeeID" msprop:Generator_UserColumnName="EmployeeID" msprop:Generator_ColumnVarNameInTable="columnEmployeeID" msprop:Generator_ColumnPropNameInRow="EmployeeID" msprop:Generator_ColumnPropNameInTable="EmployeeIDColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="CompanyEmployeeNo" msprop:Generator_UserColumnName="CompanyEmployeeNo" msprop:Generator_ColumnVarNameInTable="columnCompanyEmployeeNo" msprop:Generator_ColumnPropNameInRow="CompanyEmployeeNo" msprop:Generator_ColumnPropNameInTable="CompanyEmployeeNoColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="WeekEndDate" msprop:Generator_UserColumnName="WeekEndDate" msprop:Generator_ColumnVarNameInTable="columnWeekEndDate" msprop:Generator_ColumnPropNameInRow="WeekEndDate" msprop:Generator_ColumnPropNameInTable="WeekEndDateColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Hours" msprop:Generator_UserColumnName="Hours" msprop:Generator_ColumnVarNameInTable="columnHours" msprop:Generator_ColumnPropNameInRow="Hours" msprop:Generator_ColumnPropNameInTable="HoursColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="TimesheetHours" msprop:Generator_UserColumnName="TimesheetHours" msprop:Generator_ColumnVarNameInTable="columnTimesheetHours" msprop:Generator_ColumnPropNameInRow="TimesheetHours" msprop:Generator_ColumnPropNameInTable="TimesheetHoursColumn" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:EmployeeLookup" />
+      <xs:field xpath="mstns:CompanyEmployeeNo" />
+    </xs:unique>
+    <xs:unique name="SAPEmployeeMapping_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:SAPEmployeeMapping" />
+      <xs:field xpath="mstns:OldEmployeeNumber" />
+    </xs:unique>
+    <xs:unique name="SAPNetworkMappingKey1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:SAPNetworkMapping" />
+      <xs:field xpath="mstns:NetworkCode" />
+    </xs:unique>
+    <xs:unique name="PAF_DATAKey1">
+      <xs:selector xpath=".//mstns:PAF_DATA" />
+      <xs:field xpath="mstns:EmployeeID" />
+      <xs:field xpath="mstns:CompanyEmployeeNo" />
+      <xs:field xpath="mstns:WeekEndDate" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<LobSystem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:schemaLocation="http://schemas.microsoft.com/office/2006/03/BusinessDataCatalog BDCMetadata.XSD" Type="Database" Version="1.0.0.0" Name="SiteInventory" xmlns="http://schemas.microsoft.com/office/2006/03/BusinessDataCatalog">
+  <Properties>
+    <Property Name="WildcardCharacter" Type="System.String">%</Property>
+  </Properties>
+  <AccessControlList>
+    <AccessControlEntry Principal="KONINET\sp_admin">
+	  <Right BdcRight="Execute" />
+	  <Right BdcRight="Edit" />
+	  <Right BdcRight="SetPermissions" />
+	  <Right BdcRight="SelectableInClients" />
+	</AccessControlEntry> 
+	<AccessControlEntry Principal="KONINET\sp_sspservice">
+	  <Right BdcRight="Execute" />
+	  <Right BdcRight="Edit" />
+	  <Right BdcRight="SetPermissions" />
+	  <Right BdcRight="SelectableInClients" />
+	</AccessControlEntry>  	
+    <AccessControlEntry Principal="KONINET\sp_public">
+      <Right BdcRight="Execute"/>
+    </AccessControlEntry>
+  </AccessControlList>
+  <LobSystemInstances>
+    <LobSystemInstance Name="SiteInventory">
+	  <!--The authentication mode use an sql account defined below-->	
+	  <Properties>
+		<Property Name="AuthenticationMode" Type="Microsoft.Office.Server.ApplicationRegistry.SystemSpecific.Db.DbAuthenticationMode">RevertToSelf</Property>
+		<Property Name="DatabaseAccessProvider" Type="Microsoft.Office.Server.ApplicationRegistry.SystemSpecific.Db.DbAccessProvider">SqlServer</Property>
+		<Property Name="RdbConnection Data Source" Type="System.String">VAVDB1</Property>
+		<Property Name="RdbConnection Initial Catalog" Type="System.String">SiteInventory</Property> 
+		<Property Name="RdbConnection Integrated Security" Type="System.String">false</Property>
+		<Property Name="RdbConnection User ID" Type="System.String">sp_sspservice</Property>
+		<Property Name="RdbConnection Password" Type="System.String">2010service</Property>
+	  </Properties>
+    </LobSystemInstance>
+  </LobSystemInstances>
+  <Entities>
+    <Entity EstimatedInstanceCount="0" Name="dbo.Inventory" DefaultDisplayName="Radios">
+      <Properties>
+        <Property Name="Title" Type="System.String">Radio ID</Property>
+      </Properties>
+      <Identifiers>
+        <Identifier TypeName="System.String" Name="[AssetTag]" />
+      </Identifiers>
+      <Methods>
+        <Method Name="Getdbo.[Inventory]">
+          <Properties>
+            <Property Name="RdbCommandText" Type="System.String">Select [AssetTag],[Radio ID],[RadioName],[assigneduser],[Company] From dbo.[Inventory] where([Company] LIKE @Company) and ([Radio ID] LIKE @RadioID) and ([assigneduser] LIKE @Assigneduser) and ([RadioName] LIKE @RadioName)</Property>
+            <Property Name="RdbCommandType" Type="System.Data.CommandType">Text</Property>
+          </Properties>
+          <FilterDescriptors>
+            <FilterDescriptor Type="Wildcard" Name="Radio Name" />
+            <FilterDescriptor Type="Wildcard" Name="Assigned user" />
+            <FilterDescriptor Type="Wildcard" Name="Radio ID" />
+            <FilterDescriptor Type="Wildcard" Name="Company" />
+          </FilterDescriptors>
+          <Parameters>
+            <Parameter Direction="In" Name="@Company">
+              <TypeDescriptor TypeName="System.String" Name="Company" AssociatedFilter="Company">
+                <DefaultValues>
+                  <DefaultValue MethodInstanceName="dbo.[Inventory]Finder" Type="System.String">%</DefaultValue>
+                </DefaultValues>
+              </TypeDescriptor>
+            </Parameter>
+            <Parameter Direction="In" Name="@RadioID">
+              <TypeDescriptor TypeName="System.String" Name="Radio ID" AssociatedFilter="Radio ID">
+                <DefaultValues>
+                  <DefaultValue MethodInstanceName="dbo.[Inventory]Finder" Type="System.String">%</DefaultValue>
+                </DefaultValues>
+              </TypeDescriptor>
+            </Parameter>
+            <Parameter Direction="In" Name="@Assigneduser">
+              <TypeDescriptor TypeName="System.String" Name="assigneduser" AssociatedFilter="Assigned user">
+                <DefaultValues>
+                  <DefaultValue MethodInstanceName="dbo.[Inventory]Finder" Type="System.String">%</DefaultValue>
+                </DefaultValues>
+              </TypeDescriptor>
+            </Parameter>
+            <Parameter Direction="In" Name="@RadioName">
+              <TypeDescriptor TypeName="System.String" Name="RadioName" AssociatedFilter="Radio Name">
+                <DefaultValues>
+                  <DefaultValue MethodInstanceName="dbo.[Inventory]Finder" Type="System.String">%</DefaultValue>
+                </DefaultValues>
+              </TypeDescriptor>
+            </Parameter>
+            <Parameter Direction="Return" Name="dbo.[Inventory]">
+              <TypeDescriptor TypeName="System.Data.IDataReader, System.Data, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" IsCollection="true" Name="dbo.[Inventory]DataReader">
+                <TypeDescriptors>
+                  <TypeDescriptor TypeName="System.Data.IDataRecord, System.Data, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" Name="dbo.[Inventory]DataRecord">
+                    <TypeDescriptors>
+                      <TypeDescriptor TypeName="System.String" Name="AssetTag" IdentifierName="[AssetTag]" />
+                      <TypeDescriptor TypeName="System.String" Name="Radio ID" />
+                      <TypeDescriptor TypeName="System.String" Name="RadioName" DefaultDisplayName="Radio Name" />
+                      <TypeDescriptor TypeName="System.String" Name="assigneduser" DefaultDisplayName="Assigned User" />
+                      <TypeDescriptor TypeName="System.String" Name="Company" />
+                    </TypeDescriptors>
+                  </TypeDescriptor>
+                </TypeDescriptors>
+              </TypeDescriptor>
+            </Parameter>
+          </Parameters>
+          <MethodInstances>
+            <MethodInstance Name="dbo.[Inventory]Finder" Type="Finder" ReturnParameterName="dbo.[Inventory]" ReturnTypeDescriptorName="dbo.[Inventory]DataReader" ReturnTypeDescriptorLevel="0" />
+          </MethodInstances>
+        </Method>
+      </Methods>
+    </Entity>
+  </Entities>
+</LobSystem>

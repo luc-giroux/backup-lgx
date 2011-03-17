@@ -1,0 +1,26 @@
+;WSP CAB destination and filename
+
+.Set DiskDirectory1="c:\wsp"
+
+.Set CabinetNameTemplate="CostCodeCTRCode.wsp"
+
+ 
+
+;All references from project root $(ProjectDir)
+
+ 
+
+;Files to place into the CAB's root
+
+manifest.xml
+
+bin\Debug\CostCodeCTRCode.dll
+
+AdddboCostCode.webpart
+UpdatedboCostCode.webpart
+AdddboCTRCode.webpart
+UpdatedboCTRCode.webpart
+
+
+
+

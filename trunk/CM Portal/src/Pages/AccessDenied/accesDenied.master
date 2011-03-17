@@ -1,0 +1,115 @@
+﻿<%@Master language="C#"%>
+<%@ Register Tagprefix="SharePoint" Namespace="Microsoft.SharePoint.WebControls" Assembly="Microsoft.SharePoint, Version=12.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %> <%@ Register Tagprefix="Utilities" Namespace="Microsoft.SharePoint.Utilities" Assembly="Microsoft.SharePoint, Version=12.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %> <%@ Import Namespace="Microsoft.SharePoint" %>
+<%@ Import Namespace="Microsoft.SharePoint.ApplicationPages" %>
+<%@ Register TagPrefix="wssuc" TagName="TopNavBar" src="~/_controltemplates/TopNavBar.ascx" %>
+<%@ Register TagPrefix="wssuc" TagName="Welcome" src="~/_controltemplates/Welcome.ascx" %>
+<%@ Register TagPrefix="wssuc" TagName="DesignModeConsole" src="~/_controltemplates/DesignModeConsole.ascx" %>
+<HTML dir="<%$Resources:wss,multipages_direction_dir_value%>" runat="server">
+<HEAD  runat="server">
+	<META Name="GENERATOR" Content="Microsoft SharePoint">
+	<META Name="progid" Content="SharePoint.WebPartPage.Document">
+	<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+	<META HTTP-EQUIV="Expires" content="0">
+	<META NAME="ROBOTS" CONTENT="NOHTMLINDEX">
+	<Title ID=onetidTitle><asp:ContentPlaceHolder id=PlaceHolderPageTitle runat="server"/></Title>
+	<SharePoint:ScriptLink language="javascript" name="core.js" runat="server" />
+	<asp:ContentPlaceHolder id="PlaceHolderAdditionalPageHead" runat="server"/>
+	<link rel="stylesheet" type="text/css" href="css/login.css" /> 
+	<link type="text/css" href="css/glowbutton.css" rel="stylesheet" />
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.metadata.min.js"></script>
+    <script type="text/javascript" src="js/jquery.color.js"></script>
+    <script type="text/javascript" src="js/jquery.glowbuttons.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){   
+        $('.glow').glowbuttons();
+        });  
+	</script>
+</HEAD>
+
+<BODY bgcolor="0051a2" scroll="yes" onload="javascript:if (typeof(_spBodyOnLoadWrapper) != 'undefined') _spBodyOnLoadWrapper();">
+	<div align="center">						
+		<img alt="" longdesc="logo" src="IMAGES/accessDenied.jpg" width="382" height="377"></p>
+		<form runat="server" onsubmit="return _spFormOnSubmitWrapper();">
+			<asp:ContentPlaceHolder id="PlaceHolderMain" runat="server">
+			</asp:ContentPlaceHolder>
+		</form>
+
+
+	<asp:Panel runat="server" visible="false">
+		<TABLE class="ms-main" CELLPADDING=0 CELLSPACING=0 BORDER=0 WIDTH="100%" HEIGHT="100%">
+			<TR height="100%">
+				<TD>
+					<TABLE width="100%" height="100%" cellspacing="0" cellpadding="0">
+						<tr style="display:none;">
+							<td valign=top  id="onetidPageTitleAreaFrame" class='<asp:ContentPlaceHolder id="PlaceHolderTitleAreaClass" runat="server">ms-areaseparator</asp:ContentPlaceHolder>' nowrap width="100%">
+
+							</td>
+						</tr>
+						<TR>
+							<td align="center" class='<asp:ContentPlaceHolder id="PlaceHolderBodyAreaClass" runat="server">ms-formareafram</asp:ContentPlaceHolder>' valign="top">
+								<TABLE width="100%" border="0" cellspacing="0" cellpadding="0" class="ms-propertysheet">
+									<TR valign="top" <asp:ContentPlaceHolder id="PlaceHolderPageDescriptionRowAttr" runat="server"/> >
+										<TD class="ms-descriptiontext" width="100%">
+											
+										</TD>
+										<TD ID=onetidYPadding width="10px"><IMG SRC="/_layouts/images/blank.gif" width=10 height=1 alt=""></TD>
+									</TR>
+									<TR <asp:ContentPlaceHolder id="PlaceHolderPageDescriptionRowAttr2" runat="server"/>>
+										<TD ID=onetidMainBodyPadding height="8px"><IMG SRC="/_layouts/images/blank.gif" width=1 height=8 alt=""></TD>
+									</TR>
+
+								</table>
+							</td>
+						</TR>
+					</TABLE>
+				</TD>
+			</TR>
+		</TABLE>
+		<asp:ContentPlaceHolder id="PlaceHolderGlobalNavigation" runat="server">
+		</asp:ContentPlaceHolder>
+		<asp:ContentPlaceHolder id="PlaceHolderTitleRightMargin" runat="server">
+		</asp:ContentPlaceHolder>
+		<asp:ContentPlaceHolder id="PlaceHolderTitleLeftBorder" runat="server">
+		</asp:ContentPlaceHolder>
+		<asp:ContentPlaceHolder id="PlaceHolderSearchArea" runat="server">
+		</asp:ContentPlaceHolder>
+		<asp:ContentPlaceHolder id="PlaceHolderTopNavBar" runat="server">
+		</asp:ContentPlaceHolder>
+		<asp:ContentPlaceHolder id="PlaceHolderSiteName" runat="server">
+		</asp:ContentPlaceHolder>
+		<asp:ContentPlaceHolder id="PlaceHolderPageImage" runat="server"/>
+		<asp:ContentPlaceHolder id="PlaceHolderMiniConsole" runat="server"/>
+		<asp:ContentPlaceHolder id="PlaceHolderPageDescription" runat="server"/>
+		<asp:ContentPlaceHolder id="PlaceHolderFormDigest" runat="server">
+		</asp:ContentPlaceHolder>
+		<asp:ContentPlaceHolder id="PlaceHolderPageTitleInTitleArea" runat="server" />
+		<asp:ContentPlaceHolder id="PlaceHolderUtilityContent" runat="server"/>
+		<asp:ContentPlaceHolder ID="WSSDesignConsole" runat="server">
+		<wssuc:DesignModeConsole id="IdDesignModeConsole" runat="server" />
+		</asp:ContentPlaceHolder>
+		<asp:ContentPlaceHolder ID="SPNavigation" runat="server">
+		</asp:ContentPlaceHolder>
+		<asp:ContentPlaceHolder id="PlaceHolderLeftNavBarDataSource" runat="server" />
+		<asp:ContentPlaceHolder id="PlaceHolderCalendarNavigator" runat="server" />
+		<asp:ContentPlaceHolder id="PlaceHolderLeftNavBarTop" runat="server"/>
+		<asp:ContentPlaceHolder id="PlaceHolderLeftNavBar" runat="server">
+		&nbsp;
+		</asp:ContentPlaceHolder>
+		<asp:ContentPlaceHolder id="PlaceHolderLeftActions" runat="server"></asp:ContentPlaceHolder>
+		<asp:ContentPlaceHolder id="PlaceHolderLeftNavBarBorder" runat="server"></asp:ContentPlaceHolder><
+		<asp:ContentPlaceHolder id="PlaceHolderTitleAreaSeparator" runat="server"/>
+		<asp:ContentPlaceHolder id="PlaceHolderNavSpacer" runat="server"></asp:ContentPlaceholder>
+		<asp:ContentPlaceHolder id="PlaceHolderBodyLeftBorder" runat="server">
+		</asp:ContentPlaceHolder>
+		<asp:ContentPlaceHolder id="PlaceHolderBodyRightMargin" runat="server">
+		<div class='ms-areaseparatorright'><IMG SRC="/_layouts/images/blank.gif" width=8 height=100% alt=""></div>
+		</asp:ContentPlaceHolder>
+		<asp:ContentPlaceHolder id="PlaceHolderTitleBreadcrumb" runat="server">
+		<SharePoint:ReturnLink Text="<%$Resources:wss,multipages_back_to_site%>" Id="idSimpleGoBackToHome" runat="server"/>
+		</asp:ContentPlaceHolder> 
+	</asp:Panel>
+
+	</div>
+</BODY>
+</HTML>

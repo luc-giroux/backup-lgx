@@ -1,0 +1,14 @@
+<webParts>
+  <webPart xmlns="http://schemas.microsoft.com/WebPart/v3">
+    <metaData>
+      <type name="PAFMaintenance.UpdatedboCurrency" />
+      <importErrorMessage>Cannot import this Web Part.</importErrorMessage>
+    </metaData>
+    <data>
+      <properties>
+        <property name="Title" type="string">Currency - Edit</property>
+        <property name="Description" type="string">PAF Maintenance</property>
+      </properties>
+    </data>
+  </webPart>
+</webParts>
