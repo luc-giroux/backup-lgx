@@ -50,6 +50,11 @@
             <asp:Button ID="ButtonEdiTS" runat="server" Text="Edit this TS" Visible="false" 
                 onclick="ButtonEdiTS_Click"/>
 
+            
+            <asp:Button ID="ButtonSubmitTS" runat="server" Text="Submit this TS" Visible="false" 
+                onclick="ButtonSubmitTS_Click" OnClientClick="return confirm('Are you sure you want to submit?')"/>
+
+            
             <asp:Button ID="ButtonAdjustTS" runat="server" Text="Adjust this TS" 
                 Visible="false" onclick="ButtonAdjustTS_Click" />
 
@@ -65,13 +70,21 @@
                         <asp:CommandField SelectText="View" ShowSelectButton="True" />
                         <asp:BoundField DataField="TimesheetNumber" HeaderText="TimesheetNumber" ReadOnly="True" 
                             SortExpression="TimesheetNumber" />
+                        <asp:BoundField DataField="Hours" HeaderText="Total Hours" ReadOnly="True" 
+                            SortExpression="Hours" />
                     </Columns>
                 </asp:GridView>
                 <asp:SqlDataSource ID="DataSourceCorrectiveTS" runat="server" 
                     ConnectionString="<%$ ConnectionStrings:ConnectionString %>" 
                     ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" 
                     
-                    SelectCommand="SELECT [TimesheetNumber] FROM [TimesheetHeader] WHERE ([AdjustmentFromTS] = ?)">
+                    SelectCommand="SELECT TSH.[TimesheetNumber], SUM(TSD.PPHours + TSD.PUPIndirectHours + TSD.PUPMaterialHours + TSD.PUPOtherHours 
+                                          + TSD.PUPTravelHours + TSD.PUPWeatherHours + TSD.NPOtherHours + TSD.NPReworkHours) AS Hours
+                                   FROM  [allianceTimesheets].[dbo].[TimesheetHeader] TSH 
+                                   INNER JOIN [allianceTimesheets].[dbo].[TimesheetDetail] TSD
+                                    ON TSH.TimesheetNumber = TSD.TimesheetNumber
+                                   WHERE ([AdjustmentFromTS] = ?)
+                                   GROUP BY TSH.TimesheetNumber">
                     <SelectParameters>
                         <asp:QueryStringParameter Name="AdjustmentFromTS" QueryStringField="TSNumber" Type="String" />
                 </SelectParameters>

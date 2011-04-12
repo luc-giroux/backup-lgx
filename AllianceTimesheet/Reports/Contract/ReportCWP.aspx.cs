@@ -48,7 +48,8 @@ public partial class ReportCWP : System.Web.UI.Page
 
                 ReportViewer1.Visible = true;
                 DataSetGlobal.ReportCWPDataTable cwpdt = new DataSetGlobal.ReportCWPDataTable();
-                DataSetGlobalTableAdapters.ReportCWPTableAdapter ta = new DataSetGlobalTableAdapters.ReportCWPTableAdapter();
+                ReportCWPTableAdapterExtended ta = new ReportCWPTableAdapterExtended();
+                ta.SelectCommandTimeout = 360;
                 ta.Fill(cwpdt, TextBoxStartDate.Text, TextBoxEndDate.Text, (String)HttpContext.Current.Session["currentContract"]);
 
                 // We add several parameters in order to display them in the report

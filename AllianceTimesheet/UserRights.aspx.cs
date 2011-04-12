@@ -138,12 +138,12 @@ public partial class UserRights : System.Web.UI.Page
         dt.AddAppRolesRow(row0);
         dt.AddAppRolesRow(row3);
         dt.AddAppRolesRow(row4);
+        dt.AddAppRolesRow(row2);
 
-        // Only the admin can assign the "contract admin" roles to a user
+        // Only the admin can assign the "owner contract admin" roles to a user
         if (Page.User.IsInRole(ConfigurationManager.AppSettings["ADMIN_GROUP"]))
         {
             dt.AddAppRolesRow(row1);
-            dt.AddAppRolesRow(row2);
         }
 
         this.ComboBoxRoles.DataSource = dt;

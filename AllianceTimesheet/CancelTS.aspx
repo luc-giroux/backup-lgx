@@ -56,10 +56,15 @@
                         </tr>
                         <tr>
                             <td><img src="img/puce1.png" /></td>
-                            <td>Timesheet date : </td>
+                            <td>Timesheet From date : </td>
                             <td>
-                                <asp:TextBox ID="TextBoxTSDate" runat="server" />
-                                <asp:CalendarExtender  ID="CalendarExtender1" runat="server" targetControlID="TextBoxTSDate" Format="dd-MMM-yy" />
+                                <asp:TextBox ID="TextBoxTSFromDate" runat="server" />
+                                <asp:CalendarExtender  ID="CalendarExtender1" runat="server" targetControlID="TextBoxTSFromDate" Format="dd-MMM-yy" />
+                            </td>
+                            <td>To date : </td>
+                            <td>
+                                <asp:TextBox ID="TextBoxTSToDate" runat="server" />
+                                <asp:CalendarExtender  ID="CalendarExtender2" runat="server" targetControlID="TextBoxTSToDate" Format="dd-MMM-yy" />
                             </td>
                         </tr>
                     </table>
@@ -73,13 +78,13 @@
                                             <asp:CheckBox ID="CheckBoxBaseScope" runat="server" AutoPostBack="true"
                                                 oncheckedchanged="CheckBoxBaseScope_CheckedChanged" Checked="true"/>Base Scope :</td>
                                         <td>
-                                            <asp:DropDownList ID="ComboBoxWS" AutoPostBack="true" runat="server" 
+                                            <asp:DropDownList ID="ComboBoxWS" AutoPostBack="true" runat="server" Enabled="false" BackColor="Gray"
                                                 onselectedindexchanged="ComboBoxWS_SelectedIndexChanged" Width="400px"/>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <asp:DropDownList ID="ComboBoxWP" runat="server" AutoPostBack="true" AppendDataBoundItems="true"
+                                            <asp:DropDownList ID="ComboBoxWP" runat="server" AutoPostBack="true" AppendDataBoundItems="true" BackColor="Gray"
                                                     enabled="false" onselectedindexchanged="ComboBoxWP_SelectedIndexChanged" Width="400px">
                                             </asp:DropDownList>
                                         </td>
@@ -87,7 +92,7 @@
                                     <tr>
                                         <td>
                                             <asp:DropDownList ID="ComboBoxCWP" runat="server" AutoPostBack="true" AppendDataBoundItems="true"
-                                                    enabled="false" Width="400px">
+                                                    enabled="false" BackColor="Gray" Width="400px">
                                             </asp:DropDownList>
                                         </td>
                                     </tr>
@@ -99,7 +104,7 @@
                                     <tr>
                                         <td rowspan="2"><img src="img/puce2.png" /></td>
                                         <td rowspan="2"><asp:CheckBox ID="CheckBoxVariation" runat="server" AutoPostBack="true"
-                                                oncheckedchanged="CheckBoxVariation_CheckedChanged" />Variation :</td>
+                                                oncheckedchanged="CheckBoxVariation_CheckedChanged" Checked="true"/>Variation :</td>
                                         <td>
                                             <asp:DropDownList ID="ComboBoxVariationType" runat="server" AutoPostBack="true" Enabled="false"
                                                 onselectedindexchanged="ComboBoxVariationType_SelectedIndexChanged"  Width="200px"
@@ -112,6 +117,7 @@
                                                 <asp:ListItem>SDM</asp:ListItem>
                                                 <asp:ListItem>NCR</asp:ListItem>
                                                 <asp:ListItem>VP</asp:ListItem>
+                                                <asp:ListItem>AGR</asp:ListItem>
                                             </asp:DropDownList>
                                         </td>
                                     </tr>

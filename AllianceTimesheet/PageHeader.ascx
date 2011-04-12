@@ -7,8 +7,9 @@
             <td>Connected as <asp:Label ID="lblUser" runat="server" Visible="false"/> <asp:Label ID="LabelRole" runat="server" />&nbsp;&nbsp;|</td>
             <td>&nbsp;&nbsp;You are currently working on contract <b><asp:Label ID="LblContract" runat="server" /></b>&nbsp;&nbsp;|</td>
             <td>&nbsp;&nbsp;<asp:HyperLink ID="HyperLinkLogout" runat="server" NavigateUrl="~/SessionExpired.aspx" Font-Underline="true">Logout</asp:HyperLink>&nbsp;&nbsp;<asp:HyperLink ID="HyperLinkChangeContract" runat="server" Visible="false" Font-Underline="true">Change Contract</asp:HyperLink>&nbsp;&nbsp;|</td>
-            <td align="right">&nbsp;&nbsp;<u><a href="mailto:AllianceTS-Admin@projetkoniambo.com?subject=Request from Alliance Timesheet Application&body=Please note that you are contacting the administrator of the application, not the contract administrator.%0D%0AIf your question is about a timesheet to approve/cancel/reject, please contact your Contract Administrator.%0D%0AOtherwise, Please write your request below:%0D%0A%0D%0A">Contact Administrator</a></u><asp:Image ID="Image1" runat="server" ImageUrl="~/img/email.png" ImageAlign="Top"/></td>
+            <td align="right">&nbsp;&nbsp;<u><a href="mailto:AllianceTS-Admin@projetkoniambo.com?subject=Request from Alliance Timesheet Application&body=Please note that you are contacting the administrator of the application, not the contract administrator.%0D%0AIf your question is about a timesheet to approve/cancel/reject, please contact your Contract Administrator.%0D%0AOtherwise, Please write your request below:%0D%0A%0D%0A"><u>Contact Admin</u></a></u><asp:Image ID="Image1" runat="server" ImageUrl="~/img/email.png" ImageAlign="Top"/> | <asp:HyperLink ID="HyperLinkHelp" runat="server" NavigateUrl="~/Help.aspx" Font-Underline="true">Help</asp:HyperLink>  <asp:Image ID="Image3" runat="server" ImageUrl="~/img/help.png" ImageAlign="Top"/></td>
         </tr>
+        
     </table>
 </div>
 
@@ -49,6 +50,7 @@
         <asp:MenuItem Text="Pending Approval Timesheets" Value="Pending Approval Timesheets" 
             NavigateUrl="~/TSToApprove.aspx"></asp:MenuItem>
         <asp:MenuItem Text="Pending Adjustment Timesheets" Value="Pending Adjustment Timesheets" NavigateUrl="~/TSToAdjust.aspx" />
+        <asp:MenuItem Text="Drafts Timesheets" Value="Drafts Timesheets" NavigateUrl="~/Drafts.aspx" />
     </Items>
     <StaticHoverStyle BackColor="#ffcc01" ForeColor="White" />
     <StaticMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
@@ -116,9 +118,10 @@
                 <asp:MenuItem NavigateUrl="~/Reports/Contract/ReportCWP.aspx" Text="Contract Base Scope" Value="Contract Base Scope" />
                 <asp:MenuItem NavigateUrl="~/Reports/Contract/ReportVariation.aspx" Text="Contract Extra Works" Value="Contract Extra Works" />
                 <asp:MenuItem NavigateUrl="~/Reports/Contract/ReportAgreedSuspension.aspx" Text="Agreed Suspension" Value="Agreed Suspension" />
-                <%--
-                <asp:MenuItem Text="Invoices" Value="Invoices" Selectable="false">
-                </asp:MenuItem>
+                <%-- Rendre visible à partir du 14 Mars 2011
+                <asp:MenuItem NavigateUrl="~/Reports/Contract/ReportInvoiceCWP.aspx" Text="Invoice Base Scope" Value="Invoice Base Scope" />
+                <asp:MenuItem NavigateUrl="~/Reports/Contract/ReportInvoiceVariation.aspx" Text="Invoice Extra Works" Value="Invoice Extra Works" />
+                <asp:MenuItem NavigateUrl="~/Reports/Contract/ReportAgreedSuspensionInvoice.aspx" Text="Invoice Agreed Suspension" Value="Invoice Agreed Suspension" />
                 --%>
             </asp:MenuItem>
             <asp:MenuItem Text="Progress" Value="Progress" Selectable="false">
@@ -178,9 +181,10 @@
                 <asp:MenuItem NavigateUrl="~/Reports/Contract/ReportCWP.aspx" Text="Contract Base Scope" Value="Contract Base Scope" />
                 <asp:MenuItem NavigateUrl="~/Reports/Contract/ReportVariation.aspx" Text="Contract Extra Works" Value="Contract Extra Works" />
                 <asp:MenuItem NavigateUrl="~/Reports/Contract/ReportAgreedSuspension.aspx" Text="Agreed Suspension" Value="Agreed Suspension" />
-                <%--
-                <asp:MenuItem Text="Invoices" Value="Invoices" Selectable="false">
-                </asp:MenuItem>
+                <%-- Rendre visible à partir du 14 Mars 2011
+                <asp:MenuItem NavigateUrl="~/Reports/Contract/ReportInvoiceCWP.aspx" Text="Invoice Base Scope" Value="Invoice Base Scope" />
+                <asp:MenuItem NavigateUrl="~/Reports/Contract/ReportInvoiceVariation.aspx" Text="Invoice Extra Works" Value="Invoice Extra Works" />
+                <asp:MenuItem NavigateUrl="~/Reports/Contract/ReportAgreedSuspensionInvoice.aspx" Text="Invoice Agreed Suspension" Value="Invoice Agreed Suspension" />
                 --%>
             </asp:MenuItem>
             <asp:MenuItem Text="Progress" Value="Progress" Selectable="false">

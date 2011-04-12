@@ -95,6 +95,7 @@
                                                 <asp:ListItem>SDM</asp:ListItem>
                                                 <asp:ListItem>NCR</asp:ListItem>
                                                 <asp:ListItem>VP</asp:ListItem>
+                                                <asp:ListItem>AGR</asp:ListItem>
                                             </asp:DropDownList>
                                         </td>
                                     </tr>
@@ -175,9 +176,11 @@
 	                                ON CWP.CWPNumber = TSH.CWPNumber
                                LEFT OUTER JOIN allianceTimesheets.dbo.Variation V
 	                                ON V.VariationNumber = TSH.VariationNumber
-                               WHERE TSH.[ContractNumber] = ? AND ( ([Submitted] = 1 AND [Rejected] = 0 
-                               AND [Approved] = 0) OR (PendingAdjustmentValidation=1) )
-                               AND [AdjustmentFromTS] IS NULL ORDER BY [SubmittedDate], [TimesheetNumber]">
+                               WHERE TSH.[ContractNumber] = ? 
+                               AND ( ([Submitted] = 1 AND [Rejected] = 0 AND [Approved] = 0 AND AdjustmentFromTS IS NULL) 
+                                    OR (PendingAdjustmentValidation = 1 AND  [Approved] = 1)
+                                   )
+                               ORDER BY [SubmittedDate], [TimesheetNumber]">
                 <SelectParameters>
                     <asp:SessionParameter Name="ContractNumber" SessionField="currentContract" Type="String" />
                 </SelectParameters>

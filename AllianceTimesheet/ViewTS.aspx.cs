@@ -45,6 +45,22 @@ public partial class ViewTS : System.Web.UI.Page
 
         }
 
+        // If the user comes from the "timesheet rejected" page and if he has the propers rights,
+        // we display him the "edit" button
+        if (Request.Params["draft"] != null)
+        {
+            if (Request.Params["draft"] == "1")
+            {
+                if (HttpContext.Current.Session["userIsContractorSupervisor"] != null
+                && (Boolean)HttpContext.Current.Session["userIsContractorSupervisor"])
+                {
+                    ButtonEdiTS.Visible = true;
+                    ButtonSubmitTS.Visible = true;
+                }
+            }
+
+        }
+
 
         // If the user comes from the "pending adjustment timesheet" page and if he has the propers rights,
         // we display him the "edit" button
@@ -284,7 +300,17 @@ public partial class ViewTS : System.Web.UI.Page
 
     protected void ButtonEdiTS_Click(object sender, EventArgs e)
     {
-        Response.Redirect("./TimesheetSubmit.aspx?TSNumber=" + Request.Params["TSNumber"]);
+        //Edit a draft
+        if (Request.Params["draft"] != null)
+        {
+            Response.Redirect("./TimesheetSubmit.aspx?TSNumber=" + Request.Params["TSNumber"] + "&Draft=1");
+        }
+        //Edit a rejected TS
+        else
+        {
+            Response.Redirect("./TimesheetSubmit.aspx?TSNumber=" + Request.Params["TSNumber"]);
+        }
+        
     }
 
 
@@ -308,5 +334,43 @@ public partial class ViewTS : System.Web.UI.Page
     {
         String TSNumber = GridViewCorrectiveTS.SelectedRow.Cells[1].Text;
         HttpContext.Current.Response.Redirect("./ViewTS.aspx?TSNumber=" + TSNumber );
+    }
+
+
+    /// <summary>
+    /// When user clics on "Submit this TS"
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    protected void ButtonSubmitTS_Click(object sender, EventArgs e)
+    {
+        SqlConnection thisConnection = new SqlConnection(ConfigurationManager.AppSettings["DB_CONNECTION"]);
+        SqlCommand cmd = thisConnection.CreateCommand();
+
+        try
+        {
+            thisConnection.Open();
+
+            cmd.CommandText = "UPDATE  [allianceTimesheets].[dbo].[TimesheetHeader] SET " +
+                                          "Submitted = 1, " +
+                                          "SubmittedBy = '" + User.Identity.Name + "', " +
+                                          "SubmittedDate = GETDATE() " +
+                                          "WHERE [TimesheetNumber] = '" + Request.Params["TSNumber"] + "'";
+            cmd.ExecuteNonQuery();
+
+            //User redirection on drafts page
+            Response.Redirect("./Drafts.aspx?status=SubmitSuccess&TSNumber=" + Request.Params["TSNumber"]);
+        }
+        catch (SqlException ex)
+        {
+            //User error notification
+            Utils.NotifyUser("error", ex.Message.Replace("\r", "").Replace("\n", "").Replace("'", ""), Page);
+        }
+        finally
+        {
+            cmd.Dispose();
+            thisConnection.Dispose();
+            thisConnection.Close();
+        }
     }
 }

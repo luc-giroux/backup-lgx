@@ -35,6 +35,11 @@ public partial class TimesheetSubmit : System.Web.UI.Page
                     Utils.NotifyUser("success", "Timesheet " + Request.Params["TSCreated"] + " successfully submitted!", Page);
                 }
 
+                if (Request.Params["status"] == "SaveSuccess")
+                {
+                    Utils.NotifyUser("success", "Timesheet " + Request.Params["TSCreated"] + " successfully saved as draft!", Page);
+                }
+
                 if (Request.Params["status"] == "AdjustmentSuccess")
                 {
                     Utils.NotifyUser("success", "Timesheet " + Request.Params["TSCreated"] + " successfully submitted! You can continue your adjusment by submitting another timesheet or finish your adjustment by clicking the (Finish Adjustment) button.", Page);
@@ -74,12 +79,49 @@ public partial class TimesheetSubmit : System.Web.UI.Page
                     
                     LabelFieldsetLegend.Text = "Adjustment of the timesheet " + Request.Params["TSNumber"];
 
+                    // To get the total Hours of the TS being adjusted
+                    SqlConnection thisConnection = new SqlConnection(ConfigurationManager.AppSettings["DB_CONNECTION"]);
+                    SqlCommand cmd = thisConnection.CreateCommand();
+
+                    try
+                    {
+                        thisConnection.Open();
+                        cmd.CommandText = "SELECT REPLACE(RTRIM(REPLACE(REPLACE(RTRIM(REPLACE(SUM(TSD.PPHours + TSD.PUPIndirectHours + TSD.PUPMaterialHours + " + 
+                                            " TSD.PUPOtherHours  + TSD.PUPTravelHours + TSD.PUPWeatherHours + TSD.NPOtherHours + TSD.NPReworkHours), '0', ' ')), " + 
+                                            " ' ', '0'), '.', ' ')), ' ', '.')  As Hours" +
+                                            " FROM [allianceTimesheets].[dbo].[TimesheetHeader] TSH " +
+                                            " INNER JOIN [allianceTimesheets].[dbo].[TimesheetDetail] TSD " +
+                                            " ON TSH.TimesheetNumber = TSD.TimesheetNumber " +
+                                            " WHERE TSH.TimesheetNumber = '" + Request.Params["TSNumber"] + "' " +
+                                            " GROUP BY TSH.TimesheetNumber ";
+                        LabelFieldsetLegend.Text += " (Total Hours: " + cmd.ExecuteScalar() + ")";
+                    }
+                    catch (SqlException ex)
+                    {
+                        //User error notification
+                        Utils.NotifyUser("error", ex.Message.Replace("\r", "").Replace("\n", "").Replace("'", ""), Page);
+                    }
+                    finally
+                    {
+                        cmd.Dispose();
+                        thisConnection.Dispose();
+                        thisConnection.Close();
+                    }
+
+
+
                     //TS date cannot be changed so we disable it
                     TextBoxTSDate.Enabled = false;
 
                     PanelCorrectiveTS.Visible = true;
-                    DataSourceCorrectiveTS.SelectCommand = "SELECT TimesheetNumber FROM TimesheetHeader " + 
-                                                            "Where [AdjustmentFromTS] = '" + Request.Params["TSNumber"] + "'";
+                    DataSourceCorrectiveTS.SelectCommand = "SELECT TSH.TimesheetNumber, " +
+                                                            " SUM(TSD.PPHours + TSD.PUPIndirectHours + TSD.PUPMaterialHours + TSD.PUPOtherHours " + 
+                                                            " + TSD.PUPTravelHours + TSD.PUPWeatherHours + TSD.NPOtherHours + TSD.NPReworkHours) AS Hours " + 
+                                                            " FROM [allianceTimesheets].[dbo].[TimesheetHeader] TSH " +
+                                                            " INNER JOIN [allianceTimesheets].[dbo].[TimesheetDetail] TSD " +
+                                                            " ON TSH.TimesheetNumber = TSD.TimesheetNumber " +
+                                                            " WHERE [AdjustmentFromTS] = '" + Request.Params["TSNumber"] + "' " +
+                                                            " GROUP BY TSH.TimesheetNumber ";
                     GridViewCorrectiveTS.DataBind();
 
                     if (GridViewCorrectiveTS.Rows.Count == 0)
@@ -91,8 +133,18 @@ public partial class TimesheetSubmit : System.Web.UI.Page
                 }
                 else //EDITION of TS
                 {
+                    //EDition of draft
+                    if (Request.Params["Draft"] != null)
+                    {
+                        LabelFieldsetLegend.Text = "Edition of the draft timesheet " + Request.Params["TSNumber"];
+                    }
+                    //Edition of rejeted TS
+                    else
+                    {
+                        LabelFieldsetLegend.Text = "Edition of the rejected timesheet " + Request.Params["TSNumber"];
+                    }
+
                     this.initScreen(Request.Params["TSNumber"]);
-                    LabelFieldsetLegend.Text = "Edition of the rejected timesheet " + Request.Params["TSNumber"];
                 }
 
             }
@@ -142,6 +194,7 @@ public partial class TimesheetSubmit : System.Web.UI.Page
                           "INNER JOIN [allianceTimesheets].[dbo].[WP] WP " +
                           "ON WP.WPNumber = CS.WPNumber " +
                           "WHERE WSNumber = '" + WSNumber + "'" +
+                          "AND CS.ContractNumber = '" + (String)HttpContext.Current.Session["currentContract"] + "'" +
                           "AND WP.Completed = 0 ";
 
         SqlDataReader reader;
@@ -176,6 +229,7 @@ public partial class TimesheetSubmit : System.Web.UI.Page
                           "INNER JOIN [allianceTimesheets].[dbo].[CWP] CWP " +
                           "ON CWP.CWPNumber = CS.CWPNumber " +
                           "WHERE WPNumber = '" + WPNumber + "'" +
+                          "AND CS.ContractNumber = '" + (String)HttpContext.Current.Session["currentContract"] + "'" +
                           "AND CWP.Completed = 0 ";
 
         SqlDataReader reader;
@@ -475,10 +529,18 @@ public partial class TimesheetSubmit : System.Web.UI.Page
         if (GridViewWorkerList.Rows.Count != 0)
         {
             this.ButtonSubmitTS.Visible = true;
+
+            //We show "save as draft button" only for new submission or for edition of draft
+            if (Request.Params["TSNumber"] == null ||
+                Request.Params["Draft"] != null)
+            {
+                this.ButtonSaveAsDraft.Visible = true;
+            }
         }
         else
         {
             this.ButtonSubmitTS.Visible = false;
+            this.ButtonSaveAsDraft.Visible = false;
         }
 
         if (RadioButtonListSuspension.SelectedValue == "Yes")
@@ -502,7 +564,21 @@ public partial class TimesheetSubmit : System.Web.UI.Page
 
         if (InputFieldsAreOK())
         {
-            this.InsertTimesheet();
+            this.InsertTimesheet(false);
+        }
+    }
+
+    /// <summary>
+    /// Occurs when the user click on the "submit as draft " button
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    protected void ButtonSaveAsDraft_Click(object sender, EventArgs e)
+    {
+
+        if (InputFieldsAreOK())
+        {
+            this.InsertTimesheet(true);
         }
     }
 
@@ -795,10 +871,18 @@ public partial class TimesheetSubmit : System.Web.UI.Page
         if (GridViewWorkerList.Rows.Count != 0)
         {
             this.ButtonSubmitTS.Visible = true;
+
+            //We show "save as draft button" only for new submission or for edition of draft
+            if (Request.Params["TSNumber"] == null ||
+                Request.Params["Draft"] != null)
+            {
+                this.ButtonSaveAsDraft.Visible = true;
+            }
         }
         else
         {
             this.ButtonSubmitTS.Visible = false;
+            this.ButtonSaveAsDraft.Visible = false;
         }
 
         if (RadioButtonListSuspension.SelectedValue == "Yes")
@@ -1105,6 +1189,12 @@ public partial class TimesheetSubmit : System.Web.UI.Page
 
 
         ButtonSubmitTS.Visible = true;
+
+        //We show "save as draft button" only for new submission or for edition of draft
+        if (Request.Params["Draft"] != null)
+        {
+            this.ButtonSaveAsDraft.Visible = true;
+        }
     }
 
 
@@ -1155,7 +1245,8 @@ public partial class TimesheetSubmit : System.Web.UI.Page
     /// <summary>
     /// Function to create a timesheet in the database.
     /// </summary>
-    protected void InsertTimesheet()
+    /// <param name="draft">True if the TS is sumbitted as draft</param>
+    protected void InsertTimesheet(bool draft)
     {
         SqlConnection thisConnection = new SqlConnection(ConfigurationManager.AppSettings["DB_CONNECTION"]);
         SqlCommand cmd = thisConnection.CreateCommand();
@@ -1169,7 +1260,7 @@ public partial class TimesheetSubmit : System.Web.UI.Page
             cmd.CommandText = "EXEC [allianceTimesheets].[dbo].[TimesheetInsert] " +
                               "@TSDate, @ContractNumber,@WSNumber, @WPNumber, @CWPNumber, " +
                               "@VariationNumber, @Other, @MainActivities, @Suspension, @SuspensionTime, " +
-                              "@DayShift, @NightShift, @SubmittedBy, @WorkersHours, @TSNumber, @SundayDerogation, @Adjustment";
+                              "@DayShift, @NightShift, @SubmittedBy, @WorkersHours, @TSNumber, @SundayDerogation, @Adjustment, @Submitted";
 
 
             // We Put the data into the parameters
@@ -1301,6 +1392,17 @@ public partial class TimesheetSubmit : System.Web.UI.Page
                 param17.Value = "0";
             }
 
+            SqlParameter param18 = new SqlParameter();
+            param18.ParameterName = "@Submitted";
+            if (draft)
+            {
+                param18.Value = "0";
+            }
+            else
+            {
+                param18.Value = "1";
+            }
+
             //Add the param to the query
             cmd.Parameters.Add(param1);
             cmd.Parameters.Add(param2);
@@ -1319,6 +1421,7 @@ public partial class TimesheetSubmit : System.Web.UI.Page
             cmd.Parameters.Add(param15);
             cmd.Parameters.Add(param16);
             cmd.Parameters.Add(param17);
+            cmd.Parameters.Add(param18);
 
             //cmd.ExecuteNonQuery();
             string TSNumberCreated = (string)cmd.ExecuteScalar();
@@ -1333,7 +1436,15 @@ public partial class TimesheetSubmit : System.Web.UI.Page
             }
             else
             {
-                Response.Redirect("./TimesheetSubmit.aspx?status=SubmissionSuccess&TSCreated=" + TSNumberCreated);
+                if (draft)
+                {
+                    Response.Redirect("./TimesheetSubmit.aspx?status=SaveSuccess&TSCreated=" + TSNumberCreated);
+                }
+                else
+                {
+                    Response.Redirect("./TimesheetSubmit.aspx?status=SubmissionSuccess&TSCreated=" + TSNumberCreated);
+                }
+                
             }
             
         }

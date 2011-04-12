@@ -193,7 +193,10 @@
                         <asp:ListItem Value="Netherland Antilles">Netherland Antilles</asp:ListItem>
                         <asp:ListItem Value="Netherlands">Netherlands (Holland, Europe)</asp:ListItem>
                         <asp:ListItem Value="Nevis">Nevis</asp:ListItem>
-                        <asp:ListItem Value="New Caledonia">New Caledonia</asp:ListItem>
+                        <asp:ListItem Value="New Caledonia - North">New Caledonia - North</asp:ListItem>
+                        <asp:ListItem Value="New Caledonia - South">New Caledonia - South</asp:ListItem>
+                        <asp:ListItem Value="New Caledonia - VKP">New Caledonia - VKP</asp:ListItem>
+                        <asp:ListItem Value="New Caledonia - Other">New Caledonia - Other</asp:ListItem>
                         <asp:ListItem Value="New Zealand">New Zealand</asp:ListItem>
                         <asp:ListItem Value="Nicaragua">Nicaragua</asp:ListItem>
                         <asp:ListItem Value="Niger">Niger</asp:ListItem>
