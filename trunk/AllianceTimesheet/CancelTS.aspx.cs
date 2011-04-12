@@ -56,9 +56,14 @@ public partial class CancelTS : System.Web.UI.Page
 
         String sqlFilter = "";
 
-        if (TextBoxTSDate.Text != "")
+        if (TextBoxTSFromDate.Text != "")
         {
-            sqlFilter += " AND TSH.[TimesheetDate] = '" + TextBoxTSDate.Text + "' ";
+            sqlFilter += " AND TSH.[TimesheetDate] >= '" + TextBoxTSFromDate.Text + "' ";
+        }
+
+        if (TextBoxTSToDate.Text != "")
+        {
+            sqlFilter += " AND TSH.[TimesheetDate] <= '" + TextBoxTSToDate.Text + "' ";
         }
 
         if (TextBoxTSNumber.Text != "")
@@ -67,7 +72,7 @@ public partial class CancelTS : System.Web.UI.Page
         }
 
         // Display TS from base scope AND variation
-        if (CheckBoxBaseScope.Checked &&  CheckBoxVariation.Checked)
+        if (CheckBoxBaseScope.Checked && CheckBoxVariation.Checked)
         {
             // We do nothing
         }
@@ -203,16 +208,16 @@ public partial class CancelTS : System.Web.UI.Page
     #region Init of combobox
 
     /// <summary>
-    /// Load the WS combobox. When get only ACTIVE WS (ie completed != 1)
+    /// Load the WS combobox. When get ALL WS
     /// </summary>
     protected void bindWSComboBox()
     {
-        DataSetGlobal.WSActiveDataTable wsdatatable = new DataSetGlobal.WSActiveDataTable();
-        DataSetGlobalTableAdapters.WSActiveTableAdapter wstableadadpter = new DataSetGlobalTableAdapters.WSActiveTableAdapter();
+        DataSetGlobal.WSDataTable wsdatatable = new DataSetGlobal.WSDataTable();
+        DataSetGlobalTableAdapters.WSTableAdapter wstableadadpter = new DataSetGlobalTableAdapters.WSTableAdapter();
         wstableadadpter.Fill(wsdatatable, (String)HttpContext.Current.Session["currentContract"]);
 
         this.ComboBoxWS.DataSource = wsdatatable;
-        wsdatatable.AddWSActiveRow("select", "select", "select", "All WS", true);
+        wsdatatable.AddWSRow("select", "select", "select", "All WS");
         this.ComboBoxWS.DataTextField = wsdatatable.LibelleColumn.ToString();
         this.ComboBoxWS.DataValueField = wsdatatable.WSNumberColumn.ToString();
         this.ComboBoxWS.SelectedValue = "select";

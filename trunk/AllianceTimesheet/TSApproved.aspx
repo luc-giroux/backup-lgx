@@ -56,21 +56,21 @@
                                             <asp:CheckBox ID="CheckBoxBaseScope" runat="server" AutoPostBack="true"
                                                 oncheckedchanged="CheckBoxBaseScope_CheckedChanged" Checked="true"/>Base Scope :</td>
                                         <td>
-                                            <asp:DropDownList ID="ComboBoxWS" AutoPostBack="true" runat="server" 
+                                            <asp:DropDownList ID="ComboBoxWS" AutoPostBack="true" runat="server" Enabled="false" BackColor="Gray"
                                                 onselectedindexchanged="ComboBoxWS_SelectedIndexChanged" Width="400px"/>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
                                             <asp:DropDownList ID="ComboBoxWP" runat="server" AutoPostBack="true" AppendDataBoundItems="true"
-                                                    enabled="false" onselectedindexchanged="ComboBoxWP_SelectedIndexChanged" Width="400px">
+                                                    enabled="false" BackColor="Gray" onselectedindexchanged="ComboBoxWP_SelectedIndexChanged" Width="400px">
                                             </asp:DropDownList>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
                                             <asp:DropDownList ID="ComboBoxCWP" runat="server" AutoPostBack="true" AppendDataBoundItems="true"
-                                                    enabled="false" Width="400px">
+                                                    enabled="false" Width="400px" BackColor="Gray">
                                             </asp:DropDownList>
                                         </td>
                                     </tr>
@@ -82,7 +82,7 @@
                                     <tr>
                                         <td rowspan="2"><img src="img/puce2.png" /></td>
                                         <td rowspan="2"><asp:CheckBox ID="CheckBoxVariation" runat="server" AutoPostBack="true"
-                                                oncheckedchanged="CheckBoxVariation_CheckedChanged" />Variation :</td>
+                                                oncheckedchanged="CheckBoxVariation_CheckedChanged" Checked="true"/>Variation :</td>
                                         <td>
                                             <asp:DropDownList ID="ComboBoxVariationType" runat="server" AutoPostBack="true" Enabled="false"
                                                 onselectedindexchanged="ComboBoxVariationType_SelectedIndexChanged"  Width="200px"
@@ -95,6 +95,7 @@
                                                 <asp:ListItem>SDM</asp:ListItem>
                                                 <asp:ListItem>NCR</asp:ListItem>
                                                 <asp:ListItem>VP</asp:ListItem>
+                                                <asp:ListItem>AGR</asp:ListItem>
                                             </asp:DropDownList>
                                         </td>
                                     </tr>

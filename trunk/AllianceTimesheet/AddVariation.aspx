@@ -44,7 +44,7 @@
                         <asp:ListItem>SDM</asp:ListItem>
                         <asp:ListItem>NCR</asp:ListItem>
                         <asp:ListItem>VP</asp:ListItem>
-                        <asp:ListItem>Other</asp:ListItem>
+                        <asp:ListItem>AGR</asp:ListItem>
                 </asp:ComboBox>
                 </li>
                 <li>

@@ -326,6 +326,8 @@
                                         <asp:CommandField SelectText="View" ShowSelectButton="True" />
                                         <asp:BoundField DataField="TimesheetNumber" HeaderText="TimesheetNumber" ReadOnly="True" 
                                             SortExpression="TimesheetNumber" />
+                                        <asp:BoundField DataField="Hours" HeaderText="Total Hours" ReadOnly="True" 
+                                            SortExpression="Hours" />
                                     </Columns>
                                 </asp:GridView>
                                 <asp:SqlDataSource ID="DataSourceCorrectiveTS" runat="server" 
@@ -384,6 +386,7 @@
                                         <asp:ListItem>SDM</asp:ListItem>
                                         <asp:ListItem>NCR</asp:ListItem>
                                         <asp:ListItem>VP</asp:ListItem>
+                                        <asp:ListItem>AGR</asp:ListItem>
                                     </asp:DropDownList>
                                 </li>
                                 <li>
@@ -392,7 +395,7 @@
                                     </asp:DropDownList>
                                 </li>
                                 <li>
-                                    <asp:TextBox ID="TextBoxVariationOthers" runat="server" Enabled="false"  Width="400px"></asp:TextBox>
+                                    <asp:TextBox ID="TextBoxVariationOthers" runat="server" Enabled="false"  Width="400px" Visible="false"></asp:TextBox>
                                 </li>
                            </ol>
                         </td>
@@ -472,6 +475,10 @@
                         </td>
                         <!--Note : Javascript must be on a single line otherwise it does not work-->
                         <td align="right">
+                            <asp:Button ID="ButtonSaveAsDraft" runat="server" Text="Save As Draft" 
+                                Visible="false" onclick="ButtonSaveAsDraft_Click" Enabled="true"
+                                OnClientClick='return confirm("Are you sure you want to save this timesheet as draft?\nTotal Productive = " + CalculateProductiveTotal() + "\nTotal Travel        = " + CalculateTravelTotal() + "\nTotal Material     = " + CalculateMaterialTotal() + "\nTotal Weather    = " + CalculateWeatherTotal() + "\nTotal Indirect      = " + CalculateIndirectTotal() + "\nTotal Others        = " + CalculateOthersTotal() + "\nTotal Rework(NP)= " + CalculateReworkTotal() + "\nTotal Others(NP) = " + CalculateNPOthersTotal() + "\nOverall Total        = " + CalculateOverallTotal());'/>
+                            &nbsp;&nbsp;&nbsp;
                             <asp:Button ID="ButtonSubmitTS" runat="server" Text="Submit Timesheet" 
                                 Visible="false" onclick="ButtonSubmitTS_Click" Enabled="true"
                                 OnClientClick='return confirm("Are you sure you want to submit this timesheet?\nTotal Productive = " + CalculateProductiveTotal() + "\nTotal Travel        = " + CalculateTravelTotal() + "\nTotal Material     = " + CalculateMaterialTotal() + "\nTotal Weather    = " + CalculateWeatherTotal() + "\nTotal Indirect      = " + CalculateIndirectTotal() + "\nTotal Others        = " + CalculateOthersTotal() + "\nTotal Rework(NP)= " + CalculateReworkTotal() + "\nTotal Others(NP) = " + CalculateNPOthersTotal() + "\nOverall Total        = " + CalculateOverallTotal());'/>
@@ -568,14 +575,16 @@
                             <asp:CheckBox ID="CheckBoxWorkerSelect" runat="server"/>
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:BoundField DataField="WorkerId" HeaderText="WorkerId" 
-                        InsertVisible="False" ReadOnly="True" SortExpression="WorkerId" />
+                    <asp:BoundField DataField="WorkerId" HeaderText="WorkerId" ItemStyle-CssClass="hiddencolumn"
+                        InsertVisible="False" ReadOnly="True" SortExpression="WorkerId" HeaderStyle-CssClass="hiddencolumn" />
                     <asp:BoundField DataField="LastName" HeaderText="LastName" 
                         SortExpression="LastName" />
                     <asp:BoundField DataField="FirstName" HeaderText="FirstName" 
                         SortExpression="FirstName" />
                     <asp:BoundField DataField="BadgeNumber" HeaderText="BadgeNumber" 
                         SortExpression="BadgeNumber" />
+                    <asp:BoundField DataField="VCCNumber" HeaderText="VCC" 
+                        SortExpression="VCCNumber" />
                     <asp:BoundField DataField="SubcontractorName" HeaderText="Subcontractor" 
                         SortExpression="Subcontractor" />
                     <asp:BoundField DataField="Trade" HeaderText="Trade" SortExpression="Trade" />
@@ -584,7 +593,7 @@
             <asp:SqlDataSource ID="SqlDataSourceWorkers" runat="server" 
                 ConnectionString="<%$ ConnectionStrings:ConnectionString %>" 
                 ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" 
-                SelectCommand="SELECT W.[WorkerId], [LastName], [FirstName], [BadgeNumber], [SubcontractorName], [Trade] FROM [Worker] W
+                SelectCommand="SELECT W.[WorkerId], [LastName], [FirstName], [BadgeNumber], [VCCNumber], [SubcontractorName], [Trade] FROM [Worker] W
                                 INNER JOIN [WorkerContract] WC on W.WorkerId = WC.WorkerId
                                 INNER JOIN [Subcontractor] SUB on W.SubcontractorId = SUB.SubcontractorId
                                 WHERE (WC.[ContractNumber] = ?) AND WC.Active = 1 ORDER BY [SubcontractorName], [Trade] asc, [LastName], [FirstName], [BadgeNumber]">

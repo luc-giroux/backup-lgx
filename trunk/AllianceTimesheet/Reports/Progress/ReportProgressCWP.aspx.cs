@@ -48,7 +48,8 @@ public partial class ReportProgressCWP : System.Web.UI.Page
 
                 ReportViewer1.Visible = true;
                 DataSetReports.ReportProgressCWPDataTable rpdt = new DataSetReports.ReportProgressCWPDataTable();
-                DataSetReportsTableAdapters.ReportProgressCWPTableAdapter ta = new DataSetReportsTableAdapters.ReportProgressCWPTableAdapter();
+                ReportProgressCWPTableAdapterExtended ta = new ReportProgressCWPTableAdapterExtended();
+                ta.SelectCommandTimeout = 360;
                 ta.Fill(rpdt, Convert.ToDateTime(TextBoxStartDate.Text), (String)HttpContext.Current.Session["currentContract"]);
 
                 // We add several parameters in order to display them in the report

@@ -48,7 +48,8 @@ public partial class ReportVariation : System.Web.UI.Page
 
                 ReportViewer1.Visible = true;
                 DataSetGlobal.ReportVariationDataTable variationDT = new DataSetGlobal.ReportVariationDataTable();
-                DataSetGlobalTableAdapters.ReportVariationTableAdapter ta = new DataSetGlobalTableAdapters.ReportVariationTableAdapter();
+                ReportVariationTableAdapterExtended ta = new ReportVariationTableAdapterExtended();
+                ta.SelectCommandTimeout = 360;
                 ta.Fill(variationDT, TextBoxStartDate.Text, TextBoxEndDate.Text, (String)HttpContext.Current.Session["currentContract"]);
 
                 // We add several parameters in order to display them in the report

@@ -84,7 +84,7 @@ public partial class PageHeader : System.Web.UI.UserControl
         if (Parent.Page.User.IsInRole(ConfigurationManager.AppSettings["ADMIN_GROUP"]))
         {
             MenuApplicationAdmin.Visible = true;
-            LabelRole.Text = "[Application Admin]"; 
+            LabelRole.Text = "[ADMIN]"; 
         }
         else
         {

@@ -50,7 +50,8 @@ public partial class ReportProgressVariation : System.Web.UI.Page
 
                 ReportViewer1.Visible = true;
                 DataSetReports.ReportProgressVariationDataTable rpdt = new DataSetReports.ReportProgressVariationDataTable();
-                DataSetReportsTableAdapters.ReportProgressVariationTableAdapter ta = new DataSetReportsTableAdapters.ReportProgressVariationTableAdapter();
+                ReportProgressVariationTableAdapterExtended ta = new ReportProgressVariationTableAdapterExtended();
+                ta.SelectCommandTimeout = 360;
                 ta.Fill(rpdt, Convert.ToDateTime(TextBoxStartDate.Text), (String)HttpContext.Current.Session["currentContract"]);
 
                 // We add several parameters in order to display them in the report

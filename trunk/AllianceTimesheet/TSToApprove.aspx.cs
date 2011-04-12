@@ -161,9 +161,9 @@ public partial class TSToApprove : System.Web.UI.Page
                       "      ON CWP.CWPNumber = TSH.CWPNumber " +
                       " LEFT OUTER JOIN allianceTimesheets.dbo.Variation V " +
                       "      ON V.VariationNumber = TSH.VariationNumber " +
-                      " WHERE ( ([Approved] = 0 AND [Rejected] = 0) OR (PendingAdjustmentValidation = 1) ) " +
+                      " WHERE ( ([Submitted] = 1 AND [Approved] = 0 AND [Rejected] = 0  AND AdjustmentFromTS IS NULL) " + 
+                      "          OR (PendingAdjustmentValidation = 1 AND Approved = 1) ) " +
                       " AND TSH.[ContractNumber] = '" + HttpContext.Current.Session["currentContract"] + "' " +
-                      " AND [AdjustmentFromTS] IS NULL " +
                       sqlFilter +
                       " ORDER BY TSH.[TimesheetDate] DESC, [TimesheetNumber]";
 
@@ -238,16 +238,16 @@ public partial class TSToApprove : System.Web.UI.Page
     #region Init of combobox
 
     /// <summary>
-    /// Load the WS combobox. When get only ACTIVE WS (ie completed != 1)
+    /// Load the WS combobox. When get ALL WS
     /// </summary>
     protected void bindWSComboBox()
     {
-        DataSetGlobal.WSActiveDataTable wsdatatable = new DataSetGlobal.WSActiveDataTable();
-        DataSetGlobalTableAdapters.WSActiveTableAdapter wstableadadpter = new DataSetGlobalTableAdapters.WSActiveTableAdapter();
+        DataSetGlobal.WSDataTable wsdatatable = new DataSetGlobal.WSDataTable();
+        DataSetGlobalTableAdapters.WSTableAdapter wstableadadpter = new DataSetGlobalTableAdapters.WSTableAdapter();
         wstableadadpter.Fill(wsdatatable, (String)HttpContext.Current.Session["currentContract"]);
 
         this.ComboBoxWS.DataSource = wsdatatable;
-        wsdatatable.AddWSActiveRow("select", "select", "select", "All WS", true);
+        wsdatatable.AddWSRow("select", "select", "select", "All WS");
         this.ComboBoxWS.DataTextField = wsdatatable.LibelleColumn.ToString();
         this.ComboBoxWS.DataValueField = wsdatatable.WSNumberColumn.ToString();
         this.ComboBoxWS.SelectedValue = "select";
